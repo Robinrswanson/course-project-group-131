@@ -33,4 +33,12 @@ class HelloWorldTest {
         HelloWorld hw = new HelloWorld();
         Assertions.assertEquals("World", hw.convert(5));
     }
+
+    @Test
+    public void HelloWorldNavTest()
+    {
+        HelloWorld hw = new HelloWorld();
+        Assertions.assertEquals("World", hw.convert(15));
+
+    }
 }
