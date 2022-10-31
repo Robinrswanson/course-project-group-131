@@ -33,4 +33,11 @@ class HelloWorldTest {
         HelloWorld hw = new HelloWorld();
         Assertions.assertEquals("World", hw.convert(5));
     }
+
+    @Test
+    public void HelloWorldFifteenNumbers() {
+
+        HelloWorld hw = new HelloWorld();
+        Assertions.assertEquals("tutorial.HelloWorld", hw.convert(15));
+    }
 }
