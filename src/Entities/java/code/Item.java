@@ -23,7 +23,7 @@ public class Item {
     }
 
     public boolean isCategory(String category){
-        return false;
+        return true;
     }
 
 
