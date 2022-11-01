@@ -1,8 +1,6 @@
 package code;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 
 public class Item {
 
@@ -25,7 +23,7 @@ public class Item {
     }
 
     public boolean isCategory(String category){
-        return true;
+        return false;
     }
 
 
