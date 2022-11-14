@@ -19,7 +19,7 @@ public class Item {
     }
 
     Item(String name, double price, int quantity, List<String> categories,
-         ,String storagelocation){
+         String storagelocation){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
