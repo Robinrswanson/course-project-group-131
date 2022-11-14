@@ -14,13 +14,13 @@ public class TempDataStorage {
         value.setQuantity(quantity);
     }
 
-    public boolean checkQuantity(String serinum, int decreased_quantity){
+    public boolean checkQuantity(String serinum, int decreased_quantity) throws Exception {
         Item value = this.inventory.get(serinum);
         int quantity = value.getQuantity();
         if (quantity - decreased_quantity >= 0){
             return true;
         }else{
-            throw new Exception("Quantity will be going negative!")
+            throw new Exception("Quantity will be going to negative!");
         }
     }
 
@@ -31,13 +31,13 @@ public class TempDataStorage {
         value.setPrice(price);
     }
 
-    public boolean checkPrice(String serinum, double decreased_quantity){
+    public boolean checkPrice(String serinum, double decreased_quantity) throws Exception {
         Item value = this.inventory.get(serinum);
         double price = value.getPrice();
         if (price - decreased_quantity >= 0){
             return true;
         }else{
-            throw new Exception("Price will be going negative!")
+            throw new Exception("Price will be going to negative!");
         }
     }
 
