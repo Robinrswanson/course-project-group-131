@@ -3,12 +3,11 @@ package tutorial;
 public class HelloWorld {
 
     public static void main(String[] args) {
-        System.out.println(1 + 1);
         for (int i = 1; i <= 100; i++) {
             System.out.println(convert(i));
         }
     }
-    origin/7-feature-5
+
     public static String convert(int decide) {
         if (decide % 15 == 0) {
             return "tutorial.HelloWorld";
