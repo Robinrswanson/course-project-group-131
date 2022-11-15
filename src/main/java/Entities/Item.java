@@ -1,4 +1,4 @@
-package entities.src.code;
+package Entities;
 
 import java.util.*;
 
