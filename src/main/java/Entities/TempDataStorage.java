@@ -1,6 +1,5 @@
-package entities.src.code;
-import entities.src.code.Item;
-
+package Entities;
+import Entities.Item;
 
 import java.util.*;
 

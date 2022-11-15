@@ -1,4 +1,6 @@
-package entities.src.code;
+package Entities;
+
+import Entities.Employee;
 
 import java.util.*;
 
