@@ -1,4 +1,4 @@
-package use_cases;
+package UseCases;
 import Entities.TempDataStorage;
 
 public class inventoryUseCase {
