@@ -1,13 +1,13 @@
 package Controllers;
-import Controllers.gatewayReader;
-import java.io.File;
-import java.util.ArrayList;
-import use_cases.*;
+import java.io.IOException;
+import java.util.List;
+import UseCases.*;
+import com.opencsv.exceptions.CsvException;
 
 public class Controller {
-    public Controller(File file){
-        gatewayReader reader = new gatewayReader(file);
-        ArrayList<String> data = reader.getData();
+    public Controller(String filePath) throws IOException, CsvException {
+        gatewayReader reader = new gatewayReader(filePath);
+        List<String[]> data = reader.getData();
         dataInterpreter interpreter = new dataInterpreter(data);
 
     }
