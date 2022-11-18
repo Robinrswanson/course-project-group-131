@@ -22,5 +22,10 @@ public class EmployeeFacade implements EmployeeFacadeInterface{
         obj.searchItem();
     }
 
+    public void filterItem(String category)
+    {
+        Filterable obj = new Filterable(serialNo);
+        obj.filterItem();
+    }
 
 }
