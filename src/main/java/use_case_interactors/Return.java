@@ -14,7 +14,7 @@ public class Return implements Returnable extends Add
     }
     public void returnItem()
     {
-        super.addItem(obj, serialNo, increasedQuantity);
+        super.addItem(employeeId, serialNo, increasedQuantity);
         updateHistory();
     }
 

@@ -1,11 +1,12 @@
 package use_case_interactors;
 
+
 public class EmployeeFacade implements EmployeeFacadeInterface{
     String userName;
 
     public void addItem(String serialNo, int increasedQuantity)
     {
-        Addable obj = new Add(userName);
+        Addable obj = new Add(userName, serialNo, increasedQuantity);
         obj.addItem(serialNo, increasedQuantity);
     }
 
@@ -15,6 +16,11 @@ public class EmployeeFacade implements EmployeeFacadeInterface{
         obj.returnItem();
     }
 
+    public void searchItem(String serialNo)
+    {
+        Searchable obj = new Search(serialNo);
+        obj.searchItem();
+    }
 
 
 }
