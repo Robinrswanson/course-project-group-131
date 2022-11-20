@@ -1,3 +1,5 @@
+package Entities;
+
 import java.util.*;
 
 public class TempDataStorage {
@@ -18,5 +20,9 @@ public class TempDataStorage {
 
     public static Map<String, Item> getInventory(){
         return inventory;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(2);
     }
 }

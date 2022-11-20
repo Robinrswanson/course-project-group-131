@@ -1,4 +1,4 @@
-package use_case_interactors;
+package UseCases;
 
 public interface ManagerFacadeInterface
 {
