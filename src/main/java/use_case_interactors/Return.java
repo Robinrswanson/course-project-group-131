@@ -6,6 +6,8 @@ public class Return implements Returnable extends Add
     private String serialNo;
     private int increasedQuantity;
 
+    private static final String ACTION = "Return";
+
     Return(String employeeId, String serialNo, int increasedQuantity)
     {
         this.employeeId = employeeId;
@@ -18,10 +20,10 @@ public class Return implements Returnable extends Add
         updateHistory();
     }
 
-    private void updateHistory(String serialNo, int increasedQuantity)
+    private void updateHistory()
     {
-        History obj = new History();
-        obj.updateReturnHistory(employeeId, serialNo, increasedQuantity);
+        History obj = new History(employeeId, ACTION, serialNo, increasedQuantity);
+        obj.updateReturnHistory();
     }
 
 }
