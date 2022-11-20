@@ -3,7 +3,7 @@ package entities;
 import java.util.*;
 
 public class Item {
-    private String name;
+    private final String name;
     private double price;
     private int quantity;
     private List<String> categories;
@@ -61,12 +61,16 @@ public class Item {
         this.price = price;
     }
 
+    public void setCategories(List<String> categories){
+        this.categories = categories;
+    }
+
+    public void setStorageLocation(String storagelocation){
+        this.storageLocation = storagelocation;
+    }
+
     public boolean isCategory(String category){
-        if (this.categories.contains(category)){
-            return true;
-        }else{
-            return false;
-        }
+        return this.categories.contains(category);
     }
 
     public void add(int quantity){
@@ -76,10 +80,6 @@ public class Item {
     public boolean IsExpired(){
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);
-        if (this.expirationDates.compareTo(date) >= 0){
-            return false;
-        }else{
-            return true;
-        }
+        return this.expirationDates.compareTo(date) < 0;
     }
 }

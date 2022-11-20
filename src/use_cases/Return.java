@@ -1,4 +1,4 @@
-package use_case_interactors;
+package use_cases;
 
 public class Return implements Returnable extends Add
 {

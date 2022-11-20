@@ -1,7 +1,7 @@
-package use_case_interactors;
+package use_cases;
 
 
-public class EmployeeFacade implements EmployeeFacadeInterface{
+public class EmployeeFacade implements EmployeeFacadeInterface {
     String userName;
 
     public void addItem(String serialNo, int increasedQuantity)
