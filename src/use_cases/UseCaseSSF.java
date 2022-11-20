@@ -1,6 +1,4 @@
-package UseCases;
-
-import java.util.*;
+package use_cases;
 
 public class UseCaseSSF {
     // UseCase for Search, Sort, and Filter.

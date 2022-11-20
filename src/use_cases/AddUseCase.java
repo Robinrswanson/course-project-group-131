@@ -1,7 +1,7 @@
-package UseCases;
+package use_cases;
 
-import Entities.Item;
-import Entities.TempDataStorage;
+import entities.Item;
+import entities.TempDataStorage;
 
 public class AddUseCase implements AddInputBoundary{
 
