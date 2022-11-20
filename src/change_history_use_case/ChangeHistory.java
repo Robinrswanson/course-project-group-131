@@ -1,4 +1,4 @@
-package history_screens;
+package change_history_use_case;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,7 +11,7 @@ import java.util.Date;
 //After changing the item data, related use case should create a Change History object with data and then call
 //the save_history_change method
 
-//could be split into data model,use case,and gateway writer but this use case is not too long.
+//Can be considered as a gatewaywriter ; could be split into data model,use case,and gateway writer but this use case is not too long.
 public class ChangeHistory {
     public String time;
     public String username;

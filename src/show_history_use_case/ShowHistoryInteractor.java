@@ -1,7 +1,5 @@
-package history_use_case;
+package show_history_use_case;
 
-
-import history_screens.ShowHistoryScreen;
 
 //Use case layer
 public class ShowHistoryInteractor implements ShowHistoryInputBoundary{

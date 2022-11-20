@@ -1,4 +1,4 @@
-package history_use_case;
+package show_history_use_case;
 
 public class ShowHistoryFinalInput {
 }
