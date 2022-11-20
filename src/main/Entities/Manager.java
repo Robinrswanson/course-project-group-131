@@ -1,5 +1,3 @@
-package Entities;
-
 public class Manager extends Employee {
 
     Manager(String username, String password) {

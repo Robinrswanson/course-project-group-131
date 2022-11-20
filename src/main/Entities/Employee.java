@@ -1,5 +1,3 @@
-package Entities;
-
 public class Employee {
     private final String username;
     private final String password;
