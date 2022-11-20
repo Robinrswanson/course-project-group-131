@@ -1,7 +1,6 @@
-package InterfaceAdaptors;
+package interface_adaptors;
 
-import UseCases.AddDS;
-import UseCases.AddOutputBoundary;
+import use_cases.*;
 
 public class AddPresenter implements AddOutputBoundary {
 

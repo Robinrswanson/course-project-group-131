@@ -1,7 +1,7 @@
-package UseCases;
+package use_cases;
 
 import java.util.*;
-import Entities.*;
+import entities.*;
 
 public class UseCaseUpdate {
 

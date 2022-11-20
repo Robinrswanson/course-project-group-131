@@ -1,5 +1,5 @@
-package Screens;
-import InterfaceAdaptors.*;
+package screens;
+import interface_adaptors.*;
 
 import javax.swing.*;
 import java.awt.*;

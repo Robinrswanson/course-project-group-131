@@ -1,11 +1,10 @@
-package InterfaceAdaptors;
+package interface_adaptors;
 
-import UseCases.AddDS;
-import UseCases.AddInputBoundary;
+import use_cases.*;
 
 public class AddController {
 
-    private final AddInputBoundary addUseCase;
+    private AddInputBoundary addUseCase;
 
     public AddController(AddInputBoundary useCase){
         this.addUseCase = useCase;

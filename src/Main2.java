@@ -1,7 +1,6 @@
-import Entities.*;
-import InterfaceAdaptors.*;
-import UseCases.*;
-import Screens.*;
+import interface_adaptors.*;
+import use_cases.*;
+import screens.*;
 
 import javax.swing.*;
 import java.awt.*;

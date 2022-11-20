@@ -1,4 +1,4 @@
-package UseCases;
+package use_cases;
 
 public class Return implements Returnable extends Add
 {
