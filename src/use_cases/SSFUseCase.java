@@ -1,6 +1,6 @@
 package use_cases;
 
-public class UseCaseSSF {
+public class SSFUseCase {
     // UseCase for Search, Sort, and Filter.
 
     public static void main(String[] args) {
