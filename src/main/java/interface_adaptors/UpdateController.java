@@ -16,7 +16,7 @@ public class UpdateController {
      * @return a String for the View  to present
      */
 
-    public String updateItem_quantity(String serialNum, double price, boolean updatePrice){
+    public String updateItem_price(String serialNum, double price, boolean updatePrice){
         UpdateDS data = new UpdateDS(serialNum, price, updatePrice);
         return this.updateUseCase.updateItem(data);
     }
