@@ -1,3 +1,5 @@
+package entities;
+
 public class Employee {
     private final String username;
     private final String password;

@@ -1,3 +1,5 @@
+package entities;
+
 public class Manager extends Employee {
 
     Manager(String username, String password) {
