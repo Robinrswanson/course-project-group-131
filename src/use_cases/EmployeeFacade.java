@@ -1,6 +1,5 @@
 package use_cases;
 
-
 public class EmployeeFacade implements EmployeeFacadeInterface {
     String userName;
 
