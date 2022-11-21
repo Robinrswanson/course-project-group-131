@@ -84,7 +84,7 @@ public class UpdateScreen extends JPanel{
      * @return the "update" button
      */
     private JButton getUpdateButton(){
-        JButton update = new JButton("Update");
+        JButton update = new JButton("Update2");
 
         update.addActionListener(new ActionListener() {
             @Override
