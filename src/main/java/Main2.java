@@ -2,6 +2,14 @@ import interface_adaptors.*;
 import use_cases.*;
 import screens.*;
 
+public class Main2 {
+
+    public static void main(String[] args)
+    {
+        LoginScreen screen = new LoginScreen();
+    }
+}
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
