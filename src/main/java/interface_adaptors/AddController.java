@@ -4,10 +4,12 @@ import use_cases.*;
 
 public class AddController {
 
-    private AddInputBoundary addUseCase;
+    private EmployeeFacadeInterface employeeFacade;
+    private AddOutputBoundary presenter;
 
-    public AddController(AddInputBoundary useCase){
-        this.addUseCase = useCase;
+    public AddController(EmployeeFacadeInterface employeeFacade, AddOutputBoundary presenter){
+        this.employeeFacade = employeeFacade;
+        this.presenter = presenter;
     }
 
     /**
@@ -18,7 +20,7 @@ public class AddController {
      */
     public String addItem(String serialNum, int quantity){
         AddDS data = new AddDS(serialNum, quantity);
-        return addUseCase.addItem(data);
+        return employeeFacade.addItem(data, presenter);
     }
 }
 

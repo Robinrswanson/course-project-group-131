@@ -1,6 +1,6 @@
 package use_cases;
 
-public interface AddInputBoundary {
+public interface Addable {
 
     /**
      * Increases the quantity of the item, with data contained in the Data Structure

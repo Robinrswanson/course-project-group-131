@@ -1,13 +1,15 @@
 package use_cases;
 
 
+import interface_adaptors.AddPresenter;
+
 public class EmployeeFacade implements EmployeeFacadeInterface {
     String userName;
 
-    public void addItem(String serialNo, int increasedQuantity)
+    public String addItem(AddDS data, AddOutputBoundary presenter)
     {
-        Addable obj = new Add(userName, serialNo, increasedQuantity);
-        obj.addItem(serialNo, increasedQuantity);
+        Addable obj = new AddUseCase(presenter);
+        return obj.addItem(data);
     }
 
     public void returnItem(String serialNo, int increasedQuantity)

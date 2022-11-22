@@ -2,7 +2,7 @@ package use_cases;
 
 public interface EmployeeFacadeInterface {
 
-    void addItem(String serialNo, int increasedQuantity);
+    String addItem(AddDS data, AddOutputBoundary presenter);
     void returnItem(String serialNo, int increasedQuantity);
     void searchItem();
     void sortItem();

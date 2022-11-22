@@ -3,7 +3,7 @@ package use_cases;
 import entities.Item;
 import entities.TempDataStorage;
 
-public class AddUseCase implements AddInputBoundary{
+public class AddUseCase implements Addable {
 
     private final AddOutputBoundary presenter;
 

@@ -20,8 +20,8 @@ public class Main2 {
 
         // screen3 is all about "add quantity" function.
         AddOutputBoundary addPresenter = new AddPresenter();
-        AddInputBoundary addUseCase = new AddUseCase(addPresenter);
-        AddController addController = new AddController(addUseCase);
+        EmployeeFacadeInterface employeeFacade = new EmployeeFacade();
+        AddController addController = new AddController(employeeFacade, addPresenter);
         JPanel screen3 = new AddScreen(screens, addController);
 
 
