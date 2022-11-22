@@ -18,14 +18,23 @@ public class Main2 {
         JPanel screen1 = new MainEmployeeScreen(screens);
         JPanel screen2 = new FilterScreen(screens, lst, "Displaying all Items");
 
+        // screen3 is all about "add quantity" function.
         AddOutputBoundary addPresenter = new AddPresenter();
         AddInputBoundary addUseCase = new AddUseCase(addPresenter);
         AddController addController = new AddController(addUseCase);
-
         JPanel screen3 = new AddScreen(screens, addController);
+
+
+        // screen4 is all about "update price" function.
+        UpdateOutputBoundary updatePresenter = new UpdatePresenter();
+        UpdateInputBoundary updateUseCase = new UpdateUseCase(updatePresenter);
+        UpdateController updateController = new UpdateController(updateUseCase);
+        JPanel screen4 = new UpdateScreen(screens, updateController);
+
         screens.add(screen1, "Main");
         screens.add(screen2, "Display/Filter Items");
         screens.add(screen3, "Add Items");
+        screens.add(screen4, "Update Price");
 
         application.add(screens);
         cardLayout.show(screens, "Main");
