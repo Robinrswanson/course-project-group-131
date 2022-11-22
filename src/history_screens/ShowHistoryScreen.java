@@ -53,8 +53,10 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt){
         //System.out.println("Click " + evt.getActionCommand());
         try{
-            ShowHistoryController.
+            ShowHistoryController.show(startdate.getText(),enddate.getText());
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

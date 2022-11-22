@@ -15,23 +15,26 @@ import java.util.Date;
 public class ChangeHistory {
     public String time;
     public String username;
+    public String serinum;
     public String action;
     //or make this the item object
     public String item;
     public String quantity;
+    public String name;
 
 
 //GET all the history data we need when constructing ChangeHistory object
 
-    public ChangeHistory(String username, String action,String item,String quantity)  {
+    public ChangeHistory(String name, String serinum, String action,String item,String quantity)  {
         //get current time and save it as a String arribute
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.time = dateFormat.format(date);
-        this.username = username;
+        this.serinum = serinum;
         this.action = action;
         this.item = item;
         this.quantity = quantity;
+        this.name = name;
 
 
     }
@@ -41,8 +44,8 @@ public class ChangeHistory {
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter("history.csv", true));
-            String line = String.format("%s,%s,%s,%s,%s",
-                    this.time, this.username, this.action, this.item, this.quantity);
+            String line = String.format("%s,%s,%s,%s,%s,%s",
+                    this.time, this.username, this.action, this.item, this.quantity,this.serinum);
             writer.write(line);
             writer.newLine();
 

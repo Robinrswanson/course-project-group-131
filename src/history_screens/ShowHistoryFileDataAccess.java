@@ -22,7 +22,7 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
     //for now I use a buffer reader to do this.
 
     public ShowHistoryFileDataAccess() throws IOException {
-        reader = new BufferedReader(new FileReader("history"));
+        reader = new BufferedReader(new FileReader("history.csv"));
     }
     public void read() throws IOException {
         String line = reader.readLine();
@@ -52,7 +52,7 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         if (lines == null){
             return false;
         }else{
-            String filestartdate = lines.get(0).substring(0,8);
+            String filestartdate = lines.get(0).substring();
             return CompareDateString(startdate, filestartdate);
 
         }
