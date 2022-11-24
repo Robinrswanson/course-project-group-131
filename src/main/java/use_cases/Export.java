@@ -7,8 +7,8 @@ public class Export {
 
     }
     // Either make a reader and read database, extract and write to a new file, or return file path for database
-    public File exportDatabase(){
-        File fileToReturn = new File("src/main/java/database/Sample Data - Sample Item.csv");
-        return fileToReturn;
+    public String exportDatabase(){
+
+        return "src/main/java/database/Sample Data - Sample Item.csv";
     }
 }
