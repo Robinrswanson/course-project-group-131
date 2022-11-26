@@ -6,7 +6,7 @@ public class AddPresenter implements AddOutputBoundary {
 
     /**
      * Called if item addition is successful
-     * @param data a Data Structure containing a serial number and quantity to display
+     * @param data a Data Structure containing a serial number and quantity to disply
      * @return a String value for the View to present
      */
     @Override

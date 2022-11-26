@@ -1,9 +1,9 @@
 package use_cases;
-
+import use_cases.*;
 
 public class EmployeeFacade implements EmployeeFacadeInterface {
     String userName;
-
+/*
     public void addItem(String serialNo, int increasedQuantity)
     {
         Addable obj = new Add(userName, serialNo, increasedQuantity);
@@ -28,4 +28,9 @@ public class EmployeeFacade implements EmployeeFacadeInterface {
         obj.filterItem();
     }
 
+    @Override
+    public void sortItem(String category) {
+
+    }
+    */
 }

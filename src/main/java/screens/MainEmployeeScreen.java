@@ -4,12 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Once the staff logs in, it would turn to this screen. Yes, both the manager and employee share this screen!
- * The only difference is, if an employee clicks the button "update price", an error message would show up while
- * a manager can successfully change the price of an item.
-  */
-
 public class MainEmployeeScreen extends JPanel {
 
     private static JPanel screens;
@@ -31,12 +25,11 @@ public class MainEmployeeScreen extends JPanel {
         JButton filter = createMenuButton("Display/Filter Items");
         JButton history = createMenuButton("Show History");
         JButton logOut = createMenuButton("Log Out");
-        JButton update = createMenuButton("Update Price");
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
-        packButtons(new JButton[]{logOut, update});
+        packButtons(new JButton[]{logOut});
         // packing is just so the orientation is more organized
 
     }
