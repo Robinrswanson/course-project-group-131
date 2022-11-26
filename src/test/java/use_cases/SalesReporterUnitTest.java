@@ -7,6 +7,5 @@ import java.util.List;
 public class SalesReporterUnitTest {
     @Test
     public void testSplitList() {
-        List<String> rows = new
     }
 }
