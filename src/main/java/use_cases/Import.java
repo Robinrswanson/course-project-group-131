@@ -1,31 +1,35 @@
 package use_cases;
 
-import use_cases.Reader;
 import java.util.List;
+import entities.Item;
 import entities.TempDataStorage;
+import interface_adaptors.ImportPresenter;
 
-import java.io.IOException;
-
-public class Import {
-    private final String filePath;
-
-    public Import(String filePath){
-        this.filePath = filePath;
+public class Import implements ImportInputBoundary{
+    private final ImportPresenter presenter;
+    public Import(ImportPresenter presenter){
+        this.presenter = presenter;
     }
-    public boolean importDatabase() throws IOException{
-        Reader fileReader = new Reader(filePath);
-        List<String[]> dataToAdd = fileReader.getData();
-        for (String[] lst: dataToAdd) {
+    public String importDatabase(ImportDS importData){
+        List<String[]> data = importData.getImportData();
+        for (String[] lst: data) {
             String serial_num = lst[0];
-            String quantity = lst[1];
-            // Here update the item in the tempdatastorage
+            int quantity = Integer.valueOf(lst[1]);
+            if (TempDataStorage.hasItem(serial_num)) {
+                return presenter.prepareFailure(0, lst);
+            } else if (quantity < 0) {
+                return presenter.prepareFailure(1, lst);
+            }
+            Item item = TempDataStorage.getItem(serial_num);
+            int newQuantity = item.getQuantity() + quantity;
+            item.setQuantity(newQuantity);
         }
+        return presenter.prepareSuccess(importData.getFilepath());
         /**
          * Here I want to add the data to the storage
          * I add to the tempdatastorage
          *Should I add a data checker to ensure that all entries are valid or assume import file is valid
+         * Should I use the AddDS?
         **/
-
-        return true;
     }
 }

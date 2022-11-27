@@ -1,23 +1,21 @@
 package use_cases;
 
 
-import java.io.File;
-import java.io.IOException;
+import interface_adaptors.ImportPresenter;
+
+import java.util.List;
 
 public class ManagerFacade extends EmployeeFacade implements ManagerFacadeInterface
 {
     public void updatePrice(){
 
     }
-    public String importInventory(String filePath) throws IOException{
-        Import importer = new Import(filePath);
-        importer.importDatabase();
+    public String importInventory(ImportPresenter presenter, ImportDS database){
+        Import importer = new Import(presenter);
+        importer.importDatabase(database);
         return "Successful";
     }
-    public File exportInventory(){
-        Export exporter = new Export();
-        File database = exporter.exportDatabase();
-        return database;
+    public void exportInventory(){
     }
 
     public void sortItem(String category) {

@@ -15,7 +15,7 @@ public class gatewayWriter {
 
     }
 
-    public void writeToFile(String replace, int row, int col) throws IOException {
+    public void editSingleCell(String replace, int row, int col) throws IOException {
         try {
             // could possibly change row and col to search for item name
             gatewayReader reader = new gatewayReader(file);
@@ -35,6 +35,21 @@ public class gatewayWriter {
             ex.printStackTrace();
         }
     }
+    public void rewriteFile(List<String[]> newFileContents) {
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fileWriter);
+            for (String[] rowData : newFileContents) {
+                String line = String.join(",", rowData);
+                pw.println(line);
+            }
+            pw.flush();
+            pw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     //Add another method that allows multiple changes to be made
 //  Could use same writeToFile method but instead pass in arrays
+
 }

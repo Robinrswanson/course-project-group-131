@@ -1,14 +1,19 @@
 package use_cases;
-import java.io.File;
 
-public class Export {
+import java.util.ArrayList;
+import java.util.List;
+import entities.*;
 
-    public Export(){
-
+public class Export implements ExportInputBoundary{
+    Export(){
     }
-    // Either make a reader and read database, extract and write to a new file, or return file path for database
-    public String exportDatabase(){
-
-        return "src/main/java/database/Sample Data - Sample Item.csv";
+    public ExportDS extractDataStorage(){
+        List<Item> inventory = new ArrayList<Item>(TempDataStorage.getInventory().values());
+        ExportDS inventoryData = new ExportDS(new ArrayList<String[]>());
+        for(Item item: inventory){
+            String[] rowData = {item.getName(), String.valueOf(item.getPrice()), String.valueOf(item.getQuantity()), item.getCategories().toString(), String.valueOf(item.getExpirationDates()), item.getStorageLocation()};
+            inventoryData.addData(rowData);
+        }
+        return inventoryData;
     }
 }
