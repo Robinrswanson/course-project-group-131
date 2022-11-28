@@ -1,9 +1,11 @@
 package interface_adaptors;
 
+import use_cases.gatewayWriterInterface;
+
 import java.io.*;
 import java.util.List;
 
-public class gatewayWriter {
+public class gatewayWriter implements gatewayWriterInterface {
     private final File file;
 
 
@@ -11,8 +13,23 @@ public class gatewayWriter {
         this.file = new File(filePath);
     }
 
-    public void addNewLines(String[] rowData) throws IOException {
+    public void addNewLines(String[] newRowData) throws IOException {
+        try {
+            // could possibly change row and col to search for item name
+            gatewayReader reader = new gatewayReader(file);
+            List<String[]> fileContents = reader.getData();
+            fileContents.add(newRowData);
 
+            PrintWriter pw = new PrintWriter(new FileWriter(file));
+            for (String[] rowData : fileContents) {
+                String line = String.join(",", rowData);
+                pw.println(line);
+            }
+            pw.flush();
+            pw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void editSingleCell(String replace, int row, int col) throws IOException {

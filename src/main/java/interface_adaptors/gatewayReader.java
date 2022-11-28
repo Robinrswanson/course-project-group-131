@@ -1,11 +1,13 @@
 package interface_adaptors;
 
+import use_cases.gatewayReaderInterface;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class gatewayReader {
+public class gatewayReader implements gatewayReaderInterface {
 
     private final File file;
 
