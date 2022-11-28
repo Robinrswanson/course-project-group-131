@@ -17,12 +17,13 @@ public class Main2 {
         JPanel screens = new JPanel(cardLayout);
         JPanel screen1 = new MainEmployeeScreen(screens);
         JPanel screen2 = new FilterScreen(screens, lst, "Displaying all Items");
-
         AddOutputBoundary addPresenter = new AddPresenter();
         AddInputBoundary addUseCase = new AddUseCase(addPresenter);
         AddController addController = new AddController(addUseCase);
 
+        JPanel screen4 = new ReturnScreen(screens, addController);
         JPanel screen3 = new AddScreen(screens, addController);
+
         screens.add(screen1, "Main");
         screens.add(screen2, "Display/Filter Items");
         screens.add(screen3, "Add Items");

@@ -1,6 +1,6 @@
 package use_cases;
 
-public class Return implements Returnable extends Add
+public class ReturnUseCase extends AddUseCase implements Returnable
 {
     private String employeeId;
     private String serialNo;
@@ -8,8 +8,9 @@ public class Return implements Returnable extends Add
 
     private static final String ACTION = "Return";
 
-    Return(String employeeId, String serialNo, int increasedQuantity)
+    ReturnUseCase(String employeeId, String serialNo, int increasedQuantity)
     {
+        super();
         this.employeeId = employeeId;
         this.serialNo = serialNo;
         this.increasedQuantity = increasedQuantity;

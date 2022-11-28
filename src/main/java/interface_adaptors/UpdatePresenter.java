@@ -29,7 +29,8 @@ public class UpdatePresenter implements UpdateOutputBoundary {
         }
         else if (error == NOT_RIGHTS_TO_ACCESS){
             return "Only manager can update the price!";
-        }else{
+        }
+        else{
             return "Error: Serial number not found";
         }
     }
