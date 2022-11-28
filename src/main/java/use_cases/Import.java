@@ -6,16 +6,17 @@ import entities.TempDataStorage;
 import interface_adaptors.ImportPresenter;
 
 public class Import implements ImportInputBoundary{
-    private final ImportPresenter presenter;
-    public Import(ImportPresenter presenter){
+    private final ImportOutputBoundary presenter;
+    public Import(ImportOutputBoundary presenter){
         this.presenter = presenter;
     }
     public String importDatabase(ImportDS importData){
         List<String[]> data = importData.getImportData();
+        data.remove(0);
         for (String[] lst: data) {
             String serial_num = lst[0];
-            int quantity = Integer.valueOf(lst[1]);
-            if (TempDataStorage.hasItem(serial_num)) {
+            int quantity = Integer.valueOf(lst[3]);
+            if (!TempDataStorage.hasItem(serial_num)) {
                 return presenter.prepareFailure(0, lst);
             } else if (quantity < 0) {
                 return presenter.prepareFailure(1, lst);

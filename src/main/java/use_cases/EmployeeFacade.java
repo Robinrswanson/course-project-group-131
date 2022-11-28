@@ -3,7 +3,7 @@ package use_cases;
 
 public class EmployeeFacade implements EmployeeFacadeInterface {
     String userName;
-
+/*
     public void addItem(String serialNo, int increasedQuantity)
     {
         Addable obj = new Add(userName, serialNo, increasedQuantity);
@@ -27,5 +27,5 @@ public class EmployeeFacade implements EmployeeFacadeInterface {
         Filterable obj = new Filterable(serialNo);
         obj.filterItem();
     }
-
+*/
 }

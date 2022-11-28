@@ -5,7 +5,7 @@ import java.util.List;
 import entities.*;
 
 public class Export implements ExportInputBoundary{
-    Export(){
+    public Export(){
     }
     public ExportDS extractDataStorage(){
         List<Item> inventory = new ArrayList<Item>(TempDataStorage.getInventory().values());

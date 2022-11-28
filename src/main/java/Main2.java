@@ -1,13 +1,49 @@
+import entities.Item;
+import entities.TempDataStorage;
 import interface_adaptors.*;
 import use_cases.*;
 import screens.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 public class Main2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        String file = "src\\main\\java\\Database\\Sample Data - Sample Item.csv";
+        Map<String, Item> inventory = new HashMap<String, Item>();
+
+        ImportPresenter presenter = new ImportPresenter();
+        Import importer = new Import(presenter);
+        gatewayReader reader = new gatewayReader(file);
+        java.util.List<String[]> data2 = reader.getData();
+        ImportDS data = new ImportDS(data2, file);
+        data2.remove(0);
+
+        for (String[] row: data2) {
+            List<String> lst = new ArrayList<String>();
+            Date date = new Date();
+            Item item = new Item(row[1], Double.valueOf(row[2]), Integer.valueOf(row[3]), lst, date, "");
+            inventory.put(row[0], item);
+        }
+        TempDataStorage.setTempDataStorage(inventory);
+
+        Collection<Item> datalst = TempDataStorage.getInventory().values();
+        for (Item item: datalst
+        ) {
+            System.out.println(item.getName() + ", " + item.getQuantity());
+        }
+
+        System.out.println("-----------------------");
+
+        importer.importDatabase(data);
+        Collection<Item> datalst2 = TempDataStorage.getInventory().values();
+        for (Item item: datalst2
+        ) {
+            System.out.println(item.getName() + ", " + item.getQuantity());
+        }
 
         ArrayList<FilterScreenDS> lst = makeFilterScreenSample();
 
@@ -31,16 +67,31 @@ public class Main2 {
         UpdateController updateController = new UpdateController(updateUseCase);
         JPanel screen4 = new UpdateScreen(screens, updateController);
 
+        // screen5 is all about "import" function.
+        ImportOutputBoundary importPresenter = new ImportPresenter();
+        ImportInputBoundary ImportUseCase = new Import(importPresenter);
+        ImportController ImportController = new ImportController(ImportUseCase);
+        JPanel screen5 = new ImportScreen(screens, ImportController);
+
+        // screen6 is all about "export" function.
+        ExportOutputBoundary exportPresenter = new ExportPresenter();
+        ExportInputBoundary exportUseCase = new Export();
+        ExportController exportController = new ExportController(exportUseCase);
+        JPanel screen6 = new ExportScreen(screens, exportController);
+
         screens.add(screen1, "Main");
         screens.add(screen2, "Display/Filter Items");
         screens.add(screen3, "Add Items");
         screens.add(screen4, "Update Price");
+        screens.add(screen5, "Import");
+        screens.add(screen6, "Export");
 
         application.add(screens);
         cardLayout.show(screens, "Main");
 
         application.pack();
         application.setVisible(true);
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     private static ArrayList<FilterScreenDS> makeFilterScreenSample() {

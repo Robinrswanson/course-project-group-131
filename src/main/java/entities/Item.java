@@ -10,7 +10,7 @@ public class Item {
     private Date expirationDates;
     private String storageLocation;
 
-    Item(String name, double price, int quantity, List<String> categories,
+    public Item(String name, double price, int quantity, List<String> categories,
          Date expirationDates, String storagelocation){
         this.name = name;
         this.price = price;
