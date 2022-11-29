@@ -38,7 +38,7 @@ public class Main2 {
 
         System.out.println("-----------------------");
 
-        importer.importDatabase(data);
+        importer.importDatabase(new gatewayReader(file));
         Collection<Item> datalst2 = TempDataStorage.getInventory().values();
         for (Item item: datalst2
         ) {
@@ -75,7 +75,7 @@ public class Main2 {
 
         // screen6 is all about "export" function.
         ExportOutputBoundary exportPresenter = new ExportPresenter();
-        ExportInputBoundary exportUseCase = new Export();
+        ExportInputBoundary exportUseCase = new Export(exportPresenter);
         ExportController exportController = new ExportController(exportUseCase);
         JPanel screen6 = new ExportScreen(screens, exportController);
 

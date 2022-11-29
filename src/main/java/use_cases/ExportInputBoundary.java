@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ExportInputBoundary {
 
-    public ExportDS extractDataStorage();
+    public String extractDataStorage(gatewayWriterInterface writer);
 }

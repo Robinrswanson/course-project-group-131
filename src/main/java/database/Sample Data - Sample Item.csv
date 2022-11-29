@@ -1,4 +1,4 @@
-SerialNumber, Name,Price,Quantity,Catagories,ExpirationDate ,StorageLocation
+SerialNumber, Name,Price,Quantity,Categories,ExpirationDate ,StorageLocation
 1,Ice Cream,9.99,5,,,
 2,Lettuce,3,22,,,
 3,Tomato,2,1,,,

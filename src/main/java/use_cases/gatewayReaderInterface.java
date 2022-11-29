@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface gatewayReaderInterface {
 
+    public String getFilePath();
     public List<String[]> getData() throws IOException;
 
 

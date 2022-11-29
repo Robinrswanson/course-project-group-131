@@ -13,7 +13,6 @@ public class ImportController {
     }
     public String importDatabase(String filepath) throws IOException {
         gatewayReader reader = new gatewayReader(filepath);
-        ImportDS importData = new ImportDS(reader.getData(), filepath);
-        return importUseCase.importDatabase(importData);
+        return importUseCase.importDatabase(reader);
     }
 }

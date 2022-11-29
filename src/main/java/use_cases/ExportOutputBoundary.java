@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ExportOutputBoundary {
 
-    public String prepareSuccess();
+    public String prepareSuccess(String filepath);
 }

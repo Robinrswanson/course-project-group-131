@@ -1,5 +1,6 @@
 package use_cases;
 
+import java.io.IOException;
 import java.util.List;
 import entities.Item;
 import entities.TempDataStorage;
@@ -10,7 +11,8 @@ public class Import implements ImportInputBoundary{
     public Import(ImportOutputBoundary presenter){
         this.presenter = presenter;
     }
-    public String importDatabase(ImportDS importData){
+    public String importDatabase(gatewayReaderInterface reader) throws IOException{
+        ImportDS importData = new ImportDS(reader.getData(), reader.getFilePath());
         List<String[]> data = importData.getImportData();
         data.remove(0);
         for (String[] lst: data) {

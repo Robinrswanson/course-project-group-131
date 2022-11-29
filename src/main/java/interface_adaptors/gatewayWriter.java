@@ -7,16 +7,18 @@ import java.util.List;
 
 public class gatewayWriter implements gatewayWriterInterface {
     private final File file;
+    private final String filePath;
 
 
     public gatewayWriter(String filePath) {
         this.file = new File(filePath);
+        this.filePath = filePath;
     }
 
     public void addNewLines(String[] newRowData) throws IOException {
         try {
             // could possibly change row and col to search for item name
-            gatewayReader reader = new gatewayReader(file);
+            gatewayReader reader = new gatewayReader(filePath);
             List<String[]> fileContents = reader.getData();
             fileContents.add(newRowData);
 
@@ -34,14 +36,10 @@ public class gatewayWriter implements gatewayWriterInterface {
 
     public void editSingleCell(String replace, int row, int col) throws IOException {
         try {
-            // could possibly change row and col to search for item name
-            gatewayReader reader = new gatewayReader(file);
+            gatewayReader reader = new gatewayReader(filePath);
             List<String[]> fileContents = reader.getData();
-            // contents to be updated are searched using row and col in csv file
             fileContents.get(row)[col] = replace;
-            // entire file is rewritten as there is no replace method for CSVWriter
-            FileWriter fileWriter = new FileWriter(file);
-            PrintWriter pw = new PrintWriter(fileWriter);
+            PrintWriter pw = new PrintWriter(new FileWriter(filePath));
             for (String[] rowData : fileContents) {
                 String line = String.join(",", rowData);
                 pw.println(line);

@@ -100,29 +100,4 @@ public class ExportScreen extends JPanel{
     public void setNotification(String message){
         notification.setText(message);
     }
-
-    public static void main(String[] args) {
-        TempDataStorage inventory = new TempDataStorage();
-
-
-
-        JFrame application = new JFrame("Main Screen");
-        CardLayout cardLayout = new CardLayout();
-        JPanel screens = new JPanel(cardLayout);
-
-        Export useCase = new Export();
-        ExportController controller = new ExportController(useCase);
-        JPanel screen1 = new JPanel();
-        ExportScreen screen = new ExportScreen(screen1, controller);
-
-        screens.add(screen);
-
-        application.add(screens);
-        cardLayout.show(screens, "Main");
-
-        application.pack();
-        application.setVisible(true);
-
-        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
-}
