@@ -23,13 +23,14 @@ public class AddController {
         if (quantity < 0){
             return addPresenter.prepareFailure(0);
         } // if the employee enters a negative quantity (unlikely, but you don't want this to happen at all)
-        else if (! addUseCase.serialNumberValid(serialNum)){
-            return addPresenter.prepareFailure(1);
-        } // can remove this later, assuming that serial number entered is never incorrect - just kept in for now for testing purposes
+
 
         AddDS data = new AddDS(serialNum, quantity);
-        addUseCase.addItem(data);
 
+        if (! addUseCase.addItem(data)){
+            addPresenter.prepareFailure(1);
+        }
+        // can remove this later, assuming that serial number entered is never incorrect - just kept in for now for testing purposes
         return addPresenter.prepareSuccess(data);
 
     }

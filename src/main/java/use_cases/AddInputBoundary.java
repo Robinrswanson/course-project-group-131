@@ -7,8 +7,6 @@ public interface AddInputBoundary {
      * @param data contains serial number of the item and quantity to add
      * @return a String displaying successes or failures
      */
-    void addItem(AddDS data);
-
-    boolean serialNumberValid(String serialNum);
+    boolean addItem(AddDS data);
 }
 
