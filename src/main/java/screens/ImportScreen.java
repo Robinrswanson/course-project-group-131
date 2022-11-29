@@ -46,7 +46,7 @@ public class ImportScreen extends JPanel{
     }
 
     /**
-     * Sets the text on the top of the screen to "Add an Item"
+     * Sets the text on the top of the screen to "Import and Inventory"
      */
     private void addTitle() {
         JLabel title = new JLabel("Import an Inventory");
@@ -73,8 +73,8 @@ public class ImportScreen extends JPanel{
     }
 
     /**
-     * Constructs a new button that when pressed, calls on the controller to start the Add Use case.
-     * @return the "add" button
+     * Constructs a new button that when pressed, calls on the controller to start the Import Use case.
+     * @return the "Import" button
      */
     private JButton getAddButton() {
 
@@ -132,7 +132,7 @@ public class ImportScreen extends JPanel{
     }
 
     /**
-     * Adds the notification indicating successful addition of the item
+     * Adds the notification indicating successful import of an inventory
      */
     private void addNotification() {
         this.add(notification);
@@ -144,28 +144,5 @@ public class ImportScreen extends JPanel{
      */
     public void setNotification(String message){
         notification.setText(message);
-    }
-    public static void main(String[] args) {
-        TempDataStorage inventory = new TempDataStorage();
-
-        JFrame application = new JFrame("Main Screen");
-        CardLayout cardLayout = new CardLayout();
-        JPanel screens = new JPanel(cardLayout);
-
-        ImportPresenter presenter = new ImportPresenter();
-        Import useCase = new Import(presenter);
-        ImportController controller = new ImportController(useCase);
-        JPanel screen1 = new JPanel();
-        ImportScreen screen = new ImportScreen(screen1, controller);
-
-        screens.add(screen);
-
-        application.add(screens);
-        cardLayout.show(screens, "Main");
-
-        application.pack();
-        application.setVisible(true);
-
-        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

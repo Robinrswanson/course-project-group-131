@@ -51,7 +51,7 @@ public class Main2 {
 
         CardLayout cardLayout = new CardLayout();
         JPanel screens = new JPanel(cardLayout);
-        JPanel screen1 = new MainEmployeeScreen(screens);
+        JPanel screen1 = new MainManagerScreen(screens);
         JPanel screen2 = new FilterScreen(screens, lst, "Displaying all Items");
 
         // screen3 is all about "add quantity" function.

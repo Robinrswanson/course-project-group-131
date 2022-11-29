@@ -82,4 +82,11 @@ public class Item {
         java.sql.Date date = new java.sql.Date(millis);
         return this.expirationDates.compareTo(date) < 0;
     }
+
+    public String[] getArrayFormat(){
+            String[] arrayFormat = {this.getName(), String.valueOf(this.getPrice()),
+            String.valueOf(this.getQuantity()), this.getCategories().toString(),
+            String.valueOf(this.getExpirationDates()), this.getStorageLocation()};
+            return arrayFormat;
+    }
 }

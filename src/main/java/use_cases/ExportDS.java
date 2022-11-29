@@ -3,6 +3,7 @@ package use_cases;
 import java.util.List;
 
 public class ExportDS {
+    //Data structure containing the filePath for Database and a List of each item in inventory's information
     List<String[]> database;
     String filePath;
     public ExportDS(List<String[]> exportData){
@@ -11,7 +12,7 @@ public class ExportDS {
     }
     public void addData(String[] rowData){
         database.add(rowData);
-    }
+    } //Add item information to the
     public List<String[]> getDatabase(){
         return this.database;
     }
