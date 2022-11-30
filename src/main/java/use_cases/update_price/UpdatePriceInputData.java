@@ -1,13 +1,13 @@
-package use_cases;
+package use_cases.update_price;
 
-public class UpdateDS {
+public class UpdatePriceInputData {
 
     private String serialNum;
     private double price;
 
     private boolean updatePrice;
 
-    public UpdateDS(String serialNum, double price, boolean updatePrice){
+    public UpdatePriceInputData(String serialNum, double price, boolean updatePrice){
         this.serialNum = serialNum;
         this.price = price;
         this.updatePrice = updatePrice;

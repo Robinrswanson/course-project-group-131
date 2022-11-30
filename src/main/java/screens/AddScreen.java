@@ -1,12 +1,13 @@
 package screens;
-import interface_adaptors.*;
+import interface_adaptors.arr.ARRIView;
+import interface_adaptors.arr.AddController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddScreen extends JPanel{
+public class AddScreen extends JPanel implements ARRIView {
 
     private final JTextField serialNumberField = new JTextField(20);
     private final JTextField quantityField = new JTextField(20);
@@ -99,10 +100,9 @@ public class AddScreen extends JPanel{
                 // controller etc. but for now:
                 System.out.println(serialNumberField.getText() + quantityField.getText());
                 try{
-                    String message = controller.addItem(serialNumberField.getText(), Integer.parseInt(quantityField.getText()));
-                    setNotification(message);
+                    controller.addItem(serialNumberField.getText(), Integer.parseInt(quantityField.getText()));
                 } catch (NumberFormatException ex1){
-                    setNotification("Please enter a numeric quantity");
+                    setMessage("Please enter a numeric quantity");
                 } // this can be removed if deemed not necessary
             }
         });
@@ -122,7 +122,7 @@ public class AddScreen extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) screens.getLayout();
                 cardLayout.show(screens, "Main");
-                setNotification("");
+                setMessage("");
             }
         });
 
@@ -152,7 +152,7 @@ public class AddScreen extends JPanel{
      * Changes the value of the notification
      * @param message the message to change the notification to
      */
-    public void setNotification(String message){
+    public void setMessage(String message){
         notification.setText(message);
     }
 }
