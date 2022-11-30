@@ -12,9 +12,8 @@ public class Add implements ARRInputBoundary {
     }
 
     /**
-     *
+     * The Add Use case itself. Once done, tells the presenter to update information
      * @param data a Data Structure containing the serial number and quantity of the item to add
-     * @return a string for the view to show the user (created by the presenter)
      */
     public void changeItemQuantity(ARRInputData data){
 

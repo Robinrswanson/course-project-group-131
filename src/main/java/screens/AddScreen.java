@@ -149,7 +149,7 @@ public class AddScreen extends JPanel implements ARRIView {
     }
 
     /**
-     * Changes the value of the notification
+     * Changes the value of the notification. Called on by the AddPresenter
      * @param message the message to change the notification to
      */
     public void setMessage(String message){
