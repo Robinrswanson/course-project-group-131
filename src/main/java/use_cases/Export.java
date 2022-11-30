@@ -5,15 +5,23 @@ import java.util.List;
 import entities.*;
 
 public class Export implements ExportInputBoundary{
-    public Export(){
+
+    private final ExportOutputBoundary presenter;
+
+    public Export(ExportOutputBoundary presenter){
+        this.presenter = presenter;
     }
-    public ExportDS extractDataStorage(){
-        List<Item> inventory = new ArrayList<Item>(TempDataStorage.getInventory().values());
-        ExportDS inventoryData = new ExportDS(new ArrayList<String[]>());
+    public String extractDataStorage(gatewayWriterInterface writer){
+        //Get List form of the inventory
+        List<Item> inventory = new ArrayList<>(TempDataStorage.getInventory().values());
+        ExportDS inventoryData = new ExportDS(new ArrayList<>());
         for(Item item: inventory){
-            String[] rowData = {item.getName(), String.valueOf(item.getPrice()), String.valueOf(item.getQuantity()), item.getCategories().toString(), String.valueOf(item.getExpirationDates()), item.getStorageLocation()};
+            //format the item information into a String Array
+            String[] rowData = item.getArrayFormat();
             inventoryData.addData(rowData);
         }
-        return inventoryData;
+        //write to the file
+        writer.rewriteFile(inventoryData.getDatabase());
+        return presenter.prepareSuccess(inventoryData.getFilePath()); //display that method completed successfully
     }
 }

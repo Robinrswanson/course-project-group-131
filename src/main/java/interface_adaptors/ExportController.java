@@ -10,9 +10,7 @@ public class ExportController {
         this.exportUseCase = useCase;
     }
     public String export(){
-        ExportDS data = exportUseCase.extractDataStorage();
         gatewayWriter writer = new gatewayWriter("src/main/java/database/Database.csv");
-        writer.rewriteFile(data.getDatabase());
-        return "src/main/java/database/Database.csv";
+        return exportUseCase.extractDataStorage(writer);
     }
 }

@@ -10,10 +10,7 @@ public class ManagerFacade extends EmployeeFacade implements ManagerFacadeInterf
     public void updatePrice(){
 
     }
-    public String importInventory(ImportPresenter presenter, ImportDS database){
-        Import importer = new Import(presenter);
-        importer.importDatabase(database);
-        return "Successful";
+    public void importInventory(ImportPresenter presenter, ImportDS database){
     }
     public void exportInventory(){
     }

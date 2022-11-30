@@ -1,5 +1,6 @@
 package use_cases;
 
+import java.io.IOException;
 import java.util.List;
 import entities.Item;
 import entities.TempDataStorage;
@@ -10,27 +11,21 @@ public class Import implements ImportInputBoundary{
     public Import(ImportOutputBoundary presenter){
         this.presenter = presenter;
     }
-    public String importDatabase(ImportDS importData){
+    public String importDatabase(gatewayReaderInterface reader) throws IOException{
+        ImportDS importData = new ImportDS(reader.getData(), reader.getFilePath());
         List<String[]> data = importData.getImportData();
-        data.remove(0);
+        data.remove(0); //Remove the column titles from the data
         for (String[] lst: data) {
-            String serial_num = lst[0];
-            int quantity = Integer.valueOf(lst[3]);
-            if (!TempDataStorage.hasItem(serial_num)) {
-                return presenter.prepareFailure(0, lst);
-            } else if (quantity < 0) {
-                return presenter.prepareFailure(1, lst);
+            AddDS itemInformation = new AddDS(lst[0], Integer.valueOf(lst[3]));
+            if (!TempDataStorage.hasItem(itemInformation.getSerialNum())) {
+                return presenter.prepareFailure(0, lst); // Check that item is in inventory
+            } else if (itemInformation.getQuantity() < 0) {
+                return presenter.prepareFailure(1, lst); // Check that quantity is not negative
             }
-            Item item = TempDataStorage.getItem(serial_num);
-            int newQuantity = item.getQuantity() + quantity;
+            Item item = TempDataStorage.getItem(itemInformation.getSerialNum());
+            int newQuantity = item.getQuantity() + itemInformation.getQuantity();
             item.setQuantity(newQuantity);
         }
         return presenter.prepareSuccess(importData.getFilepath());
-        /**
-         * Here I want to add the data to the storage
-         * I add to the tempdatastorage
-         *Should I add a data checker to ensure that all entries are valid or assume import file is valid
-         * Should I use the AddDS?
-        **/
     }
 }

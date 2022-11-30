@@ -5,8 +5,7 @@ import use_cases.ExportOutputBoundary;
 import java.util.List;
 
 public class ExportPresenter implements ExportOutputBoundary {
-
-    public String prepareSuccess(){
-        return "Export Successful";
+    public String prepareSuccess(String filePath){
+        return "Inventory successfully exported to: " + filePath;
     }
 }
