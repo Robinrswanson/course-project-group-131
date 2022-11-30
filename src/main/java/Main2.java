@@ -43,7 +43,7 @@ public class Main2 {
         addPresenter.setScreen(addScreen);
         // instantiates the presenter, the use case, the controller AND the screen
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
-
+        // we will DEFINITELY need factories for this later lmao
 
         // screen4 is all about "update price" function.
         UpdatePriceOutputBoundary updatePresenter = new UpdatePresenter();
@@ -55,7 +55,7 @@ public class Main2 {
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
-        allScreens.add((JPanel) addScreen, "Add Items");
+        allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
         allScreens.add(screen4, "Update Price");
 
 
