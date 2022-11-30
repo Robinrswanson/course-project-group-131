@@ -1,6 +1,6 @@
 package use_cases;
 
-public class Return implements Returnable{
+public class Return implements Returnable extends Add{
     private String employeeId;
     private String serialNo;
     private int increasedQuantity;
@@ -11,7 +11,7 @@ public class Return implements Returnable{
         this.serialNo = serialNo;
         this.increasedQuantity = increasedQuantity;
     }
-    /*
+
     public void returnItem()
     {
         super.addItem(employeeId, serialNo, increasedQuantity);
@@ -23,5 +23,4 @@ public class Return implements Returnable{
         History obj = new History();
         obj.updateReturnHistory(employeeId, serialNo, increasedQuantity);
     }
-*/
 }

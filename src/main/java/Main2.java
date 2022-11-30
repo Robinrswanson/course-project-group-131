@@ -17,7 +17,7 @@ public class Main2 {
 
         ImportPresenter presenter = new ImportPresenter();
         Import importer = new Import(presenter);
-        gatewayReader reader = new gatewayReader(file);
+        GatewayReader reader = new GatewayReader(file);
         java.util.List<String[]> data2 = reader.getData();
         ImportDS data = new ImportDS(data2, file);
         data2.remove(0);
@@ -38,7 +38,7 @@ public class Main2 {
 
         System.out.println("-----------------------");
 
-        importer.importDatabase(new gatewayReader(file));
+        importer.importDatabase(new GatewayReader(file));
         Collection<Item> datalst2 = TempDataStorage.getInventory().values();
         for (Item item: datalst2
         ) {

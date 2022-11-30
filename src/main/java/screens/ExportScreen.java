@@ -32,9 +32,17 @@ public class ExportScreen extends JPanel{
         JButton returnToMenu = getMenuButton();
         addButtons(returnToMenu, export);
     }
+
+    /**
+     * Sets the layout of the screen.
+     */
     private void setLayout() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
+
+    /**
+     * Adds title to the screen.
+     */
 
     private void addTitle(){
         JLabel title = new JLabel("Export Inventory");
@@ -44,8 +52,8 @@ public class ExportScreen extends JPanel{
     }
 
     /**
-     * Constructs a new button that when pressed, calls on the controller to start the Add Use case.
-     * @return the "add" button
+     * Constructs a new button that when pressed, calls on the controller to start the export case.
+     * @return the "Export" button
      */
     private JButton getAddButton() {
 
@@ -82,12 +90,22 @@ public class ExportScreen extends JPanel{
         return returnToMenu;
     }
 
+    /**
+     * Adds buttons to the screen.
+     * @param returnToMenu a JButton that when interacted with returns the user to their respective menu screen.
+     * @param export a JButton that when pressed allows a user to export the inventory.
+     */
+
     private void addButtons(JButton returnToMenu, JButton export) {
         JPanel buttons = new JPanel();
         buttons.add(export);
         buttons.add(returnToMenu);
         this.add(buttons);
     }
+
+    /**
+     * Updates the screen to display a notification.
+     */
 
     private void addNotification() {
         this.add(notification);

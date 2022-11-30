@@ -1,6 +1,5 @@
 package interface_adaptors;
 
-import use_cases.ImportDS;
 import use_cases.ImportInputBoundary;
 
 import java.io.IOException;
@@ -11,8 +10,13 @@ public class ImportController {
     public ImportController(ImportInputBoundary useCase){
         this.importUseCase = useCase;
     }
+    /**
+     * The controller creates instance of GatewayReader and passes through ImportUseCase
+     * @param filepath a String that is the location of the desired inventory to be imported
+     * @return a String for the View to present
+     */
     public String importDatabase(String filepath) throws IOException {
-        gatewayReader reader = new gatewayReader(filepath);
+        GatewayReader reader = new GatewayReader(filepath);
         return importUseCase.importDatabase(reader);
     }
 }

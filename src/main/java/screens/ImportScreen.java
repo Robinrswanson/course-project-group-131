@@ -56,7 +56,7 @@ public class ImportScreen extends JPanel{
     }
 
     /**
-     * Adds the Serial Number and Quantity text boxes.
+     * Adds the textbox and textField asking the user to enter the directory.
      */
     private void addTextBoxes() {
 
