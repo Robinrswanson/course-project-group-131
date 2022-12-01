@@ -1,7 +1,7 @@
 package show_history_use_case;
-
+//outputboundary
 public interface ShowHistoryPresenter {
     ShowHistoryFinalInput PrepareSuccessView(ShowHistoryFinalInput finalinput);
-    static ShowHistoryFinalInput PrepareFailView(String error);
+    ShowHistoryFinalInput PrepareFailView(String error);
     }
 

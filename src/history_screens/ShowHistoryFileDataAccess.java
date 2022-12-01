@@ -3,10 +3,15 @@ package history_screens;
 
 import show_history_use_case.ShowHistoryStartInput;
 import show_history_use_case.ShowHistoryDsGateway;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 //import gateway.gatewayreader(Robin's gateway reader)
 
 import java.io.*;
 import java.nio.file.Path;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -70,7 +75,20 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     }
     @Override
-    public void read(ShowHistoryStartInput startinput) throws IOException {
-        this.read();}
+    public List<String[]> readfile(ShowHistoryStartInput startinput) throws IOException {
+        //import the gatewayreader or
+        gatewayReader reader = new gatewayReader(history_path);
+        List<String[]> rows = reader.getData();
+        List<String[]> result = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        for (String[] row: rows){
+            LocalDateTime dateTime = LocalDateTime.parse(row[0],formatter);
+            if (startinput.getStartdatetime().compareTo(dateTime) <=0 && startinput.getEnddatetime().compareTo(dateTime) >=0){
+                result.add(row);
+            }
+        }
+        return rows;
+
+    }
 
 }

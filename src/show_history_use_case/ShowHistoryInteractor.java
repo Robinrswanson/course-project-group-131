@@ -2,6 +2,7 @@ package show_history_use_case;
 
 
 import java.io.IOException;
+import java.util.List;
 
 //Use case layer
 public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
@@ -16,14 +17,17 @@ public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
     @Override
     public ShowHistoryFinalInput show(ShowHistoryStartInput startinput) throws IOException {
        if (! historyreader.StartDateValid(startinput.getStartdate())){
-           return ShowHistoryPresenter.PrepareFailView("Date entered is too early");
+           return historypresenter.PrepareFailView("Date entered is too early");
        }else if(! historyreader.EndDateValid(startinput.getEnddate())){
-           return ShowHistoryPresenter.PrepareFailView("Date entered is too late");
+           return historypresenter.PrepareFailView("Date entered is too late");
        }
-       historyreader.read(startinput);
-       ShowHistoryFinalInput input = new ShowHistoryFinalInput(startinput.getStartdate(),startinput.getEnddate());
+       List<String[]> result = historyreader.readfile(startinput);
+       ShowHistoryFinalInput input = new ShowHistoryFinalInput(startinput.getStartdate(),startinput.getEnddate(),result);
+
        return historypresenter.PrepareSuccessView(input);
     }
+
+
 
 
 }

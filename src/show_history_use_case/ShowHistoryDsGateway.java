@@ -2,6 +2,7 @@ package show_history_use_case;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public interface ShowHistoryDsGateway {
     //these two methods are to check if the dates that user enters are valid
@@ -10,6 +11,6 @@ public interface ShowHistoryDsGateway {
 
 
     //To read from the history file and get the start date and end date of the whole history in the file
-    void read(ShowHistoryStartInput startinput) throws IOException;
+    public List<String[]> readfile(ShowHistoryStartInput startinput) throws IOException;
 
 }
