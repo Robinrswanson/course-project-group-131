@@ -4,7 +4,7 @@ public class Employee {
     private final String username;
     private final String password;
 
-    Employee(String username, String password){
+    public Employee(String username, String password){
         this.username = username;
         this.password = password;
     }

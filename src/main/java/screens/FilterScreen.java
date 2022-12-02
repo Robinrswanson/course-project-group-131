@@ -20,15 +20,15 @@ public class FilterScreen extends JPanel implements ActionListener{
      * @param items the items to display in FilterScreen
      * @param filter the filter used to get the displayed items
      */
-    public FilterScreen(JPanel screens, Iterable<FilterScreenDS> items, String filter) { // it shouldn't directly be dealing with items (use data structure instead)
+    public FilterScreen(JPanel screens, Iterable<FilterScreenInputData> items, String filter) { // it shouldn't directly be dealing with items (use data structure instead)
 
         this.screens = screens;
 
         setLayout();
         addTitle(filter);
 
-        DefaultListModel<FilterScreenDS> listModel = createListModel(items);
-        JList<FilterScreenDS> lst = createJList(listModel);
+        DefaultListModel<FilterScreenInputData> listModel = createListModel(items);
+        JList<FilterScreenInputData> lst = createJList(listModel);
         addScrollScreen(lst);
 
         JButton returnToMenu = createMenuButton(screens);
@@ -92,7 +92,7 @@ public class FilterScreen extends JPanel implements ActionListener{
      * Creates the scroll screen, which allows the users to view all the filtered items
      * @param lst The JList containing the items to display
      */
-    private void addScrollScreen(JList<FilterScreenDS> lst) {
+    private void addScrollScreen(JList<FilterScreenInputData> lst) {
         JScrollPane listScroller = new JScrollPane(lst);
         listScroller.setPreferredSize(new Dimension(SCROLLER_WIDTH, SCROLLER_HEIGHT));
         this.add(listScroller);
@@ -103,8 +103,8 @@ public class FilterScreen extends JPanel implements ActionListener{
      * @param listModel the ListModel containing the items to display
      * @return
      */
-    private static JList<FilterScreenDS> createJList(DefaultListModel<FilterScreenDS> listModel) {
-        JList<FilterScreenDS> lst = new JList<>(listModel);
+    private static JList<FilterScreenInputData> createJList(DefaultListModel<FilterScreenInputData> listModel) {
+        JList<FilterScreenInputData> lst = new JList<>(listModel);
         lst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lst.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         lst.setVisibleRowCount(VISIBLE_ROWS);
@@ -116,9 +116,9 @@ public class FilterScreen extends JPanel implements ActionListener{
      * @param items an iterable collection of items
      * @return returns the ListModel
      */
-    private static DefaultListModel<FilterScreenDS> createListModel(Iterable<FilterScreenDS> items) {
-        Iterator<FilterScreenDS> i = items.iterator();
-        DefaultListModel<FilterScreenDS> listModel = new DefaultListModel<>();
+    private static DefaultListModel<FilterScreenInputData> createListModel(Iterable<FilterScreenInputData> items) {
+        Iterator<FilterScreenInputData> i = items.iterator();
+        DefaultListModel<FilterScreenInputData> listModel = new DefaultListModel<>();
 
         while (i.hasNext()){
             listModel.addElement(i.next());

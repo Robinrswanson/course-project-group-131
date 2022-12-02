@@ -1,7 +1,8 @@
-package use_cases;
+package use_cases.employee_manager_facade;
 
 
 public class EmployeeFacade implements EmployeeFacadeInterface {
+    /*
     String userName;
 
     public void addItem(String serialNo, int increasedQuantity)
@@ -27,5 +28,7 @@ public class EmployeeFacade implements EmployeeFacadeInterface {
         Filterable obj = new Filterable(serialNo);
         obj.filterItem();
     }
+
+     */
 
 }
