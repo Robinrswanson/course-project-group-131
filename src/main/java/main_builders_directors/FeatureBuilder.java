@@ -12,5 +12,6 @@ public interface FeatureBuilder {
     void presenterSetScreen();
 
     JPanel getScreen();
+    // no changes?
 
 }
