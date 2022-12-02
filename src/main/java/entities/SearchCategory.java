@@ -2,7 +2,7 @@ package entities;
 
 import java.util.*;
 
-public class SearchCategory implements Searchable{
+public class SearchCategory {
     String[] categories;
     Map<String, Item> inventory;
 
