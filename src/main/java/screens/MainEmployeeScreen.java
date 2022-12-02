@@ -6,12 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Once the staff logs in, it would turn to this screen. Yes, both the manager and employee share this screen!
- * The only difference is, if an employee clicks the button "update price", an error message would show up while
- * a manager can successfully change the price of an item.
-  */
-
 public class MainEmployeeScreen extends JPanel {
 
     private static JPanel screens;
