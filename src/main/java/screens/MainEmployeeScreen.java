@@ -26,16 +26,13 @@ public class MainEmployeeScreen extends JPanel {
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
         JButton history = createMenuButton("Show History");
-        JButton importData = createMenuButton("Import Data");
-        JButton exportData = createMenuButton("Export Data");
         JButton logOut = createMenuButton("Log Out");
-        JButton updatePrice = createMenuButton("Update Price");
+        JButton update = createMenuButton("Update Price");
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
-        packButtons(new JButton[]{importData, exportData});
-        packButtons(new JButton[]{logOut, updatePrice});
+        packButtons(new JButton[]{logOut, update});
         // packing is just so the orientation is more organized
 
     }
