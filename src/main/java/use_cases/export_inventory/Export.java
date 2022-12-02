@@ -12,7 +12,7 @@ public class Export implements ExportInputBoundary {
     public Export(ExportOutputBoundary presenter){
         this.presenter = presenter;
     }
-    public String extractDataStorage(gatewayWriterInterface writer){
+    public void extractDataStorage(gatewayWriterInterface writer){
         //Get List form of the inventory
         List<Item> inventory = new ArrayList<>(TempDataStorage.getInventory().values());
         ExportDS inventoryData = new ExportDS(new ArrayList<>());
@@ -23,6 +23,6 @@ public class Export implements ExportInputBoundary {
         }
         //write to the file
         writer.rewriteFile(inventoryData.getDatabase());
-        return presenter.prepareSuccess(inventoryData.getFilePath()); //display that method completed successfully
+        presenter.prepareSuccess(inventoryData.getFilePath()); //display that method completed successfully
     }
 }
