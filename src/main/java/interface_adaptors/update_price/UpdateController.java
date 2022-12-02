@@ -1,11 +1,12 @@
-package interface_adaptors;
+package interface_adaptors.update_price;
 
-import use_cases.*;
+import use_cases.update_price.UpdatePriceInputBoundary;
+import use_cases.update_price.UpdatePriceInputData;
 
 public class UpdateController {
-    private UpdateInputBoundary updateUseCase;
+    private UpdatePriceInputBoundary updateUseCase;
 
-    public UpdateController(UpdateInputBoundary useCase){
+    public UpdateController(UpdatePriceInputBoundary useCase){
         this.updateUseCase = useCase;
     }
 
@@ -17,7 +18,7 @@ public class UpdateController {
      */
 
     public String updateItem_price(String serialNum, double price, boolean updatePrice){
-        UpdateDS data = new UpdateDS(serialNum, price, updatePrice);
+        UpdatePriceInputData data = new UpdatePriceInputData(serialNum, price, updatePrice);
         return this.updateUseCase.updateItem(data);
     }
 

@@ -2,7 +2,7 @@ package entities;
 
 public class Manager extends Employee {
 
-    Manager(String username, String password) {
+    public Manager(String username, String password) {
         super(username, password);
     }
 
