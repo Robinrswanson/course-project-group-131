@@ -1,6 +1,6 @@
 package screens;
 
-import interface_adaptors.*;
+import interface_adaptors.update_price.UpdateController;
 
 import javax.swing.*;
 import java.awt.*;
