@@ -1,13 +1,14 @@
 package screens;
 
 import interface_adaptors.update_price.UpdateController;
+import interface_adaptors.update_price.UpdateIview;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpdateScreen extends JPanel{
+public class UpdateScreen extends JPanel implements UpdateIview {
     private final JTextField serialNumText = new JTextField(20);
     private final JTextField priceUpdateText = new JTextField(20);
 
@@ -84,7 +85,7 @@ public class UpdateScreen extends JPanel{
      * @return the "update" button
      */
     private JButton getUpdateButton(){
-        JButton update = new JButton("Update2");
+        JButton update = new JButton("Update");
 
         update.addActionListener(new ActionListener() {
             @Override
@@ -92,12 +93,13 @@ public class UpdateScreen extends JPanel{
                 // controller etc. but for now:
                 System.out.println(serialNumText.getText() + priceUpdateText.getText());
                 try{
-                    String message = controller.updateItem_price(serialNumText.getText(),
+                    controller.updateItem_price(serialNumText.getText(),
                             Double.parseDouble(priceUpdateText.getText()), true);
+                    // LoginCheckUserexists exists =
                     // true is for now. By default, the person has the right to update price.
                     // This is related to log in system, should return a boolean value.
                 } catch (NumberFormatException ex1){
-                    setNotification("Please enter a numeric price");
+                    setMessage("Please enter a numeric price");
                 }
             }
         });
@@ -118,7 +120,7 @@ public class UpdateScreen extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) screens.getLayout();
                 cardLayout.show(screens, "Main");
-                setNotification("");
+                setMessage("");
             }
         });
 
@@ -148,7 +150,7 @@ public class UpdateScreen extends JPanel{
      * Changes the value of the notification
      * @param message the message to change the notification to
      */
-    public void setNotification(String message){
+    public void setMessage(String message){
         notification.setText(message);
     }
 }
