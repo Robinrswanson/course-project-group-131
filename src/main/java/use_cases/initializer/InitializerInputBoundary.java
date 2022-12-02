@@ -9,8 +9,6 @@ public interface InitializerInputBoundary {
     /**
      * Initializes the inventory.
      * @param reader a class that reads files
-     * @throws ParseException
-     * @throws IOException
      */
 
     void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException;

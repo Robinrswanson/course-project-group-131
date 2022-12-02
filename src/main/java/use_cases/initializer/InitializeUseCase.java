@@ -25,11 +25,8 @@ public class InitializeUseCase implements InitializerInputBoundary {
         Map<String, Item> inventory = new HashMap<>();
         for (String[] row: database.getInventory()
              ) {
-            List<String> categories = new ArrayList<>();
-            for (String category: row[4].split(";") //Change depending on how categories are formatted in database
-                 ) {
-                categories.add(category);
-            }
+            //Change depending on how categories are formatted in database
+            List<String> categories = new ArrayList<>(Arrays.asList(row[4].split(";")));
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = dateFormat.parse(row[5]);
             Item item = new Item(row[0], row[1], Double.parseDouble(row[2]), Integer.parseInt(row[3]), categories, date, row[6]);
