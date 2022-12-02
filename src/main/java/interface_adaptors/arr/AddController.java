@@ -23,7 +23,7 @@ public class AddController {
 
         // can remove this later, assuming that serial number entered is never incorrect - just kept in for now for testing purposes
         addUseCase.changeItemQuantity(data);
-        // made a change to the controller
+        // made a change to the controller - again
 
     }
 }
