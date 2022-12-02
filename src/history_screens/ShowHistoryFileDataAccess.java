@@ -80,6 +80,7 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         List<String[]> rows = reader.getData();
         List<String[]> result = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
         for (String[] row: rows){
             LocalDateTime dateTime = LocalDateTime.parse(row[0],formatter);
             if (startinput.getStartdatetime().compareTo(dateTime) <=0 && startinput.getEnddatetime().compareTo(dateTime) >=0){

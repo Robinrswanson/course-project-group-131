@@ -1,5 +1,6 @@
 package show_history_use_case;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 ///Responseforamatter
@@ -10,7 +11,7 @@ public class ShowHistoryResponseModel {
     LocalDateTime enddatetime;
     String enddate;
     String error;
-    List<String[]> historydata;
+    ArrayList<String[]>historydata;
     public ShowHistoryResponseModel(String start, String end){
         this.startdate = start;
         this.enddate = end;
@@ -21,7 +22,7 @@ public class ShowHistoryResponseModel {
         this.startdate = "";
         this.enddate = "";
     }
-    public ShowHistoryResponseModel(String start, String end, List<String[]> historydata){
+    public ShowHistoryResponseModel(String start, String end, ArrayList<String[]> historydata){
         this.startdate = start;
         this.enddate = end;
         this.historydata = historydata;
@@ -32,7 +33,7 @@ public class ShowHistoryResponseModel {
         return this.error;
     }
 
-    public List<String[]> gethitorydata() {
+    public ArrayList<String[]> gethistorydata() {
         return this.historydata;
     }
 

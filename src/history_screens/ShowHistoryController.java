@@ -11,7 +11,7 @@ public class ShowHistoryController {
 
     public ShowHistoryController(ShowHistoryInputBoundary boundary){
         this.inputboundary= boundary;}
-    public ShowHistoryResponseModel show(String startdate, String enddate) throws IOException {
+    public static ShowHistoryResponseModel show(String startdate, String enddate) throws IOException {
         ShowHistoryStartInput startinput = new ShowHistoryStartInput(startdate,enddate);
         return inputboundary.show(startinput);
     }

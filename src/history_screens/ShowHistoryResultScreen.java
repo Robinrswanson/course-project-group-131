@@ -12,7 +12,7 @@ public class ShowHistoryResultScreen {
         JTable j;
 
         // Constructor
-        ShowHistoryResultScreen()
+        ShowHistoryResultScreen(String[][] data)
         {
             // Frame initialization
             f = new JFrame();
@@ -20,10 +20,10 @@ public class ShowHistoryResultScreen {
             // Frame Title
             f.setTitle("History");
             // Data to be displayed in the JTable
-            String[][] data = {
-                    { "Kundan Kumar Jha", "4031", "CSE" },
-                    { "Anand Jha", "6014", "IT" }
-            };
+            //String[][] data = {
+            // { "Kundan Kumar Jha", "4031", "CSE" },
+               //     { "Anand Jha", "6014", "IT" }
+            //};
 
             // Column Names
             String[] columnNames = { "DateTime","Username","Action","ItemName","Quantity" };

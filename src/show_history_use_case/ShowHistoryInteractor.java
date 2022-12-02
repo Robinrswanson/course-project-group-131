@@ -2,7 +2,9 @@ package show_history_use_case;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
 
 //Use case layer
 public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
@@ -22,7 +24,12 @@ public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
            return historypresenter.PrepareFailView("Date entered is too late");
        }
        List<String[]> result = historyreader.readfile(startinput);
-       ShowHistoryResponseModel input = new ShowHistoryResponseModel(startinput.getStartdate(),startinput.getEnddate(),result);
+       ArrayList<String[]> resultfortable = new ArrayList<>();
+       for (int i= 0;i <result.size(); i ++){
+           resultfortable.set(i, result.get(i));
+       }
+       
+       ShowHistoryResponseModel input = new ShowHistoryResponseModel(startinput.getStartdate(),startinput.getEnddate(),resultfortable);
 
        return historypresenter.PrepareSuccessView(input);
     }
