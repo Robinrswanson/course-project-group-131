@@ -8,22 +8,19 @@ public class ReturnUseCase extends AddUseCase implements Returnable
 
     private static final String ACTION = "Return";
 
-    ReturnUseCase(String employeeId, String serialNo, int increasedQuantity)
+    ReturnUseCase(ReturnOutputBoundaryInterface presenter)
     {
-        super();
-        this.employeeId = employeeId;
-        this.serialNo = serialNo;
-        this.increasedQuantity = increasedQuantity;
+        super(presenter);
     }
     public void returnItem()
     {
-        super.addItem(employeeId, serialNo, increasedQuantity);
+        super.addItem(ArrInputData data);
         updateHistory();
     }
 
     private void updateHistory()
     {
-        History obj = new History(employeeId, ACTION, serialNo, increasedQuantity);
+        History obj = new History(demployeeId, ACTION, serialNo, increasedQuantity);
         obj.updateReturnHistory();
     }
 

@@ -5,9 +5,22 @@ import interface_adaptors.*;
 public class ReturnScreen extends AddScreen implements ReturnOutputBoundaryInterface {
 
 
-    ReturnScreen(JPanel screens, AddController controller)
+    public ReturnScreen(JPanel screens, ReturnController controller)
     {
         super(screens,controller);
+    }
+
+    private void addTitle()
+    {
+        JLabel title = new JLabel("Item Return");
+        JPanel titlePanel = new JPanel();
+        titlePanel.add(title);
+        this.add(titlePanel);
+    }
+
+    private JButton getAddButton()
+    {
+
     }
     public void itemReturned(int itemCount)
     {

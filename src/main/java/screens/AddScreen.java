@@ -44,7 +44,7 @@ public class AddScreen extends JPanel{
     /**
      * Sets the text on the top of the screen to "Add an Item"
      */
-    private void addTitle() {
+    private void ;/paddTitle() {
         JLabel title = new JLabel("Add an Item");
         JPanel titlePanel = new JPanel();
         titlePanel.add(title);
