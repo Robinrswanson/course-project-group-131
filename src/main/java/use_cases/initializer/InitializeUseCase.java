@@ -15,6 +15,10 @@ public class InitializeUseCase implements InitializerInputBoundary {
     public InitializeUseCase(){
     }
 
+    /**
+     * Initializes TempDataStorage based on the database
+     * @param reader a GatewayReader that reads the database and returns its contents in a List
+     */
     @Override
     public void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException {
         InitializerDS database = new InitializerDS(reader.getData());
@@ -28,7 +32,7 @@ public class InitializeUseCase implements InitializerInputBoundary {
             }
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = dateFormat.parse(row[5]);
-            Item item = new Item(row[0], row[1], Double.valueOf(row[2]), Integer.valueOf(row[3]), categories, date, row[6]);
+            Item item = new Item(row[0], row[1], Double.parseDouble(row[2]), Integer.parseInt(row[3]), categories, date, row[6]);
             inventory.put(row[0], item);
         }
         TempDataStorage.setTempDataStorage(inventory);

@@ -79,8 +79,9 @@ public class Item {
     }
 
     public String[] getArrayFormat(){
+            String formatedCategories = this.getCategories().toString().replace("[", "").replace("]", "");
             String[] arrayFormat = {this.getSerialNumber(), this.getName(), String.valueOf(this.getPrice()),
-            String.valueOf(this.getQuantity()), this.getCategories().toString(),
+            String.valueOf(this.getQuantity()), formatedCategories,
             this.getDateStringFormat(), this.getStorageLocation()};
             return arrayFormat;
     }
