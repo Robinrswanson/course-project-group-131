@@ -15,14 +15,14 @@ public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
         this.historypresenter = presenter;
     }
     @Override
-    public ShowHistoryFinalInput show(ShowHistoryStartInput startinput) throws IOException {
-       if (! historyreader.StartDateValid(startinput.getStartdate())){
+    public ShowHistoryResponseModel show(ShowHistoryStartInput startinput) throws IOException {
+       if (! historyreader.StartDateValid(startinput.getStartdatetime())){
            return historypresenter.PrepareFailView("Date entered is too early");
-       }else if(! historyreader.EndDateValid(startinput.getEnddate())){
+       }else if(! historyreader.EndDateValid(startinput.getEnddatetime())){
            return historypresenter.PrepareFailView("Date entered is too late");
        }
        List<String[]> result = historyreader.readfile(startinput);
-       ShowHistoryFinalInput input = new ShowHistoryFinalInput(startinput.getStartdate(),startinput.getEnddate(),result);
+       ShowHistoryResponseModel input = new ShowHistoryResponseModel(startinput.getStartdate(),startinput.getEnddate(),result);
 
        return historypresenter.PrepareSuccessView(input);
     }

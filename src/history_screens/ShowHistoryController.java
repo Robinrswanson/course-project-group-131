@@ -1,6 +1,6 @@
 package history_screens;
 
-import show_history_use_case.ShowHistoryFinalInput;
+import show_history_use_case.ShowHistoryResponseModel;
 import show_history_use_case.ShowHistoryInputBoundary;
 import show_history_use_case.ShowHistoryStartInput;
 
@@ -11,7 +11,7 @@ public class ShowHistoryController {
 
     public ShowHistoryController(ShowHistoryInputBoundary boundary){
         this.inputboundary= boundary;}
-    public ShowHistoryFinalInput show(String startdate, String enddate) throws IOException {
+    public ShowHistoryResponseModel show(String startdate, String enddate) throws IOException {
         ShowHistoryStartInput startinput = new ShowHistoryStartInput(startdate,enddate);
         return inputboundary.show(startinput);
     }

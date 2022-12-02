@@ -1,9 +1,9 @@
 package show_history_use_case;
 
 public class ShowHistoryView {
-     public ShowHistoryFinalInput input;
+     public ShowHistoryResponseModel input;
 
-     public ShowHistoryView(ShowHistoryFinalInput input){
+     public ShowHistoryView(ShowHistoryResponseModel input){
          this.input = input;
      }
 

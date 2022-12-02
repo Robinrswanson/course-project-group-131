@@ -39,37 +39,36 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
     }
 
     //Return true if stringdate a is bigger than stringdate b
-    public static boolean CompareDateString(String a, String b){
-        for (int i = 0; i<8; i++){
-            if (Integer.parseInt(a.substring(i))>
-                    Integer.parseInt(b.substring(i))){
-                return true;
-                }else if(Integer.parseInt(a.substring(i))<
-                        Integer.parseInt(b.substring(i))){
-                    return false;
-                }
-            }
-        return true;
+    public boolean CompareDatea(LocalDateTime a, LocalDateTime b){
+        return a.compareTo(b) >= 0;
         }
 
+   public boolean CompareDateb(LocalDateTime a, LocalDateTime b){
+        return a.compareTo(b)<= 0;
+   }
+
     @Override
-    public boolean StartDateValid(String startdate){
+    public boolean StartDateValid(LocalDateTime startdate){
         if (lines == null){
             return false;
         }else{
-            String filestartdate = lines.get(0).substring();
-            return CompareDateString(startdate, filestartdate);
+            String filestartdate = lines.get(0).substring(16);
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime filestartdatetime = LocalDateTime.parse(filestartdate,format);
+            return CompareDatea(startdate, filestartdatetime);
 
         }
 
     }
     @Override
-    public boolean EndDateValid(String enddate){
+    public boolean EndDateValid(LocalDateTime enddate){
         if (lines == null){
             return false;
         }else{
-            String fileenddate = lines.get(lines.size()-1).substring(0,8);
-            return CompareDateString(fileenddate,enddate);
+            String fileenddate = lines.get(lines.size()-1).substring(0,16);
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime fileenddatetime = LocalDateTime.parse(fileenddate,format);
+            return CompareDateb(fileenddatetime,enddate);
 
         }
 

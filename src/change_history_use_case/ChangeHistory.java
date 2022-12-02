@@ -37,6 +37,7 @@ public class ChangeHistory {
         this.name = name;
 
 
+
     }
 
     //gateway writer to write new line of history data to the file "history.csv"

@@ -1,6 +1,6 @@
 package history_screens;
 
-import show_history_use_case.ShowHistoryFinalInput;
+import show_history_use_case.ShowHistoryResponseModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,13 +62,14 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt){
         //System.out.println("Click " + evt.getActionCommand());
         try{
-            ShowHistoryFinalInput output =
+            ShowHistoryResponseModel output =
                     ShowHistoryController.show(startdate.getText(),enddate.getText());
             if (!Objects.equals(output.geterror(), "")){
                 this.setNotification(output.geterror());
 
             }
-            else{ ////show the list of history data in the user interface
+            ////use jtable to show the list of history data in the user interface
+            else{ output.gethitorydata();
 
             }
 
