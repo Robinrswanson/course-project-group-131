@@ -27,11 +27,12 @@ public class MainEmployeeScreen extends JPanel {
         JButton filter = createMenuButton("Display/Filter Items");
         JButton history = createMenuButton("Show History");
         JButton logOut = createMenuButton("Log Out");
+        JButton update = createMenuButton("Update Price");
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
-        packButtons(new JButton[]{logOut});
+        packButtons(new JButton[]{logOut, update});
         // packing is just so the orientation is more organized
 
     }
