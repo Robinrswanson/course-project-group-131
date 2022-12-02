@@ -1,115 +1,104 @@
 import entities.Item;
 import entities.TempDataStorage;
-import interface_adaptors.*;
-import use_cases.*;
+import interface_adaptors.arr.*;
+import interface_adaptors.update_price.UpdateController;
+import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
+import use_cases.arr.ARRInputBoundary;
+import use_cases.arr.ARROutputBoundary;
+import use_cases.arr.Add;
+import use_cases.update_price.UpdatePrice;
+import use_cases.update_price.UpdatePriceInputBoundary;
+import use_cases.update_price.UpdatePriceOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
 public class Main2 {
-    public static void main(String[] args) throws IOException {
-        String file = "src\\main\\java\\Database\\Sample Data - Sample Item.csv";
-        Map<String, Item> inventory = new HashMap<String, Item>();
+    public static void main(String[] args) {
 
-        ImportPresenter presenter = new ImportPresenter();
-        Import importer = new Import(presenter);
-        GatewayReader reader = new GatewayReader(file);
-        java.util.List<String[]> data2 = reader.getData();
-        ImportDS data = new ImportDS(data2, file);
-        data2.remove(0);
-
-        for (String[] row: data2) {
-            List<String> lst = new ArrayList<String>();
-            Date date = new Date();
-            Item item = new Item(row[1], Double.valueOf(row[2]), Integer.valueOf(row[3]), lst, date, "");
-            inventory.put(row[0], item);
-        }
-        TempDataStorage.setTempDataStorage(inventory);
-
-        Collection<Item> datalst = TempDataStorage.getInventory().values();
-        for (Item item: datalst
-        ) {
-            System.out.println(item.getName() + ", " + item.getQuantity());
-        }
-
-        System.out.println("-----------------------");
-
-        importer.importDatabase(new GatewayReader(file));
-        Collection<Item> datalst2 = TempDataStorage.getInventory().values();
-        for (Item item: datalst2
-        ) {
-            System.out.println(item.getName() + ", " + item.getQuantity());
-        }
-
-        ArrayList<FilterScreenDS> lst = makeFilterScreenSample();
+        createTestInventory();
+        // creates a test inventory
 
         JFrame application = new JFrame("Main Screen");
 
         CardLayout cardLayout = new CardLayout();
-        JPanel screens = new JPanel(cardLayout);
-        JPanel screen1 = new MainManagerScreen(screens);
-        JPanel screen2 = new FilterScreen(screens, lst, "Displaying all Items");
+        JPanel allScreens = new JPanel(cardLayout);
+        // makes the screen that will store ALL the SCREENS
 
-        // screen3 is all about "add quantity" function.
-        AddOutputBoundary addPresenter = new AddPresenter();
-        AddInputBoundary addUseCase = new AddUseCase(addPresenter);
+        JPanel mainMenu = new MainEmployeeScreen(allScreens);
+        // creates the main menu
+
+        ArrayList<FilterScreenInputData> lst = makeFilterScreenSample();
+        JPanel sortScreen = new FilterScreen(allScreens, lst, "Displaying all Items");
+        // creates the sort screen, based on the test data in lst
+
+        // addScreen is all about "add quantity" function.
+        ARROutputBoundary addPresenter = new AddPresenter();
+        ARRInputBoundary addUseCase = new Add(addPresenter);
         AddController addController = new AddController(addUseCase);
-        JPanel screen3 = new AddScreen(screens, addController);
-
+        ARRIView addScreen = new AddScreen(allScreens, addController);
+        addPresenter.setScreen(addScreen);
+        // instantiates the presenter, the use case, the controller AND the screen
+        // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
+        // we will DEFINITELY need factories for this later lmao
 
         // screen4 is all about "update price" function.
-        UpdateOutputBoundary updatePresenter = new UpdatePresenter();
-        UpdateInputBoundary updateUseCase = new UpdateUseCase(updatePresenter);
+        UpdatePriceOutputBoundary updatePresenter = new UpdatePresenter();
+        UpdatePriceInputBoundary updateUseCase = new UpdatePrice(updatePresenter);
         UpdateController updateController = new UpdateController(updateUseCase);
-        JPanel screen4 = new UpdateScreen(screens, updateController);
+        JPanel screen4 = new UpdateScreen(allScreens, updateController);
+        // similar to above
 
-        // screen5 is all about "import" function.
-        ImportOutputBoundary importPresenter = new ImportPresenter();
-        ImportInputBoundary ImportUseCase = new Import(importPresenter);
-        ImportController ImportController = new ImportController(ImportUseCase);
-        JPanel screen5 = new ImportScreen(screens, ImportController);
+        // all the screens created so far are added to the allScreens storage
+        allScreens.add(mainMenu, "Main");
+        allScreens.add(sortScreen, "Display/Filter Items");
+        allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
+        allScreens.add(screen4, "Update Price");
 
-        // screen6 is all about "export" function.
-        ExportOutputBoundary exportPresenter = new ExportPresenter();
-        ExportInputBoundary exportUseCase = new Export(exportPresenter);
-        ExportController exportController = new ExportController(exportUseCase);
-        JPanel screen6 = new ExportScreen(screens, exportController);
 
-        screens.add(screen1, "Main");
-        screens.add(screen2, "Display/Filter Items");
-        screens.add(screen3, "Add Items");
-        screens.add(screen4, "Update Price");
-        screens.add(screen5, "Import");
-        screens.add(screen6, "Export");
-
-        application.add(screens);
-        cardLayout.show(screens, "Main");
+        application.add(allScreens);
+        cardLayout.show(allScreens, "Main");
+        // the first screen that is shown is the main menu
 
         application.pack();
         application.setVisible(true);
-        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        // the JFrame becomes visible!
     }
 
-    private static ArrayList<FilterScreenDS> makeFilterScreenSample() {
-        ArrayList<FilterScreenDS> lst = new ArrayList<>();
-        lst.add(new FilterScreenDS("Pineapples", "274783"));
-        lst.add(new FilterScreenDS("Oranges", "658424"));
-        lst.add(new FilterScreenDS("Coconuts", "585341"));
-        lst.add(new FilterScreenDS("Bananas", "234364"));
-        lst.add(new FilterScreenDS("Apples", "076584"));
-        lst.add(new FilterScreenDS("Grapes", "163854"));
-        lst.add(new FilterScreenDS("Peaches", "957832"));
-        lst.add(new FilterScreenDS("Mangoes", "371234"));
-        lst.add(new FilterScreenDS("Kiwis", "068974"));
-        lst.add(new FilterScreenDS("Apricots", "453123"));
-        lst.add(new FilterScreenDS("Blueberries", "079898"));
-        lst.add(new FilterScreenDS("Strawberries", "333222"));
-        lst.add(new FilterScreenDS("Blackberries", "113244"));
-        lst.add(new FilterScreenDS("Raspberries", "104320"));
+    private static void createTestInventory() {
+
+        // very crude... will definitely want to import from an actual file later
+
+        List<String> bananaCategories = new ArrayList<>();
+        bananaCategories.add("Fruit");
+        Item banana = new Item("10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
+        Map<String, Item> map = new HashMap<>();
+        map.put("10077", banana);
+        TempDataStorage.setTempDataStorage(map);
+    }
+
+    private static ArrayList<FilterScreenInputData> makeFilterScreenSample() {
+
+        // again... will want to import this data from a file later
+
+        ArrayList<FilterScreenInputData> lst = new ArrayList<>();
+        lst.add(new FilterScreenInputData("Pineapples", "274783"));
+        lst.add(new FilterScreenInputData("Oranges", "658424"));
+        lst.add(new FilterScreenInputData("Coconuts", "585341"));
+        lst.add(new FilterScreenInputData("Bananas", "234364"));
+        lst.add(new FilterScreenInputData("Apples", "076584"));
+        lst.add(new FilterScreenInputData("Grapes", "163854"));
+        lst.add(new FilterScreenInputData("Peaches", "957832"));
+        lst.add(new FilterScreenInputData("Mangoes", "371234"));
+        lst.add(new FilterScreenInputData("Kiwis", "068974"));
+        lst.add(new FilterScreenInputData("Apricots", "453123"));
+        lst.add(new FilterScreenInputData("Blueberries", "079898"));
+        lst.add(new FilterScreenInputData("Strawberries", "333222"));
+        lst.add(new FilterScreenInputData("Blackberries", "113244"));
+        lst.add(new FilterScreenInputData("Raspberries", "104320"));
         return lst;
     }
 }

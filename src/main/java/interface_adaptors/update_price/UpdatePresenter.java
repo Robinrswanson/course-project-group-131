@@ -1,8 +1,9 @@
-package interface_adaptors;
+package interface_adaptors.update_price;
 
-import use_cases.*;
+import use_cases.update_price.UpdatePriceInputData;
+import use_cases.update_price.UpdatePriceOutputBoundary;
 
-public class UpdatePresenter implements UpdateOutputBoundary {
+public class UpdatePresenter implements UpdatePriceOutputBoundary {
 
     /**
      * Called if the price has been successfully updated
@@ -12,7 +13,7 @@ public class UpdatePresenter implements UpdateOutputBoundary {
      */
 
     @Override
-    public String prepareSuccess(UpdateDS data){
+    public String prepareSuccess(UpdatePriceInputData data){
         return "the price of item(s) with serial number " + data.getSerialNum() +
                 "has been updated to" + data.getPrice();
     }

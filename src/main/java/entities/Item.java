@@ -20,15 +20,6 @@ public class Item {
         this.storageLocation = storagelocation;
     }
 
-    Item(String name, double price, int quantity, List<String> categories,
-         String storagelocation){
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.categories = categories;
-        this.storageLocation = storagelocation;
-    }
-
     public String getName(){
         return this.name;
     }

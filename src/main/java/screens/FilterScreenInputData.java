@@ -1,11 +1,11 @@
 package screens;
 
-public class FilterScreenDS {
+public class FilterScreenInputData {
 
     String name;
     String serialNum;
 
-    public FilterScreenDS(String name, String serialNum){
+    public FilterScreenInputData(String name, String serialNum){
         this.name = name;
         this.serialNum = serialNum;
     }

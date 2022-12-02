@@ -1,5 +1,7 @@
 package screens;
 
+import interface_adaptors.arr.ARRIView;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -18,7 +20,7 @@ public class MainEmployeeScreen extends JPanel {
         addTitle();
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
-        JButton add = createMenuButton("Add Items");
+        JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
         JButton returnItem = createMenuButton("Return Items");
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
