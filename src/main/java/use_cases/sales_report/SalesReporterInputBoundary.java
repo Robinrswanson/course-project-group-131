@@ -1,4 +1,4 @@
-package use_cases;
+package use_cases.sales_report;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

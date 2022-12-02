@@ -1,4 +1,4 @@
-package use_cases;
+package use_cases.sales_report;
 import entities.TempDataStorage;
 
 import java.time.LocalDateTime;
@@ -8,6 +8,7 @@ import java.util.List;
 
 
 public class SalesReporter {
+    private final String FILE_PATH = "C:\\Users\\leste\\OneDrive\\Documents\\AutoCAD Sheet Sets"
     private final int DATE_TIME_COLUMN = 0;
     private final int ACTION_COLUMN = 2;
     private final int QUANTITY_COLUMN =  4;
@@ -17,7 +18,7 @@ public class SalesReporter {
             {"Item Serial No.", "Item Name", "Price", "Quantity Sold", "Items Returned", "Revenue"};
     // return a list of string arrays representing where each element in the list is a row in the sales report, and each
     // element in the array is a column of that row.
-    public ArrayList<String[]> generateReport(List<String[]> rows, LocalDateTime startTime, LocalDateTime endTime){
+    public ArrayList<String[]> generateReport(LocalDateTime startTime, LocalDateTime endTime){
         ArrayList<String[]> splitData = splitListTimeRange(rows, startTime, endTime);
         ArrayList<String> serialNumList = serialNumList(splitData);
         ArrayList<String[]> result = new ArrayList<String[]>();
@@ -34,6 +35,7 @@ public class SalesReporter {
         result.add(new String[]{totalRevenue});
         return result;
     }
+
     public String[] getRow (ArrayList<String[]> rows, String serialNum){
         String name = TempDataStorage.getItem(serialNum).getName();
         String price = String.valueOf(itemPrice(serialNum));
@@ -46,7 +48,7 @@ public class SalesReporter {
     // split data into specified time range when given a list of string arrays in the format
     // [DateTime,Username,Action,Item Name,Quantity] and a startTime and endTime. The List is assumed to be in
     // chronological order.
-    public ArrayList<String[]> splitListTimeRange(List<String[]> rows, LocalDateTime startTime, LocalDateTime endTime){
+    public ArrayList<String[]> splitListTimeRange(LocalDateTime startTime, LocalDateTime endTime){
         ArrayList<String[]> result= new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         for (String[] row: rows){

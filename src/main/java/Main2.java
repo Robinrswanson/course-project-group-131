@@ -52,6 +52,9 @@ public class Main2 {
         JPanel screen4 = new UpdateScreen(allScreens, updateController);
         // similar to above
 
+        // creates sales report screen
+
+
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");

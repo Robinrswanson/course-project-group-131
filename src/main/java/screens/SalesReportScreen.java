@@ -24,7 +24,9 @@ public class SalesReportScreen extends JPanel implements ActionListener {
         addTitle();
     }
 
-    private void setLayout() {this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS))}
+    private void setLayout() {
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    }
 
     /**
      * Adds the "Menu" and "Change Date Range" buttons at the bottom of the screen
@@ -38,7 +40,20 @@ public class SalesReportScreen extends JPanel implements ActionListener {
         bottomButtonPane.add(returnToMenu);
         this.add(bottomButtonPane);
     }
-    private static JButton createDateButton()
+    /**
+     * Creates the Change Date Range button. The action listener is not yet implemented
+     * @return returns the button
+     */
+    private static JButton createDateButton() {
+        JButton changeDateRange = new JButton("Change Date Range");
+        changeDateRange.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // screen to change date range
+            }
+        });
+        return changeDateRange;
+    }
 
 
     /**
@@ -57,7 +72,9 @@ public class SalesReportScreen extends JPanel implements ActionListener {
         });
         return returnToMenu;
     }
-    private static JList<ArrayList<String[]>> createJList()
+
+    private static JTable createTable ()
+
 
 
 
