@@ -1,8 +1,11 @@
 package entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Item {
+    private final String serialNumber;
     private final String name;
     private double price;
     private int quantity;
@@ -10,8 +13,9 @@ public class Item {
     private Date expirationDates;
     private String storageLocation;
 
-    public Item(String name, double price, int quantity, List<String> categories,
+    public Item(String serialNumber, String name, double price, int quantity, List<String> categories,
          Date expirationDates, String storagelocation){
+        this.serialNumber = serialNumber;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -19,7 +23,7 @@ public class Item {
         this.expirationDates = expirationDates;
         this.storageLocation = storagelocation;
     }
-
+    public String getSerialNumber(){return this.serialNumber;}
     public String getName(){
         return this.name;
     }
@@ -75,9 +79,13 @@ public class Item {
     }
 
     public String[] getArrayFormat(){
-            String[] arrayFormat = {this.getName(), String.valueOf(this.getPrice()),
+            String[] arrayFormat = {this.getSerialNumber(), this.getName(), String.valueOf(this.getPrice()),
             String.valueOf(this.getQuantity()), this.getCategories().toString(),
-            String.valueOf(this.getExpirationDates()), this.getStorageLocation()};
+            this.getDateStringFormat(), this.getStorageLocation()};
             return arrayFormat;
+    }
+    public String getDateStringFormat(){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(this.expirationDates);
     }
 }

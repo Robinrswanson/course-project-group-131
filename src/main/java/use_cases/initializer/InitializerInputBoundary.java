@@ -1,0 +1,11 @@
+package use_cases.initializer;
+
+import use_cases.gateway_interfaces.GatewayReaderInterface;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+public interface InitializerInputBoundary {
+
+    void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException;
+}

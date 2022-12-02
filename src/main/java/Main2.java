@@ -1,25 +1,40 @@
 import entities.Item;
 import entities.TempDataStorage;
 import interface_adaptors.arr.*;
+import interface_adaptors.export_inventory.ExportController;
+import interface_adaptors.export_inventory.ExportPresenter;
+import interface_adaptors.import_inventory.ImportController;
+import interface_adaptors.import_inventory.ImportPresenter;
+import interface_adaptors.inventory_initializer.InitializerController;
 import interface_adaptors.update_price.UpdateController;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
+import use_cases.export_inventory.Export;
+import use_cases.export_inventory.ExportInputBoundary;
+import use_cases.export_inventory.ExportOutputBoundary;
+import use_cases.import_inventory.Import;
+import use_cases.import_inventory.ImportInputBoundary;
+import use_cases.import_inventory.ImportOutputBoundary;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
 import use_cases.update_price.UpdatePriceOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 import java.util.List;
 
 public class Main2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException, IOException {
 
-        createTestInventory();
+        InitializerController initializer = new InitializerController();
+        initializer.InitializeInventory();
+
         // creates a test inventory
 
         JFrame application = new JFrame("Main Screen");
@@ -28,7 +43,7 @@ public class Main2 {
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
-        JPanel mainMenu = new MainEmployeeScreen(allScreens);
+        JPanel mainMenu = new MainManagerScreen(allScreens);
         // creates the main menu
 
         ArrayList<FilterScreenInputData> lst = makeFilterScreenSample();
@@ -51,12 +66,25 @@ public class Main2 {
         UpdateController updateController = new UpdateController(updateUseCase);
         JPanel screen4 = new UpdateScreen(allScreens, updateController);
         // similar to above
+        // screen4 is all about "update price" function.
+        ImportOutputBoundary ImportPresenter = new ImportPresenter();
+        ImportInputBoundary ImportUseCase = new Import(ImportPresenter);
+        ImportController ImportController = new ImportController(ImportUseCase);
+        JPanel screen5 = new ImportScreen(allScreens, ImportController);
+
+        ExportOutputBoundary ExportPresenter = new ExportPresenter();
+        ExportInputBoundary ExportUseCase = new Export(ExportPresenter);
+        ExportController ExportController = new ExportController(ExportUseCase);
+        JPanel screen6 = new ExportScreen(allScreens, ExportController);
 
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
         allScreens.add(screen4, "Update Price");
+        allScreens.add(screen5, "Import");
+        allScreens.add(screen6, "Export");
+
 
 
         application.add(allScreens);
@@ -66,6 +94,7 @@ public class Main2 {
         application.pack();
         application.setVisible(true);
         // the JFrame becomes visible!
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     private static void createTestInventory() {
@@ -74,7 +103,7 @@ public class Main2 {
 
         List<String> bananaCategories = new ArrayList<>();
         bananaCategories.add("Fruit");
-        Item banana = new Item("10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
+        Item banana = new Item("1", "10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
         Map<String, Item> map = new HashMap<>();
         map.put("10077", banana);
         TempDataStorage.setTempDataStorage(map);
