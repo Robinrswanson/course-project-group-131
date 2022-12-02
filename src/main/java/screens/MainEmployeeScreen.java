@@ -1,14 +1,10 @@
 package screens;
 
+import interface_adaptors.arr.ARRIView;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
-/**
- * Once the staff logs in, it would turn to this screen. Yes, both the manager and employee share this screen!
- * The only difference is, if an employee clicks the button "update price", an error message would show up while
- * a manager can successfully change the price of an item.
-  */
 
 public class MainEmployeeScreen extends JPanel {
 
@@ -24,19 +20,18 @@ public class MainEmployeeScreen extends JPanel {
         addTitle();
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
-        JButton add = createMenuButton("Add Items");
+        JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
         JButton returnItem = createMenuButton("Return Items");
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
         JButton history = createMenuButton("Show History");
         JButton logOut = createMenuButton("Log Out");
-        JButton update = createMenuButton("Update Price");
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
-        packButtons(new JButton[]{logOut, update});
+        packButtons(new JButton[]{logOut});
         // packing is just so the orientation is more organized
 
     }
