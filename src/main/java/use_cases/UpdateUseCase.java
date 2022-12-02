@@ -15,6 +15,7 @@ public class UpdateUseCase implements UpdateInputBoundary {
      *                 rights to update price or not.
      * @return a string of the view to show the user (created by the presenter)
      */
+    @Override
     public String updateItem(UpdateDS data){
         if (data.getPrice() < 0){
             return presenter.prepareFailure(0);
