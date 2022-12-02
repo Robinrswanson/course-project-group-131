@@ -1,11 +1,14 @@
 package use_cases.import_inventory;
 
+import interface_adaptors.import_inventory.ImportIView;
 import use_cases.arr.ARRInputData;
 
 public interface ImportOutputBoundary {
 
-    String prepareSuccess(); // display if the use case succeeded
+    void setScreen(ImportIView screen);
 
-    String prepareFailure(int value, ARRInputData data); //Display if the use case failed
+    void prepareSuccess(); // display if the use case succeeded
+
+    void prepareFailure(int value, ARRInputData data); //Display if the use case failed
 
 }

@@ -1,12 +1,24 @@
 import entities.Item;
 import entities.TempDataStorage;
 import interface_adaptors.arr.*;
+import interface_adaptors.export_inventory.ExportController;
+import interface_adaptors.export_inventory.ExportIView;
+import interface_adaptors.export_inventory.ExportPresenter;
+import interface_adaptors.import_inventory.ImportController;
+import interface_adaptors.import_inventory.ImportIView;
+import interface_adaptors.import_inventory.ImportPresenter;
 import interface_adaptors.update_price.UpdateController;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
+import use_cases.export_inventory.Export;
+import use_cases.export_inventory.ExportInputBoundary;
+import use_cases.export_inventory.ExportOutputBoundary;
+import use_cases.import_inventory.Import;
+import use_cases.import_inventory.ImportInputBoundary;
+import use_cases.import_inventory.ImportOutputBoundary;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
 import use_cases.update_price.UpdatePriceOutputBoundary;
@@ -52,12 +64,25 @@ public class Main2 {
         JPanel screen4 = new UpdateScreen(allScreens, updateController);
         // similar to above
 
+        ImportOutputBoundary importPresenter = new ImportPresenter();
+        ImportInputBoundary importUseCase = new Import(importPresenter);
+        ImportController importController = new ImportController(importUseCase);
+        ImportIView importScreen = new ImportScreen(allScreens, importController);
+        importPresenter.setScreen(importScreen);
+
+        ExportOutputBoundary exportPresenter = new ExportPresenter();
+        ExportInputBoundary exportUseCase = new Export(exportPresenter);
+        ExportController exportController = new ExportController(exportUseCase);
+        ExportIView exportScreen = new ExportScreen(allScreens, exportController);
+        exportPresenter.setScreen(exportScreen);
+
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
         allScreens.add(screen4, "Update Price");
-
+        allScreens.add((JPanel) importScreen, "Import Data");
+        allScreens.add((JPanel) exportScreen, "Export Data");
 
         application.add(allScreens);
         cardLayout.show(allScreens, "Main");
@@ -83,6 +108,7 @@ public class Main2 {
     private static ArrayList<FilterScreenInputData> makeFilterScreenSample() {
 
         // again... will want to import this data from a file later
+
 
         ArrayList<FilterScreenInputData> lst = new ArrayList<>();
         lst.add(new FilterScreenInputData("Pineapples", "274783"));

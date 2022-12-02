@@ -10,5 +10,5 @@ public interface ImportInputBoundary {
      * @param reader a class that reads files
      * @return a string that tells the pres
      */
-    String importDatabase(gatewayReaderInterface reader) throws IOException;
+    void importDatabase(gatewayReaderInterface reader) throws IOException;
 }
