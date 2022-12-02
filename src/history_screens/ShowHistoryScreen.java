@@ -44,7 +44,7 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
         addTitle();
         addTextBoxes();
         addNotification();
-        JBtton add = getAddButton();
+        JButton add = getAddButton();
         JButton returnToMenu = getMenuButton();
         addButtons(returnToMenu, add);
     }
@@ -82,7 +82,7 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
         layout.setVerticalGroup(vGroup);
         this.add(textBoxPanel);
     }
-    private JButton getAddButton(){
+    private JButton getAddButton() {
         JButton showhistorybutton = new JButton("Show History");
 
         //not sure if need to add this button to a Jpanel. not do here
@@ -106,10 +106,13 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-            });
-            return showhistorybutton;
-        }
-        private JButton getMenuButton() {
+            }
+
+        });
+        return showhistorybutton;
+    }
+
+    private JButton getMenuButton() {
             JButton returnToMenu = new JButton("Main menu");
 
         returnToMenu.addActionListener(new ActionListener(){
@@ -123,13 +126,22 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
         return returnToMenu;
     }
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(title);
-        this.add(startdateinfo);
-        this.add(enddateinfo);
-        this.add(showhistory);
+        //this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //this.add(title);
+        //this.add(startdateinfo);
+        //this.add(enddateinfo);
+        //this.add(showhistory);
+    //
 
+
+    ////add add and menu button to the screen
+    private void addButtons(JButton returnToMenu, JButton add){
+        JPanel buttons = new JPanel();
+        buttons.add(add);
+        buttons.add(returnToMenu);
+        this.add(buttons);
     }
+
     /**
      * React to a button click that results in evt.
      */
@@ -141,7 +153,7 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
             //if (!Objects.equals(output.geterror(), "")){
                // this.setNotification(output.geterror());
 
-            }
+            //}
             ////use jtable to show the list of history data in the user interface
             //else{
                 //output.gethistorydata();
