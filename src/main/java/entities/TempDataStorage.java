@@ -23,9 +23,7 @@ public class TempDataStorage {
     public static boolean hasItem(String serialNum){
         return inventory.containsKey(serialNum);
     }
-    public static Map<String, Item> getInventory(){
-        return inventory;
-    }
+    public static Map<String, Item> getInventory(){return inventory;}
 
     public static void main(String[] args) {
         System.out.println(2);
