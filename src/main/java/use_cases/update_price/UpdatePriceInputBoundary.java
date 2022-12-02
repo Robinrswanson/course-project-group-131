@@ -1,6 +1,6 @@
-package use_cases;
+package use_cases.update_price;
 
-public interface UpdateInputBoundary {
+public interface UpdatePriceInputBoundary {
 
     /**
      * Update the price of the item, with data contained in UpdateDS
@@ -8,5 +8,5 @@ public interface UpdateInputBoundary {
      *             rights to update price or not.
      * @return a String displaying successes or failures
      */
-    String updateItem(UpdateDS data);
+    String updateItem(UpdatePriceInputData data);
 }

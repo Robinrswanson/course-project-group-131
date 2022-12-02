@@ -1,12 +1,11 @@
-package use_cases;
+package use_cases.update_price;
 
-import java.util.*;
 import entities.*;
 
-public class UpdateUseCase implements UpdateInputBoundary {
-    private final UpdateOutputBoundary presenter;
+public class UpdatePrice implements UpdatePriceInputBoundary {
+    private final UpdatePriceOutputBoundary presenter;
 
-    public UpdateUseCase(UpdateOutputBoundary presenter){
+    public UpdatePrice(UpdatePriceOutputBoundary presenter){
         this.presenter = presenter;
     }
 
@@ -15,7 +14,7 @@ public class UpdateUseCase implements UpdateInputBoundary {
      *                 rights to update price or not.
      * @return a string of the view to show the user (created by the presenter)
      */
-    public String updateItem(UpdateDS data){
+    public String updateItem(UpdatePriceInputData data){
         if (data.getPrice() < 0){
             return presenter.prepareFailure(0);
         }
