@@ -1,9 +1,6 @@
 package screens;
 
-import entities.TempDataStorage;
-import interface_adaptors.ExportController;
-import interface_adaptors.ExportPresenter;
-import use_cases.Export;
+import interface_adaptors.export_inventory.ExportController;
 
 import javax.swing.*;
 import java.awt.*;

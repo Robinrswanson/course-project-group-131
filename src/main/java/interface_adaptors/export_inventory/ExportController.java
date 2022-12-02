@@ -1,6 +1,7 @@
-package interface_adaptors;
+package interface_adaptors.export_inventory;
 
-import use_cases.ExportInputBoundary;
+import interface_adaptors.gateway.GatewayWriter;
+import use_cases.export_inventory.ExportInputBoundary;
 
 public class ExportController {
     ExportInputBoundary exportUseCase;

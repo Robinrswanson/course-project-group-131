@@ -1,4 +1,4 @@
-package use_cases;
+package use_cases.export_inventory;
 
 import java.util.List;
 

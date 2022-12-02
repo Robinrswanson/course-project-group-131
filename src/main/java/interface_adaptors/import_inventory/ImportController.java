@@ -1,6 +1,7 @@
-package interface_adaptors;
+package interface_adaptors.import_inventory;
 
-import use_cases.ImportInputBoundary;
+import interface_adaptors.gateway.GatewayReader;
+import use_cases.import_inventory.ImportInputBoundary;
 
 import java.io.IOException;
 

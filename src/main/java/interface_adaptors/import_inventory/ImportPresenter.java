@@ -1,7 +1,7 @@
-package interface_adaptors;
+package interface_adaptors.import_inventory;
 
-import use_cases.AddDS;
-import use_cases.ImportOutputBoundary;
+import use_cases.arr.ARRInputData;
+import use_cases.import_inventory.ImportOutputBoundary;
 
 public class ImportPresenter implements ImportOutputBoundary {
     /**
@@ -20,7 +20,7 @@ public class ImportPresenter implements ImportOutputBoundary {
      */
 
     @Override
-    public String prepareFailure(int value, AddDS itemInformation) {
+    public String prepareFailure(int value, ARRInputData itemInformation) {
         if (value == 0){
             return "Error: " + itemInformation.getSerialNum() + " not found in inventory.";
         }

@@ -1,6 +1,6 @@
-package use_cases;
+package use_cases.export_inventory;
 
-import java.util.List;
+import use_cases.gateway_interfaces.gatewayWriterInterface;
 
 public interface ExportInputBoundary {
     /**

@@ -1,8 +1,6 @@
-package interface_adaptors;
+package interface_adaptors.export_inventory;
 
-import use_cases.ExportOutputBoundary;
-
-import java.util.List;
+import use_cases.export_inventory.ExportOutputBoundary;
 
 public class ExportPresenter implements ExportOutputBoundary {
     /**

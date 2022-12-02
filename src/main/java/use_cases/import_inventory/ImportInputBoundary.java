@@ -1,9 +1,8 @@
-package use_cases;
+package use_cases.import_inventory;
 
-import interface_adaptors.ImportPresenter;
+import use_cases.gateway_interfaces.gatewayReaderInterface;
 
 import java.io.IOException;
-import java.util.List;
 
 public interface ImportInputBoundary {
     /**

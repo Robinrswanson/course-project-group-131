@@ -1,6 +1,6 @@
-package interface_adaptors;
+package interface_adaptors.gateway;
 
-import use_cases.gatewayWriterInterface;
+import use_cases.gateway_interfaces.gatewayWriterInterface;
 
 import java.io.*;
 import java.util.List;
@@ -15,7 +15,7 @@ public class GatewayWriter implements gatewayWriterInterface {
         this.filePath = filePath;
     }
 
-    public void addNewLines(String[] newRowData) throws IOException {
+    public void addNewLines(String[] newRowData) {
         try {
             // could possibly change row and col to search for item name
             GatewayReader reader = new GatewayReader(filePath);
@@ -34,7 +34,7 @@ public class GatewayWriter implements gatewayWriterInterface {
         }
     }
 
-    public void editSingleCell(String replace, int row, int col) throws IOException {
+    public void editSingleCell(String replace, int row, int col) {
         try {
             GatewayReader reader = new GatewayReader(filePath);
             List<String[]> fileContents = reader.getData();

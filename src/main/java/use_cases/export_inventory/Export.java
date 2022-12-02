@@ -1,10 +1,11 @@
-package use_cases;
+package use_cases.export_inventory;
 
 import java.util.ArrayList;
 import java.util.List;
 import entities.*;
+import use_cases.gateway_interfaces.gatewayWriterInterface;
 
-public class Export implements ExportInputBoundary{
+public class Export implements ExportInputBoundary {
 
     private final ExportOutputBoundary presenter;
 

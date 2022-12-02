@@ -1,8 +1,5 @@
 package screens;
-import entities.TempDataStorage;
-import interface_adaptors.*;
-import use_cases.Export;
-import use_cases.Import;
+import interface_adaptors.import_inventory.ImportController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +43,7 @@ public class ImportScreen extends JPanel{
     }
 
     /**
-     * Sets the text on the top of the screen to "Import and Inventory"
+     * Sets the text at the top of the screen to "Import and Inventory"
      */
     private void addTitle() {
         JLabel title = new JLabel("Import an Inventory");
