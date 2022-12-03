@@ -7,32 +7,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SalesReporter {
-    private final String FILE_PATH = "C:\\Users\\leste\\OneDrive\\Documents\\AutoCAD Sheet Sets"
+public class SalesReporter implements SalesReporterInputBoundary {
+    private final SalesReporterOutputBoundary presenter;
+    /*private final ShowHistoryDsGateway checker;*/
     private final int DATE_TIME_COLUMN = 0;
     private final int ACTION_COLUMN = 2;
     private final int QUANTITY_COLUMN =  4;
     private final int SERIAL_NUM_COLUMN = 5;
 
-    private final String[] HEADERS =
-            {"Item Serial No.", "Item Name", "Price", "Quantity Sold", "Items Returned", "Revenue"};
+    public SalesReporter(SalesReporterOutputBoundary presenter, ShowHistoryDsGateway checker) {
+        this.presenter = presenter;
+        this.checker = checker;
+    }
+
     // return a list of string arrays representing where each element in the list is a row in the sales report, and each
     // element in the array is a column of that row.
-    public ArrayList<String[]> generateReport(LocalDateTime startTime, LocalDateTime endTime){
-        ArrayList<String[]> splitData = splitListTimeRange(rows, startTime, endTime);
-        ArrayList<String> serialNumList = serialNumList(splitData);
-        ArrayList<String[]> result = new ArrayList<String[]>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String formattedStartTime = startTime.format(formatter);
-        String formattedEndTime = endTime.format(formatter);
-        String dateRange = "Time Range: " + formattedStartTime + " - " + formattedEndTime;
-        result.add(new String[] {dateRange});
-        result.add(HEADERS);
-        for (String serialNum: serialNumList){
-            result.add(getRow(splitData, serialNum));
+    public void generateReport(List<String[]> rows, String startTime, String endTime){
+        LocalDateTime start = stringToDateTime(startTime);
+        LocalDateTime end = stringToDateTime(endTime);
+        if (!checker.StartDateValid(start)){
+            presenter.prepareFailure(SalesReporterOutputBoundary.START_TIME_ERROR);
         }
-        String totalRevenue = String.format("Total Revenue: $%.5f", totalRevenue(splitData));
-        result.add(new String[]{totalRevenue});
+        else if (!checker.EndDateValid(end)){
+            presenter.prepareFailure(SalesReporterOutputBoundary.END_TIME_ERROR);
+        }
+        else {
+            ArrayList<String[]> splitData = splitListTimeRange(rows, start, end);
+            ArrayList<String> serialNumList = serialNumList(splitData);
+            ArrayList<String[]> result = new ArrayList<String[]>();
+            for (String serialNum : serialNumList) {
+                result.add(getRow(splitData, serialNum));
+            }
+            String totalRevenue = String.format("Total Revenue: $%.5f", totalRevenue(splitData));
+            result.add(new String[]{"", "", "", "", "", totalRevenue});
+            presenter.prepareSuccess(result);
+        }
+    }
+    // probably should have this somewhere else so that the History use case can also use it idk?
+    public LocalDateTime stringToDateTime(String dateTime){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime result = LocalDateTime.parse(dateTime);
         return result;
     }
 
@@ -48,11 +62,10 @@ public class SalesReporter {
     // split data into specified time range when given a list of string arrays in the format
     // [DateTime,Username,Action,Item Name,Quantity] and a startTime and endTime. The List is assumed to be in
     // chronological order.
-    public ArrayList<String[]> splitListTimeRange(LocalDateTime startTime, LocalDateTime endTime){
+    public ArrayList<String[]> splitListTimeRange(List<String[]> rows, LocalDateTime startTime, LocalDateTime endTime){
         ArrayList<String[]> result= new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         for (String[] row: rows){
-            LocalDateTime dateTime = LocalDateTime.parse(row[DATE_TIME_COLUMN], formatter);
+            LocalDateTime dateTime = stringToDateTime(row[DATE_TIME_COLUMN]);
             if (startTime.compareTo(dateTime) <= 0 && endTime.compareTo(dateTime) >= 0){
                 result.add(row);
             }
