@@ -11,6 +11,7 @@ public class ShowHistoryResultScreen {
         // Table
         JTable j;
 
+
         // Constructor
         ShowHistoryResultScreen(String[][] data)
         {
@@ -19,6 +20,7 @@ public class ShowHistoryResultScreen {
 
             // Frame Title
             f.setTitle("History");
+
             // Data to be displayed in the JTable
             //String[][] data = {
             // { "Kundan Kumar Jha", "4031", "CSE" },
@@ -39,11 +41,7 @@ public class ShowHistoryResultScreen {
             f.setSize(500, 200);
             // Frame Visible = true
             f.setVisible(true);
-        }
+        }}
 
         // Driver  method
-        public static void main(String[] args)
-        {
-            new ShowHistoryResultScreen();
-        }
-}
+

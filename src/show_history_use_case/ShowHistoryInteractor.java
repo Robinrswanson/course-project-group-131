@@ -24,9 +24,9 @@ public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
            return historypresenter.PrepareFailView("Date entered is too late");
        }
        List<String[]> result = historyreader.readfile(startinput);
-       ArrayList<String[]> resultfortable = new ArrayList<>();
+       String[][]resultfortable = new String[result.size()][];
        for (int i= 0;i <result.size(); i ++){
-           resultfortable.set(i, result.get(i));
+           resultfortable[i]= result.get(i);
        }
        
        ShowHistoryResponseModel input = new ShowHistoryResponseModel(startinput.getStartdate(),startinput.getEnddate(),resultfortable);

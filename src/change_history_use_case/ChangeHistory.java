@@ -13,6 +13,7 @@ import java.util.Date;
 
 //Can be considered as a gatewaywriter ; could be split into data model,use case,and gateway writer but this use case is not too long.
 public class ChangeHistory {
+    //public to private
     public String time;
     public String username;
     public String serinum;
@@ -25,7 +26,7 @@ public class ChangeHistory {
 
 //GET all the history data we need when constructing ChangeHistory object
 
-    public ChangeHistory(String name, String serinum, String action,String item,String quantity)  {
+    public ChangeHistory(String name, String action,String item,String quantity,String serinum)  {
         //get current time and save it as a String arribute
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -44,7 +45,7 @@ public class ChangeHistory {
     public void save_history_change(){
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter("history.csv", true));
+            writer = new BufferedWriter(new FileWriter("../historydatabase/history.csv", true));
             String line = String.format("%s,%s,%s,%s,%s,%s",
                     this.time, this.username, this.action, this.item, this.quantity,this.serinum);
             writer.write(line);

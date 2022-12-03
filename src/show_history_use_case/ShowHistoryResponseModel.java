@@ -11,7 +11,7 @@ public class ShowHistoryResponseModel {
     LocalDateTime enddatetime;
     String enddate;
     String error;
-    ArrayList<String[]>historydata;
+    String[][] historydata;
     public ShowHistoryResponseModel(String start, String end){
         this.startdate = start;
         this.enddate = end;
@@ -22,7 +22,7 @@ public class ShowHistoryResponseModel {
         this.startdate = "";
         this.enddate = "";
     }
-    public ShowHistoryResponseModel(String start, String end, ArrayList<String[]> historydata){
+    public ShowHistoryResponseModel(String start, String end, String[][] historydata){
         this.startdate = start;
         this.enddate = end;
         this.historydata = historydata;
@@ -33,7 +33,7 @@ public class ShowHistoryResponseModel {
         return this.error;
     }
 
-    public ArrayList<String[]> gethistorydata() {
+    public String[][] gethistorydata() {
         return this.historydata;
     }
 

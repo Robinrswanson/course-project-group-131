@@ -1,6 +1,7 @@
 package history_screens;
 
 import show_history_use_case.ShowHistoryResponseModel;
+import history_screens.ShowHistoryResultScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Objects;
 
-public class ShowHistoryScreen extends JPanel implements ActionListener {
+public class ShowHistoryScreen extends JPanel  {
     /**
      * the start date which the employee wants to look at
      */
@@ -17,6 +18,7 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
     /**
      * the end date which the employee wants to look at
      */
+    private String[][] tdata;
 
     JTextField enddate = new JTextField(15);
 
@@ -61,6 +63,12 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
         titlePanel.add(title);
         this.add(titlePanel);
     }
+
+    ///Add the jtable for the history data
+    //private void addTable(String[][] tdata){
+
+    //};
+
     ///Add the startdate and enddate textbox
     private void addTextBoxes() {
         Label startdateinfo = new Label(
@@ -98,8 +106,8 @@ public class ShowHistoryScreen extends JPanel implements ActionListener {
 
                     }
                     ////use jtable to show the list of history data in the user interface
-                    else {
-                        output.gethistorydata();
+                    else {ShowHistoryResultScreen screen = new ShowHistoryResultScreen(output.gethistorydata());
+
 
                     }
 
