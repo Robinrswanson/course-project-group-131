@@ -2,6 +2,7 @@ import entities.Item;
 import entities.TempDataStorage;
 import interface_adaptors.arr.*;
 import interface_adaptors.update_price.UpdateController;
+import interface_adaptors.update_price.UpdateIview;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
 import use_cases.arr.ARRInputBoundary;
@@ -45,18 +46,19 @@ public class Main2 {
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
         // we will DEFINITELY need factories for this later lmao
 
-        // screen4 is all about "update price" function.
+        // updateScreen is all about "update price" function.
         UpdatePriceOutputBoundary updatePresenter = new UpdatePresenter();
         UpdatePriceInputBoundary updateUseCase = new UpdatePrice(updatePresenter);
         UpdateController updateController = new UpdateController(updateUseCase);
-        JPanel screen4 = new UpdateScreen(allScreens, updateController);
+        UpdateIview updateScreen = new UpdateScreen(allScreens, updateController);
+        updatePresenter.setScreen(updateScreen);
         // similar to above
 
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
-        allScreens.add(screen4, "Update Price");
+        allScreens.add((JPanel) updateScreen, UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
 
         application.add(allScreens);
