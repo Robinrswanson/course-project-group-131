@@ -1,7 +1,7 @@
 package interface_adaptors.update_price;
 
 public interface UpdateIview {
-    // this is a interface in interface adapters layer so that the Update Price use case follows MVC model.
+    // this is an interface in interface adapters layer so that the Update Price use case follows MVC model.
 
     String UPDATE_SCREEN_NAME_CONSTANT = "Update Price";
 
