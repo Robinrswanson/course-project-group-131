@@ -10,22 +10,13 @@ public class Item {
     private Date expirationDates;
     private String storageLocation;
 
-    Item(String name, double price, int quantity, List<String> categories,
+    public Item(String name, double price, int quantity, List<String> categories,
          Date expirationDates, String storagelocation){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.categories = categories;
         this.expirationDates = expirationDates;
-        this.storageLocation = storagelocation;
-    }
-
-    Item(String name, double price, int quantity, List<String> categories,
-         String storagelocation){
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.categories = categories;
         this.storageLocation = storagelocation;
     }
 
@@ -81,5 +72,12 @@ public class Item {
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);
         return this.expirationDates.compareTo(date) < 0;
+    }
+
+    public String[] getArrayFormat(){
+            String[] arrayFormat = {this.getName(), String.valueOf(this.getPrice()),
+            String.valueOf(this.getQuantity()), this.getCategories().toString(),
+            String.valueOf(this.getExpirationDates()), this.getStorageLocation()};
+            return arrayFormat;
     }
 }
