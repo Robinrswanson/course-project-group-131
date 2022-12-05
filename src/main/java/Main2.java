@@ -43,7 +43,7 @@ public class Main2 {
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
-        JPanel mainMenu = new MainManagerScreen(allScreens);
+        JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
 
         ArrayList<FilterScreenInputData> lst = makeFilterScreenSample();
