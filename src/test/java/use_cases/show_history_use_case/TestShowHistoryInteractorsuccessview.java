@@ -1,6 +1,8 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 
 import org.junit.jupiter.api.Test;
+import screens.ShowHistoryScreen;
+import use_cases.show_history_use_case.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -31,6 +33,11 @@ public class TestShowHistoryInteractorsuccessview {
             }
         };
         ShowHistoryPresenter presneter = new ShowHistoryPresenter() {
+            @Override
+            public void setScreen(ShowHistoryScreen screen) {
+                assertTrue(true);
+            }
+
             @Override
             public ShowHistoryResponseModel PrepareSuccessView(ShowHistoryResponseModel finalinput) {
                 assertArrayEquals(new String[][]{{"2022-12-03 06:46:33","Daisy","Add","Apple","1","apple123"}},finalinput.gethistorydata());

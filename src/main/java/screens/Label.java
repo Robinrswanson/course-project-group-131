@@ -1,6 +1,7 @@
-package history_screens;
+package screens;
 //Actually this could be put in screens
-import  javax.swing.*;
+
+import javax.swing.*;
 //Frameworks
 public class Label extends JPanel{
     public Label(JLabel label, JTextField textField){

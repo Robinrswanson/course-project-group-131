@@ -1,4 +1,4 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 
 
 import java.io.IOException;
@@ -18,9 +18,9 @@ public class ShowHistoryInteractor implements ShowHistoryInputBoundary{
     @Override
     public ShowHistoryResponseModel show(ShowHistoryStartInput startinput) throws IOException {
        if (! historyreader.StartDateValid(startinput.getStartdatetime())){
-           return historypresenter.PrepareFailView("Date entered is too early");
+           return historypresenter.PrepareFailView("Start Date entered is too early");
        }else if(! historyreader.EndDateValid(startinput.getEnddatetime())){
-           return historypresenter.PrepareFailView("Date entered is too late");
+           return historypresenter.PrepareFailView("End Date entered is too late");
        }
        List<String[]> result = historyreader.readfile(startinput);
        String[][]resultfortable = new String[result.size()][];

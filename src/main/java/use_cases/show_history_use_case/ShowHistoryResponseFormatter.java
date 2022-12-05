@@ -1,7 +1,13 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
+
+import screens.ShowHistoryScreen;
 
 //THe view
 public class ShowHistoryResponseFormatter implements ShowHistoryPresenter{
+    ShowHistoryScreen screen;
+    public void setScreen(ShowHistoryScreen screen){
+        this.screen = screen;
+    }
     @Override
 
     public ShowHistoryResponseModel PrepareSuccessView(ShowHistoryResponseModel input){

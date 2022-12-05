@@ -1,4 +1,4 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 
 public class ShowHistoryView {
      public ShowHistoryResponseModel input;

@@ -1,7 +1,5 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 ///Responseforamatter
 //interface adapters

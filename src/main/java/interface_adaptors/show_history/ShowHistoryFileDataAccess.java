@@ -1,21 +1,22 @@
 //This class is for the valid date check
-package history_screens;
+package interface_adaptors.show_history;
 
-import show_history_use_case.ShowHistoryStartInput;
-import show_history_use_case.ShowHistoryDsGateway;
+import interface_adaptors.gateway.*;
+
+import use_cases.show_history_use_case.ShowHistoryDsGateway;
+import use_cases.show_history_use_case.ShowHistoryStartInput;
+
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-//import gateway.gatewayreader(Robin's gateway reader)
-
-import java.io.*;
 
 
 public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
-    public static ArrayList<String> lines;
-    public static BufferedReader reader;
+    public List<String[]> lines;
+    public GatewayReader reader;
     //here I want to import Robin's gateway reader method but this method is not in the main yet.
     //public ShowHistoryFileDataAccess(){
         //GatewayReader reader = new GatewayReader(D://history.csv);
@@ -23,19 +24,14 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     //for now I use a buffer reader to do this.
 
-    public ShowHistoryFileDataAccess() throws IOException {
-        reader = new BufferedReader(new FileReader("history.csv"));
-    }
-    public void read() throws IOException {
-        String line = reader.readLine();
-        while (line != null) {
-            lines.add(line);
-            line = reader.readLine();
-        }
-        reader.close();
-    }
-
     //Return true if stringdate a is bigger than stringdate b
+    public ShowHistoryFileDataAccess() throws IOException {
+    reader = new GatewayReader("D:\\uoft\\2022 fall\\course-project-group-131\\src\\main\\java\\historydatabase\\history.csv");
+    lines = reader.getData();}
+    public ShowHistoryFileDataAccess(GatewayReader reader2) throws IOException {
+        reader = reader2;
+        lines = reader.getData();
+    }
     public boolean CompareDatea(LocalDateTime a, LocalDateTime b){
         return a.compareTo(b) >= 0;
         }
@@ -49,8 +45,8 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         if (lines == null){
             return false;
         }else{
-            String filestartdate = lines.get(0).substring(16);
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            String filestartdate = lines.get(0)[0];
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             LocalDateTime filestartdatetime = LocalDateTime.parse(filestartdate,format);
             return CompareDatea(startdate, filestartdatetime);
 
@@ -62,10 +58,10 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         if (lines == null){
             return false;
         }else{
-            String fileenddate = lines.get(lines.size()-1).substring(0,16);
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            String fileenddate = lines.get(lines.size()-1)[0];
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             LocalDateTime fileenddatetime = LocalDateTime.parse(fileenddate,format);
-            return CompareDateb(fileenddatetime,enddate);
+            return CompareDateb(enddate,fileenddatetime);
 
         }
 
@@ -73,18 +69,16 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
     @Override
     public List<String[]> readfile(ShowHistoryStartInput startinput) throws IOException {
         //import the gatewayreader or
-        gatewayReader reader = new gatewayReader(history_path);
-        List<String[]> rows = reader.getData();
         List<String[]> result = new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-        for (String[] row: rows){
+        for (String[] row: lines){
             LocalDateTime dateTime = LocalDateTime.parse(row[0],formatter);
             if (startinput.getStartdatetime().compareTo(dateTime) <=0 && startinput.getEnddatetime().compareTo(dateTime) >=0){
                 result.add(row);
             }
         }
-        return rows;
+        return result;
 
     }
 

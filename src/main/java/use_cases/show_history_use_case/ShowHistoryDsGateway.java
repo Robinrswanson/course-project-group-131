@@ -1,4 +1,4 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

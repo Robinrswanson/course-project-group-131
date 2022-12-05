@@ -1,7 +1,7 @@
-package show_history_use_case;
+package use_cases.show_history_use_case;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 //history date has limit
 public class ShowHistoryStartInput {
     private String startdate;
@@ -13,7 +13,7 @@ public class ShowHistoryStartInput {
     public ShowHistoryStartInput(String start, String end){
         this.startdate = start;
         this.enddate = end;
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         this.startdatetime = LocalDateTime.parse(start, format);
         this.enddatetime = LocalDateTime.parse(end,format);
     }
