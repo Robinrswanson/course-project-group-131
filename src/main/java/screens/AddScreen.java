@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 
 public class AddScreen extends JPanel implements ARRIView {
 
-    private final JTextField serialNumberField = new JTextField(20);
-    private final JTextField quantityField = new JTextField(20);
+    protected final JTextField serialNumberField = new JTextField(20);
+    protected final JTextField quantityField = new JTextField(20);
 
     private final JPanel screens;
     private final JLabel notification = new JLabel("");
@@ -38,14 +38,14 @@ public class AddScreen extends JPanel implements ARRIView {
      * Sets the layout of the screen. Currently, the layout is set to BoxLayout, which stacks added
      * components/panels on top of each other one by one.
      */
-    private void setLayout() {
+    protected void setLayout() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     /**
      * Sets the text on the top of the screen to "Add an Item"
      */
-    private void ;/paddTitle() {
+    protected void addTitle() {
         JLabel title = new JLabel("Add an Item");
         JPanel titlePanel = new JPanel();
         titlePanel.add(title);
@@ -55,7 +55,7 @@ public class AddScreen extends JPanel implements ARRIView {
     /**
      * Adds the Serial Number and Quantity text boxes.
      */
-    private void addTextBoxes() {
+     protected void addTextBoxes() {
 
         JLabel serialNumberLabel = new JLabel("Enter Serial Number");
         JLabel quantityLabel = new JLabel("Enter Quantity");
@@ -90,7 +90,7 @@ public class AddScreen extends JPanel implements ARRIView {
      * Constructs a new button that when pressed, calls on the controller to start the Add Use case.
      * @return the "add" button
      */
-    private JButton getAddButton() {
+    protected JButton getAddButton() {
 
         JButton add = new JButton("Add");
 
@@ -113,7 +113,7 @@ public class AddScreen extends JPanel implements ARRIView {
      * Constructs a button that when pressed, returns the user back to the Main Menu (view to view, no adaptors needed)
      * @return the "menu" button
      */
-    private JButton getMenuButton() {
+    protected JButton getMenuButton() {
 
         JButton returnToMenu = new JButton("Main Menu");
 
@@ -134,7 +134,7 @@ public class AddScreen extends JPanel implements ARRIView {
      * @param returnToMenu the returnToMenu button created by getMenuButton
      * @param add the add button created by getAddButton
      */
-    private void addButtons(JButton returnToMenu, JButton add) {
+    protected void addButtons(JButton returnToMenu, JButton add) {
         JPanel buttons = new JPanel();
         buttons.add(add);
         buttons.add(returnToMenu);

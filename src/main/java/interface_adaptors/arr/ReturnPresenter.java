@@ -1,4 +1,4 @@
-package interface_adaptors;
+package interface_adaptors.arr;
 
 public class ReturnPresenter {
 
