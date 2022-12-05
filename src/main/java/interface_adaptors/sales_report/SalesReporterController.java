@@ -20,7 +20,7 @@ public class SalesReporterController {
     }
 
     /**
-     * The controller packages the data and sends it off to the Update Use Case
+     * The controller packages the data and sends it off to the Sales Reporter use case
      * @param startTime the start of the time range for the sales report
      * @param endTime the end of the time range for the sales report
      */
