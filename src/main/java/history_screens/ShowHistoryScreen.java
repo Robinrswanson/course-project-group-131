@@ -1,7 +1,6 @@
 package history_screens;
 
 import show_history_use_case.ShowHistoryResponseModel;
-import history_screens.ShowHistoryResultScreen;
 
 import javax.swing.*;
 import java.awt.*;

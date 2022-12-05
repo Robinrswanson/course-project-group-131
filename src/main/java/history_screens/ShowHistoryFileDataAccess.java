@@ -10,9 +10,6 @@ import java.util.List;
 //import gateway.gatewayreader(Robin's gateway reader)
 
 import java.io.*;
-import java.nio.file.Path;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 
 public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
