@@ -8,12 +8,16 @@ import java.util.List;
 
 public class GatewayReader implements GatewayReaderInterface {
 
-    private final File file;
-    private final String filePath;
+    private File file;
+    private String filePath;
 
     public GatewayReader(String filePath){
         this.file = new File(filePath);
         this.filePath = filePath;
+    }
+    public void setFilePath(String filePath){
+        this.filePath = filePath;
+        this.file = new File(filePath);
     }
     public String getFilePath(){
         return this.filePath;
