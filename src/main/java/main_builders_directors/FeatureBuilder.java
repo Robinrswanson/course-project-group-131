@@ -14,4 +14,6 @@ public interface FeatureBuilder {
     JPanel getScreen();
     // no changes?
 
+    String getScreenName();
+
 }

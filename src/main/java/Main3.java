@@ -1,6 +1,7 @@
 import entities.Item;
 import entities.TempDataStorage;
-import main_builders_directors.AddFeatureDirector;
+import main_builders_directors.AddFeatureBuilder;
+import main_builders_directors.FeatureBuilder;
 import main_builders_directors.FeatureDirector;
 import main_builders_directors.ImportFeatureDirector;
 import screens.*;
@@ -27,17 +28,19 @@ public class Main3 {
         // creates the main menu
 
         // ============= CHANGES START HERE ==============:
-        List<FeatureDirector> directors = new ArrayList<>();
+        List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
-        directors.add(new AddFeatureDirector());
-        directors.add(new ImportFeatureDirector());
+        builders.add(new AddFeatureBuilder());
         // ...
-        // for all the different functions, all you have to do is add a new director here
+        // for all the different functions, all you have to do is add a new builder here
 
-        for (FeatureDirector director: directors){
+        FeatureDirector director = new FeatureDirector();
+
+        for (FeatureBuilder builder: builders){
             // polymorphism: each createArchitecture method for each director creates different architecture
+            director.setBuilder(builder);
             JPanel screen = director.createFeature(allScreens);
-            allScreens.add(screen, director.getScreenName());
+            allScreens.add(screen, builder.getScreenName());
         }
         // ============= CHANGES ARE DONE HERE =================;
 
