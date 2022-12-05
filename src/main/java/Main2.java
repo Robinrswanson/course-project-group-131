@@ -1,40 +1,26 @@
 import entities.Item;
 import entities.TempDataStorage;
 import interface_adaptors.arr.*;
-import interface_adaptors.export_inventory.ExportController;
-import interface_adaptors.export_inventory.ExportPresenter;
-import interface_adaptors.import_inventory.ImportController;
-import interface_adaptors.import_inventory.ImportPresenter;
-import interface_adaptors.inventory_initializer.InitializerController;
 import interface_adaptors.update_price.UpdateController;
+import interface_adaptors.update_price.UpdateIview;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
-import use_cases.export_inventory.Export;
-import use_cases.export_inventory.ExportInputBoundary;
-import use_cases.export_inventory.ExportOutputBoundary;
-import use_cases.import_inventory.Import;
-import use_cases.import_inventory.ImportInputBoundary;
-import use_cases.import_inventory.ImportOutputBoundary;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
 import use_cases.update_price.UpdatePriceOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.*;
 import java.util.List;
 
 public class Main2 {
-    public static void main(String[] args) throws ParseException, IOException {
+    public static void main(String[] args) {
 
-        InitializerController initializer = new InitializerController();
-        initializer.InitializeInventory();
-
+        createTestInventory();
         // creates a test inventory
 
         JFrame application = new JFrame("Main Screen");
@@ -60,31 +46,19 @@ public class Main2 {
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
         // we will DEFINITELY need factories for this later lmao
 
-        // screen4 is all about "update price" function.
+        // updateScreen is all about "update price" function.
         UpdatePriceOutputBoundary updatePresenter = new UpdatePresenter();
         UpdatePriceInputBoundary updateUseCase = new UpdatePrice(updatePresenter);
         UpdateController updateController = new UpdateController(updateUseCase);
-        JPanel screen4 = new UpdateScreen(allScreens, updateController);
+        UpdateIview updateScreen = new UpdateScreen(allScreens, updateController);
+        updatePresenter.setScreen(updateScreen);
         // similar to above
-        // screen4 is all about "update price" function.
-        ImportOutputBoundary ImportPresenter = new ImportPresenter();
-        ImportInputBoundary ImportUseCase = new Import(ImportPresenter);
-        ImportController ImportController = new ImportController(ImportUseCase);
-        JPanel screen5 = new ImportScreen(allScreens, ImportController);
-
-        ExportOutputBoundary ExportPresenter = new ExportPresenter();
-        ExportInputBoundary ExportUseCase = new Export(ExportPresenter);
-        ExportController ExportController = new ExportController(ExportUseCase);
-        JPanel screen6 = new ExportScreen(allScreens, ExportController);
 
         // all the screens created so far are added to the allScreens storage
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
-        allScreens.add(screen4, "Update Price");
-        allScreens.add(screen5, "Import");
-        allScreens.add(screen6, "Export");
-
+        allScreens.add((JPanel) updateScreen, UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
 
         application.add(allScreens);
@@ -94,7 +68,6 @@ public class Main2 {
         application.pack();
         application.setVisible(true);
         // the JFrame becomes visible!
-        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     private static void createTestInventory() {
@@ -103,7 +76,7 @@ public class Main2 {
 
         List<String> bananaCategories = new ArrayList<>();
         bananaCategories.add("Fruit");
-        Item banana = new Item("1", "10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
+        Item banana = new Item("10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
         Map<String, Item> map = new HashMap<>();
         map.put("10077", banana);
         TempDataStorage.setTempDataStorage(map);
