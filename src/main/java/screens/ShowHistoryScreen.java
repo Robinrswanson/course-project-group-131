@@ -76,9 +76,9 @@ public class ShowHistoryScreen extends JPanel implements ShowHistoryView {
     ///Add the startdate and enddate textbox
     private void addTextBoxes() {
         Label startdateinfo = new Label(
-                new JLabel("Enter the start date of history that you want to look at(yyyy-mm-dd HH:ss)"), startdate);
+                new JLabel("Enter the start date of history that you want to look at(yyyy-mm-dd HH:mm:ss)"), startdate);
         Label enddateinfo = new Label(
-                new JLabel("Choose the end date of the history that you want to look at(yyyy-mm-dd HH:ss)"), enddate);
+                new JLabel("Choose the end date of the history that you want to look at(yyyy-mm-dd HH:mm:ss)"), enddate);
         JPanel textBoxPanel = new JPanel();
         GroupLayout layout = new GroupLayout(textBoxPanel);
         textBoxPanel.setLayout(layout);
