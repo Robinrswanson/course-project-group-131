@@ -26,27 +26,26 @@ public class ReturnScreen extends AddScreen {
         this.add(titlePanel);
     }
 
-    protected JButton getReturnButton()
-    {
+    protected JButton getReturnButton() {
         super.getAddButton();
         JButton returnItem = new JButton("Return");
 
-        returnItem.addActionListener(new ActionListener(){
+        returnItem.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
+            public void actionPerformed(ActionEvent e) {
+                try {
                     controller.returnItem(serialNumberField.getText(), Integer.parseInt(quantityField.getText()));
                 }
-                catch (NumberFormatException exception)
-                {
-                    JOptionPane.showMessageDialog()
+                catch (NumberFormatException exception) {
+                    JOptionPane.showMessageDialog(null, "You haven't entered a valid quantity");
                 }
             }
-        };
+        });
         return returnItem;
     }
+
+
+
 
     public void itemReturned(int itemCount)
     {

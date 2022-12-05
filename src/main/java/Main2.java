@@ -41,6 +41,9 @@ public class Main2 {
         AddController addController = new AddController(addUseCase);
         ARRIView addScreen = new AddScreen(allScreens, addController);
         addPresenter.setScreen(addScreen);
+
+        ARROutputBoundary returnPresenter = new ReturnPresenter();
+
         // instantiates the presenter, the use case, the controller AND the screen
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
         // we will DEFINITELY need factories for this later lmao
