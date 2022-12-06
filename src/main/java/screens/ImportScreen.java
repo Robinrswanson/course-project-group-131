@@ -1,5 +1,6 @@
 package screens;
 import interface_adaptors.import_inventory.ImportController;
+import interface_adaptors.import_inventory.ImportIView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ImportScreen extends JPanel{
+public class ImportScreen extends JPanel implements ImportIView {
 
     private final JTextField directoryField = new JTextField(20);
 
@@ -59,14 +60,10 @@ public class ImportScreen extends JPanel{
 
         JLabel directoryLabel = new JLabel("Enter directory");
 
-        JPanel textBoxPanel = new JPanel();
-        GroupLayout layout = new GroupLayout(textBoxPanel);
-        textBoxPanel.setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
-
-        this.add(directoryLabel);
-        this.add(directoryField);
+        JPanel directoryLabelField = new JPanel();
+        directoryLabelField.add(directoryLabel);
+        directoryLabelField.add(directoryField);
+        this.add(directoryLabelField);
     }
 
     /**
@@ -83,10 +80,9 @@ public class ImportScreen extends JPanel{
                 // controller etc. but for now:
                 System.out.println(directoryField.getText());
                 try{
-                    String message = controller.importDatabase(directoryField.getText());
-                    setNotification(message);
+                    controller.importDatabase(directoryField.getText());
                 } catch (FileNotFoundException ex1){
-                    setNotification("Please enter a valid directory");
+                    setMessage("Please enter a valid directory");
                 } // this can be removed if deemed not necessary
                 catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -109,7 +105,7 @@ public class ImportScreen extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) screens.getLayout();
                 cardLayout.show(screens, "Main");
-                setNotification("");
+                setMessage("");
             }
         });
 
@@ -139,7 +135,7 @@ public class ImportScreen extends JPanel{
      * Changes the value of the notification
      * @param message the message to change the notification to
      */
-    public void setNotification(String message){
+    public void setMessage(String message){
         notification.setText(message);
     }
 }

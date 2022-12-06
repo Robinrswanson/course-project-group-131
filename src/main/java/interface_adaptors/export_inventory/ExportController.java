@@ -14,8 +14,8 @@ public class ExportController {
      * The filepath is set automatically to the location of the database
      * @return a String for the View to present
      */
-    public String export(){
+    public void export(){
         GatewayWriter writer = new GatewayWriter("src/main/java/database/Database.csv");
-        return exportUseCase.extractDataStorage(writer);
+        exportUseCase.extractDataStorage(writer);
     }
 }
