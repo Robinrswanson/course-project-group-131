@@ -6,7 +6,7 @@ import use_cases.arr.ARRInputData;
 public class ReturnController extends AddController
 {
     ARRInputBoundary returnObj;
-    ReturnController(ARRInputBoundary returnObj)
+    public ReturnController(ARRInputBoundary returnObj)
     {
         super(returnObj);
         this.returnObj = returnObj;

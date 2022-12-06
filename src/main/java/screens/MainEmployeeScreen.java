@@ -26,7 +26,7 @@ public class MainEmployeeScreen extends JPanel {
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
         JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
-        JButton returnItem = createMenuButton("Return Items");
+        JButton returnItem = createMenuButton(ARRIView.RETURN_SCREEN_NAME_CONSTANT);
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");

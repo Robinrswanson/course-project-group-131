@@ -11,6 +11,7 @@ import screens.*;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
+import use_cases.arr.ReturnUseCase;
 import use_cases.show_history_use_case.*;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
@@ -51,7 +52,12 @@ public class Main2 {
         ARRIView addScreen = new AddScreen(allScreens, addController);
         addPresenter.setScreen(addScreen);
 
+
         ARROutputBoundary returnPresenter = new ReturnPresenter();
+        ARRInputBoundary returnUseCase = new ReturnUseCase(returnPresenter);
+        ReturnController returnController = new ReturnController(returnUseCase);
+        ARRIView returnScreen = new ReturnScreen(allScreens, returnController);
+        returnPresenter.setScreen(returnScreen);
 
         // instantiates the presenter, the use case, the controller AND the screen
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality

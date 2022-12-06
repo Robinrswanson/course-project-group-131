@@ -6,7 +6,7 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
 
     private static final String ACTION = "Return";
 
-    ReturnUseCase(ARROutputBoundary presenter)
+    public ReturnUseCase(ARROutputBoundary presenter)
     {
         super(presenter);
     }
