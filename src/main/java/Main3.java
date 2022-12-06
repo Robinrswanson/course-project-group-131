@@ -1,18 +1,17 @@
 import entities.Item;
 import entities.TempDataStorage;
-import main_builders_directors.AddFeatureBuilder;
-import main_builders_directors.FeatureBuilder;
-import main_builders_directors.FeatureDirector;
-import main_builders_directors.ImportFeatureDirector;
+import main_builders_directors.*;
 import screens.*;
+import use_cases.import_inventory.Import;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
 public class Main3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         createTestInventory();
         // creates a test inventory
@@ -31,6 +30,10 @@ public class Main3 {
         List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
         builders.add(new AddFeatureBuilder());
+        builders.add(new UpdateFeatureBuilder());
+        builders.add(new ExportFeatureBuilder());
+        builders.add(new ImportFeatureBuilder());
+        builders.add(new HistoryFeatureBuilder());
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

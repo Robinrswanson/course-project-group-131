@@ -9,19 +9,7 @@ import use_cases.import_inventory.ImportOutputBoundary;
 
 import javax.swing.*;
 
-public class ImportFeatureDirector extends FeatureDirector {
-
-    private final FeatureBuilder builder = new ImportFeatureBuilder();
-
-    public FeatureBuilder getBuilder(){
-        return builder;
-    }
-
-    public String getScreenName(){
-        return ImportIView.IMPORT_SCREEN_NAME_CONSTANT;
-    }
-
-    private class ImportFeatureBuilder implements FeatureBuilder {
+public class ImportFeatureBuilder implements FeatureBuilder {
 
         private ImportOutputBoundary importPresenter;
         private Import importUseCase;
@@ -57,6 +45,11 @@ public class ImportFeatureDirector extends FeatureDirector {
         public JPanel getScreen() {
             return (JPanel) importScreen;
         }
+
+    @Override
+    public String getScreenName() {
+        return ImportIView.IMPORT_SCREEN_NAME_CONSTANT;
     }
+
 }
 

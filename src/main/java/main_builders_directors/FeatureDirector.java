@@ -1,6 +1,7 @@
 package main_builders_directors;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class FeatureDirector {
 
@@ -21,7 +22,10 @@ public class FeatureDirector {
      * @param allScreens the JPanel holding all the screens
      * @return the screen corresponding to the feature (ex. AddScreen for AddArchitectureDirector)
      */
-    public JPanel createFeature(JPanel allScreens){
+    public JPanel createFeature(JPanel allScreens) throws IOException {
+        if (builder instanceof GatewayBuilder){
+            ((GatewayBuilder) builder).buildGateway();
+        }
         builder.buildPresenter();
         builder.buildUseCase();
         builder.buildController();
