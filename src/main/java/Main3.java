@@ -1,17 +1,21 @@
 import entities.Item;
 import entities.TempDataStorage;
+import interface_adaptors.inventory_initializer.InitializerController;
 import main_builders_directors.*;
 import screens.*;
 import use_cases.import_inventory.Import;
+import use_cases.initializer.InitializeUseCase;
+import use_cases.initializer.InitializerInputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 import java.util.List;
 
 public class Main3 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
 
         createTestInventory();
         // creates a test inventory
@@ -24,9 +28,15 @@ public class Main3 {
 
         JPanel login_screen = new LoginScreen(allScreens);
         allScreens.add(login_screen,"Login");
+
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
+
+        InitializerInputBoundary initializeUseCase = new InitializeUseCase();
+        InitializerController initializer = new InitializerController();
+
+        initializer.InitializeInventory();
 
         // ============= CHANGES START HERE ==============:
         List<FeatureBuilder> builders = new ArrayList<>();
@@ -55,6 +65,7 @@ public class Main3 {
 
         application.pack();
         application.setVisible(true);
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // the JFrame becomes visible!
     }
 
