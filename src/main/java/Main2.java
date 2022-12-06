@@ -69,6 +69,9 @@ public class Main2 {
         ShowHistoryScreen historyScreen = new ShowHistoryScreen(controller,allScreens);
         presenter.setScreen(historyScreen);
 
+        // creates sales report screen
+
+
         // all the screens created so far are added to the allScreens storage
         allScreens.add(login_screen,"Login");
         allScreens.add(mainMenu, "Main");

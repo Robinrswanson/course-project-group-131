@@ -8,5 +8,5 @@ public interface ExportInputBoundary {
      * @param writer a class that writes the current state of the inventory to the database
      * @return a String displaying if the use case succeeded or failed
      */
-    String extractDataStorage(GatewayWriterInterface writer);
+    void extractDataStorage(GatewayWriterInterface writer);
 }

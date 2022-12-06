@@ -1,6 +1,8 @@
 package screens;
 
 import interface_adaptors.arr.ARRIView;
+import interface_adaptors.export_inventory.ExportIView;
+import interface_adaptors.import_inventory.ImportIView;
 import interface_adaptors.show_history.ShowHistoryView;
 import interface_adaptors.update_price.UpdateIview;
 
@@ -31,12 +33,15 @@ public class MainEmployeeScreen extends JPanel {
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
         JButton history = createMenuButton(ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
+        JButton importItem = createMenuButton(ImportIView.IMPORT_SCREEN_NAME_CONSTANT);
+        JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
         JButton logOut = createMenuButton("Log Out");
         JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
+        packButtons(new JButton[]{importItem, exportItem});
         packButtons(new JButton[]{logOut, update});
         // packing is just so the orientation is more organized
 

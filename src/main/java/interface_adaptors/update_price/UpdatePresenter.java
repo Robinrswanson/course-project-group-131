@@ -20,7 +20,7 @@ public class UpdatePresenter implements UpdatePriceOutputBoundary {
     @Override
     public void prepareSuccess(UpdatePriceInputData data){
         String message = "the price of item(s) with serial number " + data.getSerialNum() +
-                " has been updated to" + data.getPrice();
+                " has been updated to " + data.getPrice();
         screen.setMessage(message);
     }
 
