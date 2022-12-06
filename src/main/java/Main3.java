@@ -22,6 +22,8 @@ public class Main3 {
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
+        JPanel login_screen = new LoginScreen(allScreens);
+        allScreens.add(login_screen,"Login");
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
@@ -48,7 +50,7 @@ public class Main3 {
         // ============= CHANGES ARE DONE HERE =================;
 
         application.add(allScreens);
-        cardLayout.show(allScreens, "Main");
+        cardLayout.show(allScreens, "Login");
         // the first screen that is shown is the main menu
 
         application.pack();
