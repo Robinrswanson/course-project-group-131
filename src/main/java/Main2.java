@@ -4,6 +4,7 @@ import interface_adaptors.arr.*;
 import interface_adaptors.update_price.UpdateController;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
+import screens.LoginScreen;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
@@ -13,20 +14,25 @@ import use_cases.update_price.UpdatePriceOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
 public class Main2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+
 
         createTestInventory();
         // creates a test inventory
 
-        JFrame application = new JFrame("Main Screen");
+        JFrame application = new JFrame("Inventory Management Software XX");
 
         CardLayout cardLayout = new CardLayout();
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
+
+        JPanel Login = new LoginScreen(allScreens);
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
@@ -53,6 +59,7 @@ public class Main2 {
         // similar to above
 
         // all the screens created so far are added to the allScreens storage
+        allScreens.add(Login,"Login");
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
@@ -60,7 +67,7 @@ public class Main2 {
 
 
         application.add(allScreens);
-        cardLayout.show(allScreens, "Main");
+        cardLayout.show(allScreens, "Login");
         // the first screen that is shown is the main menu
 
         application.pack();
