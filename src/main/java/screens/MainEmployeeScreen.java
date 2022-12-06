@@ -1,6 +1,8 @@
 package screens;
 
 import interface_adaptors.arr.ARRIView;
+import interface_adaptors.show_history.ShowHistoryView;
+import interface_adaptors.update_price.UpdateIview;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,9 +27,9 @@ public class MainEmployeeScreen extends JPanel {
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
-        JButton history = createMenuButton("Show History");
+        JButton history = createMenuButton(ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
         JButton logOut = createMenuButton("Log Out");
-        JButton update = createMenuButton("Update Price");
+        JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
