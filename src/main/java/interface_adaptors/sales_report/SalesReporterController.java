@@ -11,7 +11,7 @@ public class SalesReporterController {
     private final SalesReporterInputBoundary salesReportUseCase;
     private final GatewayReaderInterface reader;
     private final String FILE_PATH =
-            "C:\\Users\\leste\\OneDrive - University of Toronto\\School\\Fall 2022\\CSC 207\\course-project-group-131\\src\\main\\java\\database\\Sample Data - Sample History.csv";
+            "src/main/java/database/Sample Data - Sample History.csv";
 
 
     public SalesReporterController(SalesReporterInputBoundary useCase, GatewayReaderInterface reader){
