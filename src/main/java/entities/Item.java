@@ -1,6 +1,7 @@
 package entities;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -22,6 +23,22 @@ public class Item {
         this.categories = categories;
         this.expirationDates = expirationDates;
         this.storageLocation = storagelocation;
+    }
+    public Item(String[] itemInfo) throws ParseException {
+        this.serialNumber = itemInfo[0];
+        this.name = itemInfo[1];
+        this.price = Double.parseDouble(itemInfo[2]);
+        this.quantity = Integer.parseInt(itemInfo[3]);
+        List<String> categories = new ArrayList<>(Arrays.asList(itemInfo[4].split(";")));
+        this.categories = categories;
+        if (itemInfo[5] != "N/A"){
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = dateFormat.parse(itemInfo[5]);
+            this.expirationDates = date;}
+        else{
+            this.expirationDates = null;
+        }
+        this.storageLocation = itemInfo[6];
     }
     public String getSerialNumber(){return this.serialNumber;}
     public String getName(){
@@ -79,9 +96,9 @@ public class Item {
     }
 
     public String[] getArrayFormat(){
-            String formatedCategories = this.getCategories().toString().replace("[", "").replace("]", "");
+            String formattedCategories = this.getCategories().toString().replace("[", "").replace("]", "");
             String[] arrayFormat = {this.getSerialNumber(), this.getName(), String.valueOf(this.getPrice()),
-            String.valueOf(this.getQuantity()), formatedCategories,
+            String.valueOf(this.getQuantity()), formattedCategories,
             this.getDateStringFormat(), this.getStorageLocation()};
             return arrayFormat;
     }

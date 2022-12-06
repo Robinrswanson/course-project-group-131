@@ -5,10 +5,9 @@ import entities.TempDataStorage;
 import use_cases.gateway_interfaces.GatewayReaderInterface;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InitializeUseCase implements InitializerInputBoundary {
 
@@ -25,11 +24,7 @@ public class InitializeUseCase implements InitializerInputBoundary {
         Map<String, Item> inventory = new HashMap<>();
         for (String[] row: database.getInventory()
              ) {
-            //Change depending on how categories are formatted in database
-            List<String> categories = new ArrayList<>(Arrays.asList(row[4].split(";")));
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = dateFormat.parse(row[5]);
-            Item item = new Item(row[0], row[1], Double.parseDouble(row[2]), Integer.parseInt(row[3]), categories, date, row[6]);
+            Item item = new Item(row);
             inventory.put(row[0], item);
         }
         TempDataStorage.setTempDataStorage(inventory);
