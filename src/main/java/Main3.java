@@ -56,7 +56,7 @@ public class Main3 {
 
         List<String> bananaCategories = new ArrayList<>();
         bananaCategories.add("Fruit");
-        Item banana = new Item("10077", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
+        Item banana = new Item("10077", "Banana", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
         Map<String, Item> map = new HashMap<>();
         map.put("10077", banana);
         TempDataStorage.setTempDataStorage(map);
