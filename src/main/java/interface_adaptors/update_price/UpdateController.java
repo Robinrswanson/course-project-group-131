@@ -14,13 +14,14 @@ public class UpdateController {
      * The controller packages the data and sends it off to the Update Use Case
      * @param serialNum the serial number of the item
      * @param price the price to update(for manager only)
-     * @return a String for the View  to present
+     * @param updatePrice the boolean value: true represents manager, false represents employee
      */
 
-    public String updateItem_price(String serialNum, double price, boolean updatePrice){
+    public void updateItem_price(String serialNum, double price, boolean updatePrice){
         UpdatePriceInputData data = new UpdatePriceInputData(serialNum, price, updatePrice);
-        return this.updateUseCase.updateItem(data);
+        this.updateUseCase.updateItem(data);
     }
+
 
 
 }

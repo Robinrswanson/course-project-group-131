@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2d609526-bc0a-404a-a089-c286c7697e29" name="Changes" comment="Added a presenter and input boundary, working on a screen">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interface_adaptors/sales_report/SalesReporterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interface_adaptors/sales_report/SalesReporterPresenter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/screens/SalesReportScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screens/SalesReportScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_cases/sales_report/SalesReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_cases/sales_report/SalesReporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/use_cases/sales_report/SalesReporterInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/use_cases/sales_report/SalesReporterInputBoundary.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="course-project-group-131" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="RequirePullRequest" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HpnpFX2JNiLSK5bMnVQdj2Y6b1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/leste/OneDrive - University of Toronto/School/Fall 2022/CSC 207/course-project-group-131&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Lester\OneDrive - University of Toronto\School\Fall 2022\CSC 207\course-project-group-131\src\main\java\use_cases" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d609526-bc0a-404a-a089-c286c7697e29" name="Changes" comment="" />
+      <created>1668991074019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668991074019</updated>
+      <workItem from="1668991076906" duration="810000" />
+      <workItem from="1668991908062" duration="2956000" />
+      <workItem from="1669014643180" duration="1661000" />
+      <workItem from="1669072640916" duration="8894000" />
+      <workItem from="1669151645815" duration="2002000" />
+      <workItem from="1669398201999" duration="7011000" />
+      <workItem from="1669439606339" duration="12555000" />
+      <workItem from="1669612340803" duration="2725000" />
+      <workItem from="1669673595428" duration="600000" />
+      <workItem from="1669674962435" duration="9117000" />
+      <workItem from="1669743918485" duration="1672000" />
+      <workItem from="1669874291749" duration="2287000" />
+      <workItem from="1669945107877" duration="608000" />
+      <workItem from="1669948566656" duration="7071000" />
+      <workItem from="1669957318142" duration="5000000" />
+      <workItem from="1670008035937" duration="17909000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit idk">
+      <created>1668992091304</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668992091304</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added various methods in SalesReporter that return the information required to create the sales report. generateReport and itemRevenue still need to be finished.">
+      <created>1669079684685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669079684685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finished the SalesReporter class. Now need to create more classes to implement clean architecture.">
+      <created>1669452733785</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669452733785</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added a presenter and input boundary, working on a screen">
+      <created>1669950259808</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669950259808</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added a presenter and input boundary, working on a screen">
+      <created>1669956088871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669956088871</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit idk" />
+    <MESSAGE value="Added various methods in SalesReporter that return the information required to create the sales report. generateReport and itemRevenue still need to be finished." />
+    <MESSAGE value="Finished the SalesReporter class. Now need to create more classes to implement clean architecture." />
+    <MESSAGE value="Added a presenter and input boundary, working on a screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a presenter and input boundary, working on a screen" />
+  </component>
+</project>
