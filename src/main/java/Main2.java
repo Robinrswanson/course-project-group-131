@@ -35,6 +35,8 @@ public class Main2 {
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
+        JPanel login_screen = new LoginScreen(allScreens);
+
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
 
@@ -71,6 +73,7 @@ public class Main2 {
         presenter.setScreen(historyScreen);
 
         // all the screens created so far are added to the allScreens storage
+        allScreens.add(login_screen,"Login");
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
@@ -79,7 +82,7 @@ public class Main2 {
 
 
         application.add(allScreens);
-        cardLayout.show(allScreens, "Main");
+        cardLayout.show(allScreens, "Login");
         // the first screen that is shown is the main menu
 
         application.pack();
