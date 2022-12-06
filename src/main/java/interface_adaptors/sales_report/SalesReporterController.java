@@ -2,21 +2,22 @@ package interface_adaptors.sales_report;
 
 import use_cases.gateway_interfaces.gatewayReaderInterface;
 import use_cases.sales_report.SalesReporterInputBoundary;
+import use_cases.sales_report.SalesReporterInputData;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SalesReporterController {
     private final SalesReporterInputBoundary salesReportUseCase;
-    private final gatewayReaderInterface gatewayReader;
-    // I think I need a way to set the filepath here?
+    private final GatewayReaderInterface reader;
+    private final String FILE_PATH =
+            "C:\\Users\\leste\\OneDrive - University of Toronto\\School\\Fall 2022\\CSC 207\\course-project-group-131\\src\\main\\java\\database\\Sample Data - Sample History.csv";
 
 
     public SalesReporterController(SalesReporterInputBoundary useCase, gatewayReaderInterface reader){
         this.salesReportUseCase = useCase;
-        this.gatewayReader = reader;
+        this.reader = reader;
+        reader.setFilePath(FILE_PATH);
     }
 
     /**
@@ -25,7 +26,8 @@ public class SalesReporterController {
      * @param endTime the end of the time range for the sales report
      */
     public void reportData(String startTime, String endTime) throws IOException {
-        List<String[]> readerData = gatewayReader.getData();
-        salesReportUseCase.generateReport(readerData, startTime, endTime);
+        List<String[]> readerData = reader.getData();
+        SalesReporterInputData data = new SalesReporterInputData(readerData, startTime, endTime);
+        salesReportUseCase.generateReport(data);
     }
 }
