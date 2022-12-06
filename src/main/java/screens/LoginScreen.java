@@ -1,7 +1,7 @@
 package screens;
 
-import use_cases.LoginCheckUserExists.LoginCheckUserExists;
-import use_cases.LoginCheckUserExists.LoginOutPutDS;
+import use_cases.login.LoginCheckUserExists;
+import use_cases.login.LoginOutPutDS;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

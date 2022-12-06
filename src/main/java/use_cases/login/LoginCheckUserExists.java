@@ -1,10 +1,9 @@
-package use_cases.LoginCheckUserExists;
+package use_cases.login;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class LoginCheckUserExists {
 
