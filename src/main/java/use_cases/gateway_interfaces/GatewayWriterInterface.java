@@ -3,7 +3,7 @@ package use_cases.gateway_interfaces;
 import java.io.IOException;
 import java.util.List;
 
-public interface gatewayWriterInterface {
+public interface GatewayWriterInterface {
 
     void rewriteFile(List<String[]> newFileContents);
 
