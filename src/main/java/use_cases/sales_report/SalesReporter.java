@@ -1,5 +1,6 @@
 package use_cases.sales_report;
 import entities.TempDataStorage;
+import use_cases.show_history_use_case.ShowHistoryDsGateway;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class SalesReporter implements SalesReporterInputBoundary {
     private final SalesReporterOutputBoundary presenter;
     private final ShowHistoryDsGateway checker;
+
 
     public SalesReporter(SalesReporterOutputBoundary presenter, ShowHistoryDsGateway checker) {
         this.presenter = presenter;
@@ -28,6 +30,7 @@ public class SalesReporter implements SalesReporterInputBoundary {
         }
         else {
             ArrayList<String[]> splitData = data.splitListTimeRange();
+            // generates the list of serial numbers in the data after splitting the history
             ArrayList<String> serials = SalesReporterInputData.serialNumList(splitData);
             ArrayList<String[]> result = new ArrayList<String[]>();
             for (String serialNum : serials) {
@@ -38,6 +41,13 @@ public class SalesReporter implements SalesReporterInputBoundary {
             presenter.prepareSuccess(result);
         }
     }
+
+    /**
+     * Generates one row for the sales report for a specific item
+     * @param rows the rows of history data
+     * @param serialNum the serial number of the item
+     * @return a string array representing the data for the item
+     */
 
     public String[] getRow (ArrayList<String[]> rows, String serialNum){
         String name = TempDataStorage.getItem(serialNum).getName();

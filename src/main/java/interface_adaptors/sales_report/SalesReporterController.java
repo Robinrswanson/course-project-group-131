@@ -1,6 +1,6 @@
 package interface_adaptors.sales_report;
 
-import use_cases.gateway_interfaces.gatewayReaderInterface;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.sales_report.SalesReporterInputBoundary;
 import use_cases.sales_report.SalesReporterInputData;
 
@@ -14,7 +14,7 @@ public class SalesReporterController {
             "C:\\Users\\leste\\OneDrive - University of Toronto\\School\\Fall 2022\\CSC 207\\course-project-group-131\\src\\main\\java\\database\\Sample Data - Sample History.csv";
 
 
-    public SalesReporterController(SalesReporterInputBoundary useCase, gatewayReaderInterface reader){
+    public SalesReporterController(SalesReporterInputBoundary useCase, GatewayReaderInterface reader){
         this.salesReportUseCase = useCase;
         this.reader = reader;
         reader.setFilePath(FILE_PATH);

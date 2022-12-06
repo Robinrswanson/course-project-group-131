@@ -117,7 +117,6 @@ public class SalesReportScreen extends JPanel implements SalesReporterView {
      */
     private JButton createMenuButton() {
         JButton returnToMenu = new JButton("Main Menu");
-
         returnToMenu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
