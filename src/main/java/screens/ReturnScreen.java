@@ -2,22 +2,22 @@ package screens;
 import javax.swing.*;
 
 import interface_adaptors.arr.ReturnController;
-import use_cases.arr.ARROutputBoundary;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ReturnScreen extends AddScreen {
 
-    private ReturnController controller;
+    private final ReturnController controller;
     public ReturnScreen(JPanel screens, ReturnController controller)
     {
-        super(screens,controller);
+        super(screens);
+        this.controller = controller;
+        super.setLayout();
+        this.addTitle();
+        super.addTextBoxes();
         JButton returnItem = getReturnButton();
         JButton returnToMenu = getMenuButton();
-        addButtons(returnToMenu, returnItem);
+        this.addButtons(returnToMenu, returnItem);
     }
-
+    @Override
     protected void addTitle()
     {
         JLabel screenTitle = new JLabel("Item Return");
@@ -27,18 +27,14 @@ public class ReturnScreen extends AddScreen {
     }
 
     protected JButton getReturnButton() {
-        super.getAddButton();
         JButton returnItem = new JButton("Return");
 
-        returnItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    controller.returnItem(serialNumberField.getText(), Integer.parseInt(quantityField.getText()));
-                }
-                catch (NumberFormatException exception) {
-                    JOptionPane.showMessageDialog(null, "You haven't entered a valid quantity");
-                }
+        returnItem.addActionListener(e -> {
+            try {
+                controller.returnItem(serialNumberField.getText(), Integer.parseInt(quantityField.getText()));
+            }
+            catch (NumberFormatException exception) {
+                JOptionPane.showMessageDialog(null, "You haven't entered a valid quantity");
             }
         });
         return returnItem;
@@ -46,7 +42,7 @@ public class ReturnScreen extends AddScreen {
 
 
 
-
+/*
     public void itemReturned(int itemCount)
     {
         JOptionPane.showMessageDialog(null, "The item has been Returned \n The new items are: " + itemCount, "Confirmation", JOptionPane.INFORMATION_MESSAGE);
@@ -57,5 +53,7 @@ public class ReturnScreen extends AddScreen {
         JOptionPane.showMessageDialog(null, "The item has not been Returned", "Rejected", JOptionPane.WARNING_MESSAGE);
 
     }
+
+ */
 
 }

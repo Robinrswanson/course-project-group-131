@@ -15,7 +15,14 @@ public class AddScreen extends JPanel implements ARRIView {
     private final JPanel screens;
     private final JLabel notification = new JLabel("");
 
-    private final AddController controller;
+    protected AddController controller = null;
+
+
+    public AddScreen(JPanel screens)
+    {
+        this.screens = screens;
+    }
+
 
     public AddScreen(JPanel screens, AddController controller){
 
@@ -117,13 +124,10 @@ public class AddScreen extends JPanel implements ARRIView {
 
         JButton returnToMenu = new JButton("Main Menu");
 
-        returnToMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout) screens.getLayout();
-                cardLayout.show(screens, "Main");
-                setMessage("");
-            }
+        returnToMenu.addActionListener(e -> {
+            CardLayout cardLayout = (CardLayout) screens.getLayout();
+            cardLayout.show(screens, "Main");
+            setMessage("");
         });
 
         return returnToMenu;
