@@ -3,10 +3,13 @@ package entities;
 import java.util.*;
 
 public class TempDataStorage {
+    // Implemented using the Singleton Design Pattern
     private static Map<String, Item> inventory;
 
+    private TempDataStorage(){}
+
     // changed this slightly (name from TempDataStorage -> setTempDataStorage)
-    public static void setTempDataStorage(Map<String, Item> inventory_1){
+    public static void setTempDataStorage(Map<String, Item> inventory_1) {
         inventory = inventory_1;
     }
 
@@ -20,12 +23,11 @@ public class TempDataStorage {
     }
 
     // just in case it is possible to enter a wrong serial number
-    public static boolean hasItem(String serialNum){
+    public static boolean hasItem(String serialNum) {
         return inventory.containsKey(serialNum);
     }
-    public static Map<String, Item> getInventory(){return inventory;}
 
-    public static void main(String[] args) {
-        System.out.println(2);
+    public static Map<String, Item> getInventory() {
+        return inventory;
     }
 }

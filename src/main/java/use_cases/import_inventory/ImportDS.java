@@ -10,7 +10,7 @@ public class ImportDS {
         this.importData = importData;
     }
 
-    // simple getters to extract the data from AddDS
+    // simple getters to extract the data from ImportDS
     public List<String[]> getImportData(){
         return importData;
     }
