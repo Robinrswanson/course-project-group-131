@@ -8,7 +8,4 @@ public interface GatewayReaderInterface {
     String getFilePath();
     List<String[]> getData() throws IOException;
 
-    void setFilePath(String filePath);
-
-
 }
