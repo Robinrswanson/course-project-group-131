@@ -1,11 +1,11 @@
 package interface_adaptors.gateway;
 
-import use_cases.gateway_interfaces.gatewayWriterInterface;
+import use_cases.gateway_interfaces.GatewayWriterInterface;
 
 import java.io.*;
 import java.util.List;
 
-public class GatewayWriter implements gatewayWriterInterface {
+public class GatewayWriter implements GatewayWriterInterface {
     private final File file;
     private final String filePath;
 

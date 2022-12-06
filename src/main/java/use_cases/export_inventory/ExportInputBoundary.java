@@ -1,6 +1,6 @@
 package use_cases.export_inventory;
 
-import use_cases.gateway_interfaces.gatewayWriterInterface;
+import use_cases.gateway_interfaces.GatewayWriterInterface;
 
 public interface ExportInputBoundary {
     /**
@@ -8,5 +8,5 @@ public interface ExportInputBoundary {
      * @param writer a class that writes the current state of the inventory to the database
      * @return a String displaying if the use case succeeded or failed
      */
-    void extractDataStorage(gatewayWriterInterface writer);
+    String extractDataStorage(GatewayWriterInterface writer);
 }
