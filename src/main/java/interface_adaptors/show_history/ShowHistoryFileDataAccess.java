@@ -26,8 +26,11 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     //Return true if stringdate a is bigger than stringdate b
     public ShowHistoryFileDataAccess() throws IOException {
-    reader = new GatewayReader("C:\\Users\\ken_w\\Desktop\\Uoft 2022-2023\\Fall 2022\\CSC 207 Software design\\Login System\\src\\main\\java\\historydatabase\\history.csv");
+
+        String path = "src/main/java/historydatabase/history.csv";
+    reader = new GatewayReader(path);
     lines = reader.getData();}
+
     public ShowHistoryFileDataAccess(GatewayReader reader2) throws IOException {
         reader = reader2;
         lines = reader.getData();
