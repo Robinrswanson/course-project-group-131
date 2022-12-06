@@ -8,8 +8,14 @@ public class ExportPresenter implements ExportOutputBoundary {
      * @param filePath a String that is the location of the database
      * @return a String value for the View to present
      */
-    public String prepareSuccess(String filePath){
-        return "Inventory successfully exported to: " + filePath;
+    ExportIView screen;
+
+    public void setScreen(ExportIView screen){
+        this.screen = screen;
+    }
+    public void prepareSuccess(String filePath){
+        String message = "Inventory successfully exported to: " + filePath;
+        screen.setMessage(message);
     }
 
 }
