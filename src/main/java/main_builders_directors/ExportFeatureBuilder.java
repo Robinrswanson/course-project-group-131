@@ -21,36 +21,60 @@ public class ExportFeatureBuilder implements FeatureBuilder{
     private ExportController exportController;
     private ExportIView exportScreen;
 
+    /**
+     * Builds the presenter
+     */
     @Override
     public void buildPresenter() {
         exportPresenter = new ExportPresenter();
     }
 
+    /**
+     * Builds the use case
+     */
     @Override
     public void buildUseCase() {
         exportUseCase = new Export(exportPresenter);
     }
 
+    /**
+     * Builds the controller
+     */
     @Override
     public void buildController() {
         exportController = new ExportController(exportUseCase);
     }
 
+    /**
+     * Builds the screen
+     * @param allScreens
+     */
     @Override
     public void buildScreen(JPanel allScreens) {
         exportScreen = new ExportScreen(allScreens, exportController);
     }
 
+    /**
+     * Sets the presenter's screen to exportScreen
+     */
     @Override
     public void presenterSetScreen() {
         exportPresenter.setScreen(exportScreen);
     }
 
+    /**
+     * Returns the created screen
+     * @return
+     */
     @Override
     public JPanel getScreen() {
         return (JPanel) exportScreen;
     }
 
+    /**
+     * Returns the name of the screen, as referenced by the card layout
+     * @return
+     */
     @Override
     public String getScreenName() {
         return ExportIView.EXPORT_SCREEN_NAME_CONSTANT;

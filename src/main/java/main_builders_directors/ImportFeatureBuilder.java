@@ -11,41 +11,65 @@ import javax.swing.*;
 
 public class ImportFeatureBuilder implements FeatureBuilder {
 
-        private ImportOutputBoundary importPresenter;
-        private Import importUseCase;
-        private ImportController importController;
-        private ImportIView importScreen;
+    private ImportOutputBoundary importPresenter;
+    private Import importUseCase;
+    private ImportController importController;
+    private ImportIView importScreen;
 
-        @Override
-        public void buildPresenter() {
-            importPresenter = new ImportPresenter();
-        }
+    /**
+     * Builds the presenter
+     */
+    @Override
+    public void buildPresenter() {
+        importPresenter = new ImportPresenter();
+    }
 
-        @Override
-        public void buildUseCase() {
-            importUseCase = new Import(importPresenter);
-        }
+    /**
+     * Builds the use case
+     */
+    @Override
+    public void buildUseCase() {
+        importUseCase = new Import(importPresenter);
+    }
 
-        @Override
-        public void buildController() {
-            importController = new ImportController(importUseCase);
-        }
+    /**
+     * Builds the controller
+     */
+    @Override
+    public void buildController() {
+        importController = new ImportController(importUseCase);
+    }
 
-        @Override
-        public void buildScreen(JPanel allScreens) {
-            importScreen = new ImportScreen(allScreens, importController);
-        }
+    /**
+     * Builds the screen
+     * @param allScreens A JPanel containing all of the screens
+     */
+    @Override
+    public void buildScreen(JPanel allScreens) {
+        importScreen = new ImportScreen(allScreens, importController);
+    }
 
-        @Override
-        public void presenterSetScreen() {
-            importPresenter.setScreen(importScreen);
-        }
+    /**
+     * Sets the screen of the presenter to importScreen
+     */
+    @Override
+    public void presenterSetScreen() {
+        importPresenter.setScreen(importScreen);
+    }
 
-        @Override
-        public JPanel getScreen() {
-            return (JPanel) importScreen;
-        }
+    /**
+     * Returns the screen
+     * @return Return the feature's screen
+     */
+    @Override
+    public JPanel getScreen() {
+        return (JPanel) importScreen;
+    }
 
+    /**
+     * Returns the name of the screen as referenced by the card layout
+     * @return the name of the screen
+     */
     @Override
     public String getScreenName() {
         return ImportIView.IMPORT_SCREEN_NAME_CONSTANT;
