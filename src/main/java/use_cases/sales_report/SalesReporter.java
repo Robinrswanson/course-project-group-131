@@ -8,11 +8,7 @@ import java.util.ArrayList;
 
 public class SalesReporter implements SalesReporterInputBoundary {
     private final SalesReporterOutputBoundary presenter;
-    /*private final ShowHistoryDsGateway checker;*/
-    private final int DATE_TIME_COLUMN = 0;
-    private final int ACTION_COLUMN = 2;
-    private final int QUANTITY_COLUMN =  4;
-    private final int SERIAL_NUM_COLUMN = 5;
+    private final ShowHistoryDsGateway checker;
 
     public SalesReporter(SalesReporterOutputBoundary presenter, ShowHistoryDsGateway checker) {
         this.presenter = presenter;
