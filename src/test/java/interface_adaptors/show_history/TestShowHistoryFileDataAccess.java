@@ -2,7 +2,7 @@ package interface_adaptors.show_history;
 
 import interface_adaptors.gateway.*;
 
-import interface_adaptors.show_history.ShowHistoryFileDataAccess;
+
 import org.junit.jupiter.api.Test;
 import use_cases.show_history_use_case.ShowHistoryStartInput;
 

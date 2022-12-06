@@ -48,7 +48,7 @@ public class TestShowHistoryInteractorfailview {
 
             @Override
             public ShowHistoryResponseModel PrepareFailView(String error) {
-                assertEquals("Date entered is too early",error);
+                assertEquals("Start Date entered is too early",error);
                 return null;
             }
         };
