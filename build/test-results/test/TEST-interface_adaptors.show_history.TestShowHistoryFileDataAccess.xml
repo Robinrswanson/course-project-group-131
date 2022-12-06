@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interface_adaptors.show_history.TestShowHistoryFileDataAccess" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-06T01:24:42" hostname="LAPTOP-24NOO4RK" time="0.065">
-  <properties/>
-  <testcase name="create()" classname="interface_adaptors.show_history.TestShowHistoryFileDataAccess" time="0.065"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
