@@ -8,9 +8,18 @@ public class ImportPresenter implements ImportOutputBoundary {
      * Called if import is successful
      * @return a String value for the View to present
      */
+
+    ImportIView screen;
+
+    public void setScreen(ImportIView screen){
+        this.screen = screen;
+    }
+
     @Override
-    public String prepareSuccess() {
-        return "Inventory has been successfully imported.";
+    public void prepareSuccess() {
+        String message = "Inventory has been successfully imported.";
+        screen.setMessage(message);
+
     }
     /**
      * Called if import is unsuccessful
@@ -20,12 +29,14 @@ public class ImportPresenter implements ImportOutputBoundary {
      */
 
     @Override
-    public String prepareFailure(int value, ARRInputData itemInformation) {
+    public void prepareFailure(int value, ARRInputData itemInformation) {
+        String message = null;
         if (value == 0){
-            return "Error: " + itemInformation.getSerialNum() + " not found in inventory.";
+            message = "Error: " + itemInformation.getSerialNum() + " not found in inventory.";
         }
         else{
-            return "Error: " + itemInformation.getQuantity() + " has invalid quantity.";
+            message = "Error: " + itemInformation.getQuantity() + " has invalid quantity.";
         }
+        screen.setMessage(message);
     }
 }
