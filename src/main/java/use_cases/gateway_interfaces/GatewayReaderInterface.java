@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 public interface GatewayReaderInterface {
-
     String getFilePath();
     List<String[]> getData() throws IOException;
 

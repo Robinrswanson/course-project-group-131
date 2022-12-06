@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import entities.Item;
 import entities.TempDataStorage;
-import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.arr.ARRInputData;
 
 public class Import implements ImportInputBoundary {

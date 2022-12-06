@@ -1,7 +1,5 @@
 package use_cases.import_inventory;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface;
-
 import java.io.IOException;
 
 public interface ImportInputBoundary {
