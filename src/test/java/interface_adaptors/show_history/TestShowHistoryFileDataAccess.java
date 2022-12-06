@@ -18,12 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestShowHistoryFileDataAccess {
     @Test
     void create() throws IOException {
-        GatewayWriter clearwriter = new GatewayWriter("src/main/java/historydatabase/history.csv");
+        String path = "src/main/java/historydatabase/history.csv";
+        GatewayWriter clearwriter = new GatewayWriter(path);
         //clearwriter.rewriteFile(null);
         String[][] filecontent= new String[][]{{"2020-12-03 06:46:33,Daisy,Add,Apple,1,apple123"},{"2021-12-03 06:46:33,Daisy,Add,Apple,1,apple123"},{"2023-09-03 06:46:33,Emily,Add,pencil,5,pencil123"}};
         List<String[]> realfilecontent = Arrays.asList(filecontent);
         clearwriter.rewriteFile(realfilecontent);
-        GatewayReader reader2 = new GatewayReader("src/main/java/historydatabase/history.csv");
+        GatewayReader reader2 = new GatewayReader(path);
         ShowHistoryFileDataAccess shfda = new ShowHistoryFileDataAccess(reader2);
 
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

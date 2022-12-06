@@ -41,7 +41,8 @@ public class ChangeHistory {
 
     //gateway writer to write new line of history data to the file "history.csv"
     public void save_history_change() {
-        GatewayWriter writer = new GatewayWriter("src/main/java/historydatabase/history.csv");
+        String path = "src/main/java/historydatabase/history.csv";
+        GatewayWriter writer = new GatewayWriter(path);
         String[] newline = {this.time,this.username,this.action,this.item,this.quantity,this.serinum};
         System.out.println("start");
         writer.addNewLines(newline);
