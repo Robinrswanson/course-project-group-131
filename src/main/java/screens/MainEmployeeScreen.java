@@ -7,6 +7,7 @@ import interface_adaptors.update_price.UpdateIview;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import use_cases.LoginCheckUserExists.LoginOutPutDS;
 
 public class MainEmployeeScreen extends JPanel {
 
@@ -14,11 +15,13 @@ public class MainEmployeeScreen extends JPanel {
     static final int BUTTON_HEIGHT_CONSTANT = 40;
     static final int BUTTON_HEIGHT_WIDTH = 200;
 
+
     public MainEmployeeScreen(JPanel screens) {
 
         this.screens = screens;
 
         setLayout();
+
         addTitle();
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
@@ -88,6 +91,8 @@ public class MainEmployeeScreen extends JPanel {
         }
         this.add(buttonPanel);
     }
+
+
 
 }
 
