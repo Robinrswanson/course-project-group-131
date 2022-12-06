@@ -1,5 +1,9 @@
 package use_cases.export_inventory;
 
+import interface_adaptors.export_inventory.ExportIView;
+
 public interface ExportOutputBoundary {
-    String prepareSuccess(String filepath); //display when use case is successful
+
+    void setScreen(ExportIView screen);
+    void prepareSuccess(String filepath); //display when use case is successful
 }

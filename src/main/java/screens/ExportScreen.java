@@ -1,13 +1,14 @@
 package screens;
 
 import interface_adaptors.export_inventory.ExportController;
+import interface_adaptors.export_inventory.ExportIView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ExportScreen extends JPanel{
+public class ExportScreen extends JPanel implements ExportIView {
 
     private final JTextField serialNumberField = new JTextField(20);
     private final JTextField quantityField = new JTextField(20);
@@ -60,8 +61,7 @@ public class ExportScreen extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(serialNumberField.getText() + quantityField.getText());
-                    String message = controller.export();
-                    setNotification(message);
+                    controller.export();
                 }
         });
         return export;
@@ -80,7 +80,7 @@ public class ExportScreen extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) screens.getLayout();
                 cardLayout.show(screens, "Main");
-                setNotification("");
+                setMessage("");
             }
         });
 
@@ -108,11 +108,12 @@ public class ExportScreen extends JPanel{
         this.add(notification);
     }
 
+    @Override
     /**
      * Changes the value of the notification
      * @param message the message to change the notification to
      */
-    public void setNotification(String message){
+    public void setMessage(String message){
         notification.setText(message);
     }
     }
