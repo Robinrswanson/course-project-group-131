@@ -1,17 +1,21 @@
 import entities.Item;
 import entities.TempDataStorage;
+import interface_adaptors.show_history.ShowHistoryController;
+import interface_adaptors.show_history.ShowHistoryFileDataAccess;
 import interface_adaptors.arr.*;
+import interface_adaptors.show_history.ShowHistoryView;
 import interface_adaptors.update_price.UpdateController;
 import interface_adaptors.update_price.UpdateIview;
 import interface_adaptors.update_price.UpdatePresenter;
 import screens.*;
-import screens.LoginScreen;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
+import use_cases.show_history_use_case.*;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
 import use_cases.update_price.UpdatePriceOutputBoundary;
+import screens.ShowHistoryScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,18 +26,14 @@ import java.util.List;
 public class Main2 {
     public static void main(String[] args) throws IOException {
 
-
-
         createTestInventory();
         // creates a test inventory
 
-        JFrame application = new JFrame("Inventory Management Software XX");
+        JFrame application = new JFrame("Main Screen");
 
         CardLayout cardLayout = new CardLayout();
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
-
-        JPanel Login = new LoginScreen(allScreens);
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
@@ -59,17 +59,24 @@ public class Main2 {
         UpdateIview updateScreen = new UpdateScreen(allScreens, updateController);
         updatePresenter.setScreen(updateScreen);
         // similar to above
+        //ShowHistoryScreen is all about "ShowHistory"function.
+        ShowHistoryDsGateway dsGateway = new ShowHistoryFileDataAccess();
+        ShowHistoryPresenter presenter = new ShowHistoryResponseFormatter();
+        ShowHistoryInputBoundary inputBoundary = new ShowHistoryInteractor(dsGateway,presenter);
+        ShowHistoryController controller = new ShowHistoryController(inputBoundary);
+        ShowHistoryScreen historyScreen = new ShowHistoryScreen(controller,allScreens);
+        presenter.setScreen(historyScreen);
 
         // all the screens created so far are added to the allScreens storage
-        allScreens.add(Login,"Login");
         allScreens.add(mainMenu, "Main");
         allScreens.add(sortScreen, "Display/Filter Items");
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
         allScreens.add((JPanel) updateScreen, UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
+        allScreens.add((JPanel) historyScreen, ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
 
 
         application.add(allScreens);
-        cardLayout.show(allScreens, "Login");
+        cardLayout.show(allScreens, "Main");
         // the first screen that is shown is the main menu
 
         application.pack();
