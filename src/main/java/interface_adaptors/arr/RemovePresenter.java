@@ -48,9 +48,9 @@ public class RemovePresenter implements ARROutputBoundary {
     {
         String message = "";
         if( error == NEGATIVE_INT_ERROR)
-            message = "Items Not Returned \n Quantity cannot be negative";
+            message = "Items Not Removed \n Quantity cannot be negative";
         else
-            message = "Items Not Returned \n Invalid Serial No";
+            message = "Items Not Removed \n Invalid Serial No";
 
         JOptionPane.showMessageDialog((Component)removeScreen, message, "Rejected", JOptionPane.WARNING_MESSAGE);
     }
