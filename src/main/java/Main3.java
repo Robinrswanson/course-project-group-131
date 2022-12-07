@@ -43,12 +43,12 @@ public class Main3 {
         // ============= CHANGES START HERE ==============:
         List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
-        builders.add(new AddFeatureBuilder());
+        builders.add(new AddFeatureBuilder(userName));
         builders.add(new UpdateFeatureBuilder());
         builders.add(new ExportFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new HistoryFeatureBuilder());
-        builders.add(new ReturnFeatureBuilder());
+        builders.add(new ReturnFeatureBuilder(userName));
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

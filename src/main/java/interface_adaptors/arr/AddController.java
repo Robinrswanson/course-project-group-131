@@ -6,9 +6,11 @@ import use_cases.arr.ARRInputData;
 public class AddController {
 
     private ARRInputBoundary addUseCase;
+    private String userName;
 
-    public AddController(ARRInputBoundary useCase){
+    public AddController(ARRInputBoundary useCase, String userName){
         this.addUseCase = useCase;
+        this.userName = userName;
     }
 
     /**
@@ -19,7 +21,7 @@ public class AddController {
      */
     public void addItem(String serialNum, int quantity){
 
-        ARRInputData data = new ARRInputData(serialNum, quantity);
+        ARRInputData data = new ARRInputData(serialNum, quantity, this.userName);
 
         // can remove this later, assuming that serial number entered is never incorrect - just kept in for now for testing purposes
         addUseCase.changeItemQuantity(data);
