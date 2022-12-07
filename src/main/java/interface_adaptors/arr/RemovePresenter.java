@@ -35,7 +35,7 @@ public class RemovePresenter implements ARROutputBoundary {
     @Override
     public void prepareSuccess(ARRInputData data)
     {
-        JOptionPane.showMessageDialog((Component) removeScreen,  data.getQuantity() +" items were removed",  "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog((Component) removeScreen,  -data.getQuantity() +" items were removed",  "Confirmation", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

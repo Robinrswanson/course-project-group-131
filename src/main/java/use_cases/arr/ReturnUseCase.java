@@ -13,7 +13,6 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
 
     private final String ACTION = "Return";
 
-    private String userName;
 
     /**
      * ReturnUseCase Object created by the ReturnScreenBuilder

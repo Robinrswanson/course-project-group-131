@@ -8,7 +8,7 @@ public class RemoveController extends AddController{
     public ARRInputBoundary removeObj;
     private String userName;
 
-    RemoveController(ARRInputBoundary removeObj, String UserName)
+    public RemoveController(ARRInputBoundary removeObj, String UserName)
     {
         super(removeObj, UserName);
         this.removeObj = removeObj;
@@ -18,7 +18,8 @@ public class RemoveController extends AddController{
 
     public void removeItem(String serialNo, int quantity)
     {
-        ARRInputData data = new ARRInputData(serialNo, quantity, this.userName);
+        int negQuantity = -quantity;
+        ARRInputData data = new ARRInputData(serialNo, negQuantity, this.userName);
         removeObj.changeItemQuantity(data);
 
     }

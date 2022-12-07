@@ -3,7 +3,6 @@ import javax.swing.*;
 
 import interface_adaptors.arr.ReturnController;
 
-import java.awt.*;
 
 public class ReturnScreen extends AddScreen {
     /**
