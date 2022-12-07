@@ -18,7 +18,6 @@ public class ReturnPresenter implements ARROutputBoundary {
     ARRIView ReturnScreen;
 
     /**
-     *
      * @param returnScreen JPanel object
      */
     public void setScreen(ARRIView returnScreen)

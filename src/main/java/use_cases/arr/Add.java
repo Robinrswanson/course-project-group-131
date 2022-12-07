@@ -2,10 +2,14 @@ package use_cases.arr;
 
 import entities.Item;
 import entities.TempDataStorage;
+import use_cases.change_history_use_case.ChangeHistory;
+import use_cases.change_history_use_case.ChangeHistoryData;
 
 public class Add implements ARRInputBoundary {
 
     private final ARROutputBoundary presenter;
+    private final String ACTION = "Add";
+    private String userName;
 
     public Add(ARROutputBoundary presenter){
         this.presenter = presenter;
@@ -27,7 +31,13 @@ public class Add implements ARRInputBoundary {
             Item item = TempDataStorage.getItem(data.getSerialNum());
             int quantity = item.getQuantity() + data.getQuantity();
             item.setQuantity(quantity);
+            updateHistory(data, item);
             presenter.prepareSuccess(data);
         }
+    }
+    public void updateHistory(ARRInputData data, Item item)
+    {
+        ChangeHistoryData historyData = new ChangeHistoryData(this.userName,this.ACTION, data, item);
+        new ChangeHistory(historyData);
     }
 }

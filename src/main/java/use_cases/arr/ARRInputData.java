@@ -7,7 +7,7 @@ public class ARRInputData {
 
     /**
      * Instantiates a data object necessary to carry the data required for the Add, Return and Remove use cases
-     * @param serialNum the serial number of the object whose qunantity is to be changed
+     * @param serialNum the serial number of the object whose quantity is to be changed
      * @param quantity the quantity to change
      */
     public ARRInputData(String serialNum, int quantity){

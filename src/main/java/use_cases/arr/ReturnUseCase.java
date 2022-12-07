@@ -1,5 +1,9 @@
 package use_cases.arr;
 
+import entities.Item;
+import use_cases.change_history_use_case.ChangeHistory;
+import use_cases.change_history_use_case.ChangeHistoryData;
+
 public class ReturnUseCase extends Add implements ARRInputBoundary
 {
     /**
@@ -7,7 +11,9 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
      */
 
 
-    private static final String ACTION = "Return";
+    private final String ACTION = "Return";
+
+    private String userName;
 
     /**
      * ReturnUseCase Object created by the ReturnScreenBuilder
@@ -24,18 +30,17 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
      *
      * @param data contains serial number of the item and quantity to add
      */
+    @Override
     public void changeItemQuantity(ARRInputData data)
     {
         super.changeItemQuantity(data);
         //updateHistory();
     }
-    /*
-    private void updateHistory()
+    @Override
+    public void updateHistory(ARRInputData data, Item item)
     {
-        History obj = new History(employeeId, ACTION, serialNo, increasedQuantity);
-        obj.updateReturnHistory();
+        ChangeHistoryData historyData = new ChangeHistoryData(this.userName,this.ACTION, data, item);
+        new ChangeHistory(historyData);
+
     }
-    */
-
-
 }
