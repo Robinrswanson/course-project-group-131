@@ -39,7 +39,7 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(this.userName,this.ACTION, data, item);
+        ChangeHistoryData historyData = new ChangeHistoryData(data.getUserName(),this.ACTION, data, item);
         new ChangeHistory(historyData);
 
     }
