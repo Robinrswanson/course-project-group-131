@@ -35,6 +35,8 @@ public class Add implements ARRInputBoundary {
             presenter.prepareSuccess(data);
         }
     }
+
+    @Override
     public void updateHistory(ARRInputData data, Item item)
     {
         ChangeHistoryData historyData = new ChangeHistoryData(this.userName,this.ACTION, data, item);
