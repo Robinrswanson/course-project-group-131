@@ -21,7 +21,8 @@ public class Add implements ARRInputBoundary {
      */
     public void changeItemQuantity(ARRInputData data){
 
-        if (data.getQuantity() < 0){
+        if (data.getQuantity() < 0 && !(this instanceof RemoveUseCase)) // To allow negative quantity values only when the item is being removed
+        {
             presenter.prepareFailure(ARROutputBoundary.NEGATIVE_INT_ERROR);
         } // if the employee enters a negative quantity (unlikely, but you don't want this to happen at all)
         else if (!TempDataStorage.hasItem(data.getSerialNum())){
