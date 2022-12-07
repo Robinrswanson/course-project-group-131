@@ -19,6 +19,12 @@ public class ARRInputData {
         this.userName = UserName;
     }
 
+    public ARRInputData(String serialNum, int quantity)
+    {
+        this.serialNum = serialNum;
+        this.quantity = quantity;
+    }
+
     /**
      * Gets the serial number of the Item to change
      * @return the serial number
