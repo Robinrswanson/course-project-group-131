@@ -27,7 +27,6 @@ public class LoginScreen extends JPanel implements ActionListener {
     private static JLabel picLabel;
 
 
-
     public LoginScreen(JPanel screens) throws IOException {
 
 
@@ -36,7 +35,7 @@ public class LoginScreen extends JPanel implements ActionListener {
         pwlabel = new JLabel("Password");
         userlabel = new JLabel("Username");
         notification_label = new JLabel("");
-        notification_label.setBounds(150,185,165,25);
+        notification_label.setBounds(150, 185, 165, 25);
 
         JPanel panel2 = new JPanel();
 
@@ -52,7 +51,7 @@ public class LoginScreen extends JPanel implements ActionListener {
 
         BufferedImage myPicture = ImageIO.read(new File("src/main/java/database/Inventory Icon.png"));
         picLabel = new JLabel(new ImageIcon(myPicture));
-        picLabel.setBounds(160,10,100,96);
+        picLabel.setBounds(160, 10, 100, 96);
 
         this.add(picLabel);
         this.add(pwlabel);
@@ -61,7 +60,6 @@ public class LoginScreen extends JPanel implements ActionListener {
         this.add(passwordField);
         this.add(button);
         this.add(notification_label);
-
 
 
     }
@@ -109,12 +107,14 @@ public class LoginScreen extends JPanel implements ActionListener {
             cardLayout.show(panel, "Main");
 
 
+        }
+    }
 
-
-
-
+        public String getUserName()
+        {
+            return usertextField.getText();
         }
 
-    }
+
 }
 

@@ -29,6 +29,8 @@ public class Main3 {
         JPanel login_screen = new LoginScreen(allScreens);
         allScreens.add(login_screen,"Login");
 
+        String userName = ((LoginScreen) login_screen).getUserName();
+
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
