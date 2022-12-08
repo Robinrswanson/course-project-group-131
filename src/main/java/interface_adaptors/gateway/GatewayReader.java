@@ -1,7 +1,5 @@
 package interface_adaptors.gateway;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
