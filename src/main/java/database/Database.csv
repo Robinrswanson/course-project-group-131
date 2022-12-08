@@ -1,22 +1,22 @@
-11,Apple,30.0,500,N/A,12/11/2022,Kansas
-22,Blueberries,4.99,0,N/A,12/10/2023,Kansas
-12,Strawberries,4.99,120,N/A,12/12/2022,Kansas
-13,Almond Milk,5.99,120,N/A,12/01/2023,Kansas
-14,Oat Milk,6.99,160,N/A,12/02/2023,Kansas
-15,Goat Milk,2.99,240,N/A,12/03/2023,Kansas
-16,Ground Beef,3.99,160,N/A,12/04/2023,Kansas
-17,Carrot,1.99,280,N/A,12/05/2023,Kansas
-18,Milk,2.99,240,N/A,12/06/2023,Kansas
-19,Yogurt,3.99,180,N/A,12/07/2023,Kansas
-1,Ice Cream,9.99,20,N/A,12/01/2022,Kansas
-2,Lettuce,3.0,88,N/A,12/02/2022,Kansas
-3,Tomato,2.0,4,N/A,12/03/2022,Kansas
-4,Cookie Dough,5.0,31108,N/A,12/04/2022,Kansas
-5,Pizza,0.01,8,N/A,12/05/2022,Kansas
-6,Candy,100.0,400,N/A,12/06/2022,Kansas
-7,Burger,1200.0,8,N/A,12/07/2022,Kansas
-8,Chicken,2.0,280,N/A,12/08/2022,Kansas
-9,Fries,4.0,360,N/A,12/09/2022,Kansas
-20,Shoe sole,999.99,200,N/A,12/08/2023,Kansas
-10,Garbage Bag,15.0,120,N/A,12/10/2022,Kansas
-21,Cutting Board,10.99,240,N/A,12/09/2023,Kansas
+1,Ice Cream,9.99,5,N/A,N/A,Frozen
+2,Lettuce,5.00,22,N/A,12-02-2022,Produce
+3,Tomato,2.49,30,N/A,12-03-2022,Produce
+4,Cookie Dough,8.99,13,N/A,12-04-2022,Chilled Deserts
+5,Pizza,12.99,3,N/A,N/A,Frozen
+6,Chocolate Bar,3.99,100,N/A,12-02-2022,Snacks
+7,Burger Bun,6.99,2,N/A,12-03-2022,Bakery
+8,Chicken,2.00,70,N/A,12-04-2022,Meats
+9,Fries,4.00,90,N/A,12-05-2022,Frozen
+10,Garbage Bag,15.00,30,N/A,N/A,Cleaners
+11,Apple,0.99,250,N/A,12-02-2022,Produce
+12,Strawberries,4.99,30,N/A,12-03-2022,Produce
+13,Almond Milk,5.99,30,N/A,12-04-2022,Dairy
+14,Oat Milk,6.99,40,N/A,12-05-2022,Dairy
+15,Goat Milk,2.99,60,N/A,12-06-2022,Dairy
+16,Ground Beef,3.99,40,N/A,12-07-2022,Meats
+17,Carrot,1.99,70,N/A,12-08-2022,Produce
+18,Homogenized Milk,2.99,60,N/A,12-09-2022,Dairy
+19,Yogurt,3.99,45,N/A,12-10-2022,Dairy
+20,Shampoo,15.99,50,N/A,N/A,Personal Care
+21,Cutting Board,10.99,60,N/A,N/A,Home
+22,Blueberries,4.99,0,N/A,12-02-2022,Produce

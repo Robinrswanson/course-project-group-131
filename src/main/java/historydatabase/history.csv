@@ -1,14 +1,5 @@
-2020-12-03 06:46:33,Daisy,Add,Apple,1,apple123
-2021-12-03 06:46:33,Daisy,Add,Apple,1,apple123
-2023-09-03 06:46:33,Emily,Add,pencil,5,pencil123
-2022-12-08 12:05:35,Tony,Add,Apple,1,11
-2022-12-08 12:06:12,Tony,Add,Strawberries,5,12
-2022-12-08 12:54:19,null,ADD ITEM,I hate writing test,20.0,10077
-2022-12-08 12:56:17,null,ADD ITEM,I hate writing test,1.0,10077
-2022-12-08 12:58:03,null,ADD ITEM,I hate writing test,1.0,10077
-2022-12-08 12:59:23,null,ADD ITEM,I hate writing test,1.0,10077
-2022-12-08 12:59:55,null,ADD ITEM,I hate writing test,1.0,10077
-2022-12-08 01:46:39,null,ADD ITEM,Banana,0.0,10077
-2022-12-08 01:50:07,null,ADD ITEM,Banana,0.0,10077
-2022-12-08 01:51:01,null,ADD ITEM,Banana,0.0,10077
-2022-12-08 01:54:33,null,ADD ITEM,Banana,0.0,10077
+2022-10-31 10:00:00,Lester,ADD ITEM,Ice Cream,3,1
+2022-10-31 12:00:00,Lucas,NEW ITEM,Blueberries,20,22
+2022-10-31 14:00:00,Daisy,CHANGE PRICE,Tomato,-1.5,3
+2022-10-31 16:00:00,Robin,SELL ITEM,Burger Buns,5,7
+2022-10-31 20:00:00,Jackson,RETURN ITEM,Cutting Board,1,21
