@@ -36,7 +36,7 @@ public class MainEmployeeScreen extends JPanel {
         JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
         JButton logOut = createMenuButton("Log Out");
         logOut.addActionListener(e -> {
-                int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
+                int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
                     System.exit(0);
 
