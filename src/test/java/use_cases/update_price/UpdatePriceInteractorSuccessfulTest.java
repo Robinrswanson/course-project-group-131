@@ -23,6 +23,7 @@ public class UpdatePriceInteractorSuccessfulTest {
         Map<String, Item> map = new HashMap<String, Item>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
+        User.setStatus(true);
 
         // This creates an anonymous implementing class for the Output Boundary.
         UpdatePriceOutputBoundary presenter = new UpdatePriceOutputBoundary() {
@@ -48,7 +49,7 @@ public class UpdatePriceInteractorSuccessfulTest {
         UpdatePriceInputBoundary interactor = new use_cases.update_price.UpdatePrice(presenter);
 
         // Create input data
-        UpdatePriceInputData input = new UpdatePriceInputData("10077", 20, true);
+        UpdatePriceInputData input = new UpdatePriceInputData("10077", 20);
 
         // Run the use case
         interactor.updateItem(input);
