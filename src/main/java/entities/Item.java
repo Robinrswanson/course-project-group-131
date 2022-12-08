@@ -33,7 +33,7 @@ public class Item {
             if(itemInfo[5].equals("N/A")){
                 this.expirationDates = null;}
             else{
-                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
                 this.expirationDates = dateFormat.parse(itemInfo[5]);}
             this.storageLocation = itemInfo[6];
     }
