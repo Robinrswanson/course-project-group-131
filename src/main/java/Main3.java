@@ -39,6 +39,7 @@ public class Main3 {
         loginPresenter.setScreen(login_screen);
         allScreens.add((JPanel) login_screen,"Login");
 
+
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
@@ -56,6 +57,8 @@ public class Main3 {
         builders.add(new ExportFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new HistoryFeatureBuilder());
+        builders.add(new ReturnFeatureBuilder());
+        builders.add(new RemoveFeatureBuilder());
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

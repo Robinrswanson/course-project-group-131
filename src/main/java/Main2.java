@@ -11,6 +11,7 @@ import screens.*;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.Add;
+import use_cases.arr.ReturnUseCase;
 import use_cases.show_history_use_case.*;
 import use_cases.update_price.UpdatePrice;
 import use_cases.update_price.UpdatePriceInputBoundary;
@@ -31,11 +32,14 @@ public class Main2 {
 
         JFrame application = new JFrame("Main Screen");
 
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Closes the frame when the frame is exited
+
         CardLayout cardLayout = new CardLayout();
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
         // JPanel login_screen = new LoginScreen(allScreens);
+
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
@@ -50,6 +54,14 @@ public class Main2 {
         AddController addController = new AddController(addUseCase);
         ARRIView addScreen = new AddScreen(allScreens, addController);
         addPresenter.setScreen(addScreen);
+
+
+        ARROutputBoundary returnPresenter = new ReturnPresenter();
+        ARRInputBoundary returnUseCase = new ReturnUseCase(returnPresenter);
+        ReturnController returnController = new ReturnController(returnUseCase);
+        ARRIView returnScreen = new ReturnScreen(allScreens, returnController);
+        returnPresenter.setScreen(returnScreen);
+
         // instantiates the presenter, the use case, the controller AND the screen
         // the reason why this is so much larger than the previous is because mainMenu and sortScreen have limited functionality
         // we will DEFINITELY need factories for this later lmao
@@ -79,6 +91,7 @@ public class Main2 {
         allScreens.add((JPanel) addScreen, ARRIView.ADD_SCREEN_NAME_CONSTANT);
         allScreens.add((JPanel) updateScreen, UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
         allScreens.add((JPanel) historyScreen, ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
+        allScreens.add((Component) returnScreen, ARRIView.RETURN_SCREEN_NAME_CONSTANT);
 
 
         application.add(allScreens);
