@@ -9,5 +9,5 @@ import java.util.ArrayList;
 public interface SearchCatOutputBoundary {
     void setScreen(SearchCategoryIView screen);
 
-    String prepareSuccess(ArrayList<Item> data);
+    void prepareSuccess(ArrayList<Item> data);
 }

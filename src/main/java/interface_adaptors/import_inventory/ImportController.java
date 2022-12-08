@@ -1,6 +1,6 @@
 package interface_adaptors.import_inventory;
 
-import interface_adaptors.gateway.GatewayReader1;
+import interface_adaptors.gateway.GatewayReader;
 import use_cases.import_inventory.ImportInputBoundary;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class ImportController {
      * @return a String for the View to present
      */
     public void importDatabase(String filepath) throws IOException {
-        GatewayReader1 reader = new GatewayReader1(filepath);
+        GatewayReader reader = new GatewayReader(filepath);
         importUseCase.importDatabase(reader);
     }
 }

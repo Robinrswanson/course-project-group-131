@@ -6,12 +6,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GatewayReader1 implements GatewayReaderInterface {
+public class GatewayReader implements GatewayReaderInterface {
 
     private File file;
     private String filePath;
 
-    public GatewayReader1(String filePath){
+    public GatewayReader(String filePath){
         this.file = new File(filePath);
         this.filePath = filePath;
     }
