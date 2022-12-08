@@ -18,7 +18,7 @@ public class Export implements ExportInputBoundary {
         ExportDS inventoryData = new ExportDS(new ArrayList<>());
         for(Item item: inventory){
             //format the item information into a String Array
-            String[] rowData = item.getArrayFormat();
+            String[] rowData = item.getStringArrayFormat();
             inventoryData.addData(rowData);
         }
         //write to the file
