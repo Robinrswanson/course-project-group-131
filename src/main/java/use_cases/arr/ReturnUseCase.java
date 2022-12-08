@@ -1,6 +1,7 @@
 package use_cases.arr;
 
 import entities.Item;
+import entities.TempDataStorage;
 import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
@@ -35,7 +36,7 @@ public class ReturnUseCase implements ARRInputBoundary
     {
         ARRInputBoundary obj = new Add(presenter);
         obj.changeItemQuantity(data);
-        //updateHistory();
+        updateHistory(data, TempDataStorage.getItem(data.getSerialNum()));
     }
     @Override
     public void updateHistory(ARRInputData data, Item item)
