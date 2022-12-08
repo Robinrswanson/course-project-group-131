@@ -4,6 +4,7 @@ import entities.TempDataStorage;
 import interface_adaptors.gateway.GatewayReader;
 import interface_adaptors.inventory_initializer.InitializerController;
 import org.junit.jupiter.api.Test;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.initializer.InitializeUseCase;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class InitializeMultipleItemTest {
         InitializerController initializerController = new InitializerController() {
             @Override
             public void InitializeInventory() throws ParseException, IOException {
-                GatewayReader reader = new GatewayReader("src/test/java/TestingSampleData/Multiple Items.csv");
+                GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/Multiple Items.csv");
                 InitializeUseCase initializer = new InitializeUseCase(); //Creates the use case
                 initializer.initializeInventory(reader); //Calls inventory initializer method
 
