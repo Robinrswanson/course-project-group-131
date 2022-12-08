@@ -2,6 +2,7 @@
 package interface_adaptors.show_history;
 
 import interface_adaptors.gateway.*;
+import use_cases.gateway_interfaces.*;
 
 import use_cases.show_history_use_case.ShowHistoryDsGateway;
 import use_cases.show_history_use_case.ShowHistoryStartInput;
@@ -24,7 +25,7 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     //for now I use a buffer reader to do this.
 
-    //Return true if stringdate a is bigger than stringdate b
+    //Return true if stringdate a is bigger than string date b
     public ShowHistoryFileDataAccess() throws IOException {
 
         String path = "src/main/java/historydatabase/history.csv";
