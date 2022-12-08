@@ -9,8 +9,7 @@ import use_cases.change_history_use_case.ChangeHistoryData;
 public class Add implements ARRInputBoundary {
 
     private final ARROutputBoundary presenter;
-    private final String ACTION = "Add";
-    private String userName;
+    public final String ACTION = "ADD ITEM";
 
     public Add(ARROutputBoundary presenter){
         this.presenter = presenter;
@@ -42,6 +41,6 @@ public class Add implements ARRInputBoundary {
     public void updateHistory(ARRInputData data, Item item)
     {
         ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
-        new ChangeHistory(historyData);
+        new ChangeHistory(historyData).save_history_change();
     }
 }

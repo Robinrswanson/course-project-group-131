@@ -12,7 +12,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
      */
 
 
-    private final String ACTION = "Remove Item";
+    public final String ACTION = "SELL ITEM";
 
 
     /**
@@ -40,7 +40,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
     public void updateHistory(ARRInputData data, Item item)
     {
         ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
-        new ChangeHistory(historyData);
+        new ChangeHistory(historyData).save_history_change();
 
     }
 

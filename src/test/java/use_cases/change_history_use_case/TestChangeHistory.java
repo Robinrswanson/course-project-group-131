@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 public class TestChangeHistory {
     @Test
     void create(){
-        ChangeHistory testsample = new ChangeHistory("Daisy","Add","Apple","1","apple123");
-        testsample.save_history_change();
+        // ChangeHistory testsample = new ChangeHistory("Daisy","Add","Apple","1","apple123");
+        // testsample.save_history_change();
     }
 
 

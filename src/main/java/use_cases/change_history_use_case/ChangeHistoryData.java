@@ -2,6 +2,7 @@ package use_cases.change_history_use_case;
 
 import entities.Item;
 import use_cases.arr.ARRInputData;
+import use_cases.update_price.UpdatePriceInputData;
 
 public class ChangeHistoryData {
     /**
@@ -30,6 +31,10 @@ public class ChangeHistoryData {
         this.quantity = Integer.toString(data.getQuantity());
         this.itemName = item.getName();
         this.seriNum = item.getSerialNumber();
+    }
+
+    public ChangeHistoryData(String userName, String action, UpdatePriceInputData data, Item item){
+
     }
 
 }

@@ -11,8 +11,7 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
      * ReturnUseCase return the given quantity of the item.
      */
 
-    private String userName =User.getUserName();
-    private final String ACTION = "Return";
+    public final String ACTION = "RETURN ITEM";
 
 
     /**
@@ -39,8 +38,8 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(userName, this.ACTION, data, item);
-        new ChangeHistory(historyData);
+        ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(), this.ACTION, data, item);
+        new ChangeHistory(historyData).save_history_change();
 
     }
 }
