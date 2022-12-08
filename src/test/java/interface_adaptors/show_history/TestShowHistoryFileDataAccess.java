@@ -18,9 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestShowHistoryFileDataAccess {
     @Test
     void create() throws IOException {
-        String path = "src/main/java/historydatabase/history.csv";
+        String path = "src/test/java/interface_adaptors/show_history/Testfile";
         GatewayWriter clearwriter = new GatewayWriter(path);
-        //clearwriter.rewriteFile(null);
         String[][] filecontent= new String[][]{{"2020-12-03 06:46:33,Daisy,Add,Apple,1,apple123"},{"2021-12-03 06:46:33,Daisy,Add,Apple,1,apple123"},{"2023-09-03 06:46:33,Emily,Add,pencil,5,pencil123"}};
         List<String[]> realfilecontent = Arrays.asList(filecontent);
         clearwriter.rewriteFile(realfilecontent);
