@@ -1,5 +1,6 @@
 package use_cases.sales_report;
 import entities.TempDataStorage;
+import interface_adaptors.show_history.ShowHistoryFileDataAccess;
 import use_cases.show_history_use_case.ShowHistoryDsGateway;
 
 import java.time.LocalDateTime;
@@ -29,14 +30,15 @@ public class SalesReporter implements SalesReporterInputBoundary {
             presenter.prepareFailure(SalesReporterOutputBoundary.END_TIME_ERROR);
         }
         else {
-            ArrayList<String[]> splitData = data.splitListTimeRange();
+            ArrayList<String[]> rows = data.getData();
             // generates the list of serial numbers in the data after splitting the history
-            ArrayList<String> serials = SalesReporterInputData.serialNumList(splitData);
+            ArrayList<String> serials = SalesReporterInputData.serialNumList(rows);
             ArrayList<String[]> result = new ArrayList<String[]>();
+
             for (String serialNum : serials) {
-                result.add(getRow(splitData, serialNum));
+                result.add(getRow(rows, serialNum));
             }
-            String totalRevenue = String.format("Total Revenue: $%.5f", SalesReporterInputData.totalRevenue(splitData));
+            String totalRevenue = String.format("Total Revenue: $%.2f", SalesReporterInputData.getTotalRevenue(rows));
             result.add(new String[]{"", "", "", "", "", totalRevenue});
             presenter.prepareSuccess(result);
         }
@@ -50,11 +52,11 @@ public class SalesReporter implements SalesReporterInputBoundary {
      */
 
     public String[] getRow (ArrayList<String[]> rows, String serialNum){
-        String name = TempDataStorage.getItem(serialNum).getName();
-        String price = String.valueOf(SalesReporterInputData.itemPrice(serialNum));
-        String quantitySold = String.valueOf(SalesReporterInputData.itemSold(rows, serialNum));
-        String quantityReturned = String.valueOf(SalesReporterInputData.itemReturned(rows, serialNum));
-        String revenue = String.valueOf(SalesReporterInputData.itemRevenue(rows, serialNum));
+        String name = SalesReporterInputData.getName(serialNum);
+        String price = String.valueOf(SalesReporterInputData.getItemPrice(serialNum));
+        String quantitySold = String.valueOf(SalesReporterInputData.getItemSold(rows, serialNum));
+        String quantityReturned = String.valueOf(SalesReporterInputData.getItemReturned(rows, serialNum));
+        String revenue = String.format("$%.2f", SalesReporterInputData.getItemRevenue(rows, serialNum));
         return new String[]{serialNum, name, price, quantitySold, quantityReturned, revenue};
     }
 }
