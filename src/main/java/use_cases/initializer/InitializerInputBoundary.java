@@ -1,6 +1,6 @@
 package use_cases.initializer;
 
-import use_cases.gateway_interfaces.Temporary;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -11,5 +11,5 @@ public interface InitializerInputBoundary {
      * @param reader a class that reads files
      */
 
-    void initializeInventory(Temporary reader) throws ParseException, IOException;
+    void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException;
 }

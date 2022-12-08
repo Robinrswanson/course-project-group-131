@@ -6,7 +6,7 @@ import interface_adaptors.sales_report.SalesReporterPresenter;
 import interface_adaptors.sales_report.SalesReporterView;
 import interface_adaptors.show_history.ShowHistoryFileDataAccess;
 import screens.SalesReportScreen;
-import use_cases.gateway_interfaces.Temporary;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.sales_report.SalesReporter;
 import use_cases.sales_report.SalesReporterInputBoundary;
 import use_cases.sales_report.SalesReporterOutputBoundary;
@@ -23,7 +23,7 @@ public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuild
     SalesReporterView salesReportScreen;
     ShowHistoryDsGateway historyGateway;
 
-    Temporary reader;
+    GatewayReaderInterface reader;
     private final String FILE_PATH =
             "src/main/java/database/Sample Data - Sample History.csv";
 
