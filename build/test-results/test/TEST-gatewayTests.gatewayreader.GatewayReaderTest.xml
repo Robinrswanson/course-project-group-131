@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="gatewayTests.gatewayreader.GatewayReaderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T03:20:34" hostname="ROBIN-LENOVO-LA" time="0.031">
+  <properties/>
+  <testcase name="create()" classname="gatewayTests.gatewayreader.GatewayReaderTest" time="0.031"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
