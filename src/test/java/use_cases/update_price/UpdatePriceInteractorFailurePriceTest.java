@@ -21,7 +21,7 @@ public class UpdatePriceInteractorFailurePriceTest {
         List<String> category = Arrays.asList("Fruits");
         Item item = new Item("10077","I hate writing test", 30, 2, category,
                 date, "second floor");
-        Map<String, Item> map = new HashMap<String, Item>();
+        Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
 

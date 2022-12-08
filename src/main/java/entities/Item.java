@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Item {
+public class Item implements ItemInterface{
     private final String serialNumber;
     private final String name;
     private double price;

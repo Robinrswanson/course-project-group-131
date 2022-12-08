@@ -14,9 +14,9 @@ public class Export implements ExportInputBoundary {
     }
     public void extractDataStorage(GatewayWriterInterface writer){
         //Get List form of the inventory
-        List<Item> inventory = new ArrayList<>(TempDataStorage.getInventory().values());
+        List<ItemInterface> inventory = new ArrayList<>(TempDataStorage.getInventory().values());
         ExportDS inventoryData = new ExportDS(new ArrayList<>());
-        for(Item item: inventory){
+        for(ItemInterface item: inventory){
             //format the item information into a String Array
             String[] rowData = item.getStringArrayFormat();
             inventoryData.addData(rowData);

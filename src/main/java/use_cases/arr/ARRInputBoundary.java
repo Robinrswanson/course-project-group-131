@@ -1,6 +1,7 @@
 package use_cases.arr;
 
 import entities.Item;
+import entities.ItemInterface;
 
 public interface ARRInputBoundary {
 
@@ -19,7 +20,7 @@ public interface ARRInputBoundary {
      * @param item Represents the item object that was modified
      */
 
-    void updateHistory(ARRInputData data, Item item);
+    void updateHistory(ARRInputData data, ItemInterface item);
 
 }
 

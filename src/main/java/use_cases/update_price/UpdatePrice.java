@@ -21,7 +21,7 @@ public class UpdatePrice implements UpdatePriceInputBoundary {
         } else if (!data.getUpdatePrice()) {
             presenter.prepareFailure(2);
         } else {
-            Item item = TempDataStorage.getItem(data.getSerialNum());
+            ItemInterface item = TempDataStorage.getItem(data.getSerialNum());
 
             item.setPrice(data.getPrice());
             presenter.prepareSuccess(data);

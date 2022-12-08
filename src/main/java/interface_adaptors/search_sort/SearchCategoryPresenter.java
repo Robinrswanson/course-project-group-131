@@ -1,6 +1,7 @@
 package interface_adaptors.search_sort;
 
 import entities.Item;
+import entities.ItemInterface;
 import use_cases.search_sort.SearchCatOutputBoundary;
 
 
@@ -18,11 +19,11 @@ public class SearchCategoryPresenter implements SearchCatOutputBoundary {
     public void setScreen(SearchCategoryIView screen) {this.screen = screen;}
 
     @Override
-    public String prepareSuccess(ArrayList<Item> data) {
+    public String prepareSuccess(ArrayList<ItemInterface> data) {
         if (data.size() == 0){
             return "No Items found";}
         ArrayList<String> itemNames = new ArrayList<>();
-        for (Item item: data)
+        for (ItemInterface item: data)
         {itemNames.add(item.getName());}
         return "Items: " + itemNames;
     }

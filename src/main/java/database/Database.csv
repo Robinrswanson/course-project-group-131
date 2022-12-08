@@ -1,3 +1,13 @@
+11,Apple,0.99,250,N/A,12-02-2022,Produce
+22,Blueberries,4.99,0,N/A,12-02-2022,Produce
+12,Strawberries,4.99,30,N/A,12-03-2022,Produce
+13,Almond Milk,5.99,30,N/A,12-04-2022,Dairy
+14,Oat Milk,6.99,40,N/A,12-05-2022,Dairy
+15,Goat Milk,2.99,60,N/A,12-06-2022,Dairy
+16,Ground Beef,3.99,40,N/A,12-07-2022,Meats
+17,Carrot,1.99,70,N/A,12-08-2022,Produce
+18,Homogenized Milk,2.99,60,N/A,12-09-2022,Dairy
+19,Yogurt,3.99,45,N/A,12-10-2022,Dairy
 1,Ice Cream,9.99,5,N/A,N/A,Frozen
 2,Lettuce,5.00,22,N/A,12-02-2022,Produce
 3,Tomato,2.49,30,N/A,12-03-2022,Produce
@@ -7,16 +17,6 @@
 7,Burger Bun,6.99,2,N/A,12-03-2022,Bakery
 8,Chicken,2.00,70,N/A,12-04-2022,Meats
 9,Fries,4.00,90,N/A,12-05-2022,Frozen
-10,Garbage Bag,15.00,30,N/A,N/A,Cleaners
-11,Apple,0.99,250,N/A,12-02-2022,Produce
-12,Strawberries,4.99,30,N/A,12-03-2022,Produce
-13,Almond Milk,5.99,30,N/A,12-04-2022,Dairy
-14,Oat Milk,6.99,40,N/A,12-05-2022,Dairy
-15,Goat Milk,2.99,60,N/A,12-06-2022,Dairy
-16,Ground Beef,3.99,40,N/A,12-07-2022,Meats
-17,Carrot,1.99,70,N/A,12-08-2022,Produce
-18,Homogenized Milk,2.99,60,N/A,12-09-2022,Dairy
-19,Yogurt,3.99,45,N/A,12-10-2022,Dairy
 20,Shampoo,15.99,50,N/A,N/A,Personal Care
+10,Garbage Bag,15.00,30,N/A,N/A,Cleaners
 21,Cutting Board,10.99,60,N/A,N/A,Home
-22,Blueberries,4.99,0,N/A,12-02-2022,Produce

@@ -4,21 +4,21 @@ import java.util.*;
 
 public class TempDataStorage {
     // Implemented using the Singleton Design Pattern
-    private static Map<String, Item> inventory;
+    private static Map<String, ItemInterface> inventory;
 
     private TempDataStorage(){}
 
     // changed this slightly (name from TempDataStorage -> setTempDataStorage)
-    public static void setTempDataStorage(Map<String, Item> inventory_1) {
+    public static void setTempDataStorage(Map<String, ItemInterface> inventory_1) {
         inventory = inventory_1;
     }
 
-    public static void addItem(Item new_item) {
+    public static void addItem(ItemInterface new_item) {
         String serial_num = new_item.getName();
         inventory.put(serial_num, new_item);
     }
 
-    public static Item getItem(String serial_num) {
+    public static ItemInterface getItem(String serial_num) {
         return inventory.get(serial_num);
     }
 
@@ -27,7 +27,7 @@ public class TempDataStorage {
         return inventory.containsKey(serialNum);
     }
 
-    public static Map<String, Item> getInventory() {
+    public static Map<String, ItemInterface> getInventory() {
         return inventory;
     }
 }

@@ -1,4 +1,5 @@
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import interface_adaptors.inventory_initializer.InitializerController;
 import interface_adaptors.login.LoginController;
@@ -44,9 +45,7 @@ public class Main3 {
         allScreens.add(mainMenu, "Main");
         // creates the main menu
 
-        InitializerInputBoundary initializeUseCase = new InitializeUseCase();
         InitializerController initializer = new InitializerController();
-
         initializer.InitializeInventory();
 
         // ============= CHANGES START HERE ==============:
@@ -94,7 +93,7 @@ public class Main3 {
         List<String> bananaCategories = new ArrayList<>();
         bananaCategories.add("Fruit");
         Item banana = new Item("10077", "Banana", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
-        Map<String, Item> map = new HashMap<>();
+        Map<String, ItemInterface> map = new HashMap<>();
         map.put("10077", banana);
         TempDataStorage.setTempDataStorage(map);
     }

@@ -3,6 +3,7 @@ package use_cases.import_inventory;
 import java.io.IOException;
 import java.util.List;
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import use_cases.arr.ARRInputData;
 import use_cases.gateway_interfaces.GatewayReaderInterface;
@@ -16,7 +17,6 @@ public class Import implements ImportInputBoundary {
     /**
      * imports the passed in inventory
      * @param reader a class that reads files
-     * @return a String that says whether the inventory was successfully imported or failed
      */
     public void importDatabase(GatewayReaderInterface reader) throws IOException{
         ImportDS importData = new ImportDS(reader.getData());
@@ -33,7 +33,7 @@ public class Import implements ImportInputBoundary {
                 success = false;
                 break;
             }
-            Item item = TempDataStorage.getItem(itemInformation.getSerialNum());
+            ItemInterface item = TempDataStorage.getItem(itemInformation.getSerialNum());
             int newQuantity = item.getQuantity() + itemInformation.getQuantity();
             item.setQuantity(newQuantity);
         }

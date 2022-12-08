@@ -1,6 +1,7 @@
 package use_cases.sales_reporter_use_case;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 public class TestSalesReporterInputData {
     private ArrayList<String[]> example_history;
-    private Map<String, Item> example_map;
+    private Map<String, ItemInterface> example_map;
     @BeforeEach
     public void setUp(){
         Item example_item_1 = new Item("1", "Ice Cream", 1.00, 10, null, null, "Shelf");

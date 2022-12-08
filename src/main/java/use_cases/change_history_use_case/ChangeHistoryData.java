@@ -1,6 +1,7 @@
 package use_cases.change_history_use_case;
 
 import entities.Item;
+import entities.ItemInterface;
 import use_cases.arr.ARRInputData;
 
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public class ChangeHistoryData {
      * @param item Item
      */
 
-    public ChangeHistoryData(String userName, String action, ARRInputData data, Item item)
+    public ChangeHistoryData(String userName, String action, ARRInputData data, ItemInterface item)
     {
         this.userName = userName;
         this.action = action;

@@ -1,13 +1,14 @@
 package use_cases.search_sort;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import java.text.ParseException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 public class Sort implements SortInputBoundary{
     private final SortOutputBoundary presenter;
-    private final Collection<Item> inventory;
+    private final Collection<ItemInterface> inventory;
 
     /**
      *
@@ -26,8 +27,8 @@ public class Sort implements SortInputBoundary{
      * The value at index 2 is the parameter to be used for the sort (higher, lower, or equal)
      */
     public void executeSort(String[] parameter) throws ParseException {
-        ArrayList<Item> returnItem = new ArrayList<>();
-            for (Item currItem: inventory) {
+        ArrayList<ItemInterface> returnItem = new ArrayList<>();
+            for (ItemInterface currItem: inventory) {
                 if (Objects.equals(parameter[0], "name"))
                     extractedName(Objects.equals(currItem.getName(), parameter[1]), returnItem, currItem);
                 else if (Objects.equals(parameter[0], "storageLocation"))
@@ -48,7 +49,7 @@ public class Sort implements SortInputBoundary{
      * @param returnItem this is the list of items to be returned at the end of the sort
      * @param currItem1 this is the current item that is being checked
      */
-    private static void extractedName(boolean currItem, ArrayList<Item> returnItem, Item currItem1) {
+    private static void extractedName(boolean currItem, ArrayList<ItemInterface> returnItem, ItemInterface currItem1) {
         if (currItem){
             if (!returnItem.contains(currItem1)){
             returnItem.add(currItem1);}
@@ -60,13 +61,13 @@ public class Sort implements SortInputBoundary{
      * @param returnItem this is the list of items to be returned at the end of the sort
      * @param currItem1 this is the current item that is being checked
      */
-    private static void extractedStorageLocation(boolean currItem, ArrayList<Item> returnItem, Item currItem1) {
+    private static void extractedStorageLocation(boolean currItem, ArrayList<ItemInterface> returnItem, ItemInterface currItem1) {
         if (currItem){
             if (!returnItem.contains(currItem1)){
                 returnItem.add(currItem1);}}
     }
 
-    private static void extractedEqual(ArrayList<Item> returnItem, String[] parameter, Item currItem) throws ParseException {
+    private static void extractedEqual(ArrayList<ItemInterface> returnItem, String[] parameter, ItemInterface currItem) throws ParseException {
         // This takes into account teh case where the search condition is "equal"
         if ((Objects.equals(parameter[0], "price"))) {
             double check = Double.parseDouble(parameter[1]);
@@ -88,7 +89,7 @@ public class Sort implements SortInputBoundary{
     }
     //TODO come back to this part
 
-    private static void extractedHigher(ArrayList<Item> returnItem, String[] parameter, Item currItem) throws ParseException {
+    private static void extractedHigher(ArrayList<ItemInterface> returnItem, String[] parameter, ItemInterface currItem) throws ParseException {
         if ((Objects.equals(parameter[0], "price"))) {
             double check = Double.parseDouble(parameter[1]);
             if (currItem.getPrice() > check){
@@ -107,7 +108,7 @@ public class Sort implements SortInputBoundary{
                     returnItem.add(currItem);}}
     }
 
-    private static void extractedLower(ArrayList<Item> returnItem, String[] parameter, Item currItem) throws ParseException {
+    private static void extractedLower(ArrayList<ItemInterface> returnItem, String[] parameter, ItemInterface currItem) throws ParseException {
         if ((Objects.equals(parameter[0], "price"))) {
             double check = Double.parseDouble(parameter[1]);
             if (currItem.getPrice() < check){
