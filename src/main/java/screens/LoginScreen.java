@@ -103,9 +103,13 @@ public class LoginScreen extends JPanel implements ActionListener, LoginIView {
         // determine 1.
         //If the username exists, 2. if the password matches 3. If the user is a manager or employee. and returns
         //this result as a boolean list. If password matches and username exists, a new Employee screen is created.
-        controller.checkUserExists(usertextField.getText(), passwordField.getPassword());
+        try {
+            controller.checkUserExists(usertextField.getText(), passwordField.getPassword());
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
 
-            //Stores Is_Manager and username in static variables of LoginOutPutDS class
+        //Stores Is_Manager and username in static variables of LoginOutPutDS class
 
 //            LoginOutPutDS ds2 = new LoginOutPutDS();
 //            System.out.println(ds2.Get_Is_Manager());
