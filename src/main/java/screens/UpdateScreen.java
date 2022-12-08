@@ -2,7 +2,7 @@ package screens;
 
 import interface_adaptors.update_price.UpdateController;
 import interface_adaptors.update_price.UpdateIview;
-import use_cases.LoginCheckUserExists.LoginOutPutDS;
+import use_cases.login.LoginOutPutDS;
 
 import javax.swing.*;
 import java.awt.*;
