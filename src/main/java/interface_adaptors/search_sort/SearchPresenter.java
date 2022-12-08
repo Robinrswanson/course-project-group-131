@@ -21,16 +21,18 @@ public class SearchPresenter implements SearchOutputBoundary {
      *
      */
     @Override
-    public String prepareSuccess(ArrayList<Object> data) {
+    public void prepareSuccess(ArrayList<Object> data) {
+        String message = null;
         if ((boolean) data.get(0)) {
             Item item =  (Item) data.get(1);
-            return "Item:" + item.getName() + ", Cost:" + item.getPrice() +
-                    ", Quantity:" + item.getQuantity() + ", Storage Location:" +
+            message =  "Item: " + item.getName() + ", Cost: $" + item.getPrice() +
+                    ", Quantity: " + item.getQuantity() + ", Storage Location: " +
                     item.getStorageLocation();
         }
         else {
-            return "Item was not found";
+            message = "Item was not found";
         }
+        screen.setMessage(message);
 
     }
 }

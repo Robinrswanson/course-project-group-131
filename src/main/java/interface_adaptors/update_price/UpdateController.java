@@ -17,8 +17,8 @@ public class UpdateController {
      * @param updatePrice the boolean value: true represents manager, false represents employee
      */
 
-    public void updateItem_price(String serialNum, double price, boolean updatePrice){
-        UpdatePriceInputData data = new UpdatePriceInputData(serialNum, price, updatePrice);
+    public void updateItem_price(String serialNum, double price){
+        UpdatePriceInputData data = new UpdatePriceInputData(serialNum, price);
         this.updateUseCase.updateItem(data);
     }
 

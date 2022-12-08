@@ -3,6 +3,8 @@ package entities;
 public class User {
     private static String userName;
     private static String status;
+    public static final String MANAGER_STATUS_CONSTANT = "M";
+    public static final String EMPLOYEE_STATUS_CONSTANT = "E";
 
 
     public static String getUserName() {
@@ -21,7 +23,11 @@ public class User {
 
     public static void setStatus(boolean ManagerStatus)
     {
-        if (ManagerStatus)
-            status = "M";
+        if (ManagerStatus){
+            status = MANAGER_STATUS_CONSTANT;
+        }
+        else{
+            status = EMPLOYEE_STATUS_CONSTANT;
+        }
     }
 }
