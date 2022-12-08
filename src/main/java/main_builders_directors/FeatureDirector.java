@@ -26,6 +26,9 @@ public class FeatureDirector {
         if (builder instanceof GatewayBuilder){
             ((GatewayBuilder) builder).buildGateway();
         }
+        if (builder instanceof ReaderBuilder){
+            ((ReaderBuilder) builder).buildReader();
+        }
         builder.buildPresenter();
         builder.buildUseCase();
         builder.buildController();

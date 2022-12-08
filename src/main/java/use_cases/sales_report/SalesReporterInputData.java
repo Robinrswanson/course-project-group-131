@@ -34,7 +34,7 @@ public class SalesReporterInputData {
      * @return a LocalDateTime object
      */
     public static LocalDateTime stringToDateTime(String dateTime){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return LocalDateTime.parse(dateTime, formatter);
     }
 
@@ -89,6 +89,10 @@ public class SalesReporterInputData {
         return result;
     }
 
+    public static String getName(String serialNum){
+        return TempDataStorage.getItem(serialNum).getName();
+    }
+
     /**
      * Returns the number of sales of a specific item within the history data
      * @param rows rows of history data
@@ -97,7 +101,7 @@ public class SalesReporterInputData {
      */
     // return the number of items sold when given a list of string arrays in the
     // format [DateTime,Username,Action,Item Name,Quantity,Serial Number] and a string representing an item name.
-    public static int itemSold(ArrayList<String[]> rows, String serialNum){
+    public static int getItemSold(ArrayList<String[]> rows, String serialNum){
         int quantity = 0;
         for (String[] row: rows){
             if (row[ACTION_COLUMN].equals("SELL ITEM") && row[SERIAL_NUM_COLUMN].equals(serialNum)){
@@ -115,7 +119,7 @@ public class SalesReporterInputData {
      */
     // return the number of items returned when given a list of string arrays in the
     // format [DateTime, Username, Action, Item Name, Quantity] and a string representing an item name.
-    public static int itemReturned(ArrayList<String[]> rows, String serialNum){
+    public static int getItemReturned(ArrayList<String[]> rows, String serialNum){
         int quantity = 0;
         for (String[] row: rows){
             if (row[ACTION_COLUMN].equals("RETURN ITEM") && row[SERIAL_NUM_COLUMN].equals(serialNum)){
@@ -131,7 +135,7 @@ public class SalesReporterInputData {
      * @return the price of the item
      */
     //return a number representing the price of the item with the given serial number
-    public static double itemPrice(String serialNum){
+    public static double getItemPrice(String serialNum){
         return TempDataStorage.getItem(serialNum).getPrice();
     }
 
@@ -142,9 +146,9 @@ public class SalesReporterInputData {
      * @return the revenue in dollars of the item in the given history
      */
     // return the revenue when given an item's serial number and item name
-    public static double itemRevenue(ArrayList<String[]> rows, String serialNum){
-        int quantity = itemSold(rows, serialNum) - itemReturned(rows, serialNum);
-        Double price = itemPrice(serialNum);
+    public static double getItemRevenue(ArrayList<String[]> rows, String serialNum){
+        int quantity = getItemSold(rows, serialNum) - getItemReturned(rows, serialNum);
+        Double price = getItemPrice(serialNum);
         return quantity*price;
     }
 
@@ -153,11 +157,11 @@ public class SalesReporterInputData {
      * @param rows rows of history data
      * @return the total revenue in dollars of the store
      */
-    public static double totalRevenue(ArrayList<String[]> rows){
+    public static double getTotalRevenue(ArrayList<String[]> rows){
         List<String> serialNums = serialNumList(rows);
         double revenue = 0;
         for (String serialNum: serialNums){
-            revenue += itemRevenue(rows, serialNum);
+            revenue += getItemRevenue(rows, serialNum);
         }
         return revenue;
     }
