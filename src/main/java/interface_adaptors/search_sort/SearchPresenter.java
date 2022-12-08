@@ -22,7 +22,6 @@ public class SearchPresenter implements SearchOutputBoundary {
      */
     @Override
     public String prepareSuccess(ArrayList<Object> data) {
-        // TODO should this also return information about the expiration data and categories?
         if ((boolean) data.get(0)) {
             Item item =  (Item) data.get(1);
             return "Item:" + item.getName() + ", Cost:" + item.getPrice() +

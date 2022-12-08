@@ -19,6 +19,8 @@ public class SearchCategoryPresenter implements SearchCatOutputBoundary {
 
     @Override
     public String prepareSuccess(ArrayList<Item> data) {
+        if (data.size() == 0){
+            return "No Items found";}
         ArrayList<String> itemNames = new ArrayList<>();
         for (Item item: data)
         {itemNames.add(item.getName());}
