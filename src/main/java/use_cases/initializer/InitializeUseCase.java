@@ -2,7 +2,7 @@ package use_cases.initializer;
 
 import entities.Item;
 import entities.TempDataStorage;
-import use_cases.gateway_interfaces.GatewayReaderInterface;
+import use_cases.gateway_interfaces.Temporary;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,7 +19,7 @@ public class InitializeUseCase implements InitializerInputBoundary {
      * @param reader a GatewayReader that reads the database and returns its contents in a List
      */
     @Override
-    public void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException {
+    public void initializeInventory(Temporary reader) throws ParseException, IOException {
         InitializerDS database = new InitializerDS(reader.getData());
         Map<String, Item> inventory = new HashMap<>();
         for (String[] row: database.getInventory()

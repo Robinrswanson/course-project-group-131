@@ -1,12 +1,12 @@
 package interface_adaptors.gateway;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface;
+import use_cases.gateway_interfaces.Temporary;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GatewayReader implements GatewayReaderInterface {
+public class GatewayReader implements Temporary {
 
     private File file;
     private String filePath;
