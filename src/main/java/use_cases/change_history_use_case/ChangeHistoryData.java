@@ -3,6 +3,8 @@ package use_cases.change_history_use_case;
 import entities.Item;
 import use_cases.arr.ARRInputData;
 
+import java.time.LocalDateTime;
+
 public class ChangeHistoryData {
     /**
      * A data structure for ChangeHistory class
