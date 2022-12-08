@@ -21,7 +21,6 @@ public class Import implements ImportInputBoundary {
     public String importDatabase(GatewayReaderInterface reader) throws IOException{
         ImportDS importData = new ImportDS(reader.getData());
         List<String[]> data = importData.getImportData();
-        data.remove(0); //Remove the column titles from the data
         for (String[] lst: data) {
             ARRInputData itemInformation = new ARRInputData(lst[0], Integer.parseInt(lst[3]));
             if (!TempDataStorage.hasItem(itemInformation.getSerialNum())) {

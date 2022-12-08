@@ -8,10 +8,6 @@ import java.text.ParseException;
 
 public class InitializerController {
 
-    public InitializerController(){
-
-    }
-
     public void InitializeInventory() throws ParseException, IOException {
         GatewayReader reader = new GatewayReader("src/main/java/database/Database.csv");
         InitializeUseCase initializer = new InitializeUseCase(); //Creates the use case
