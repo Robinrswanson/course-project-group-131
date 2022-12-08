@@ -1,4 +1,4 @@
-package use_cases.LoginCheckUserExists;
+package use_cases.login;
 
 public class LoginOutPutDS {
     private static String username;
