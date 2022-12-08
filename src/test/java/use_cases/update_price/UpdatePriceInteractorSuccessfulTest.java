@@ -29,7 +29,7 @@ public class UpdatePriceInteractorSuccessfulTest {
             @Override
             public void setScreen(UpdateIview screen){
                 // This method is just for setting screen. No need to test it.
-                assertTrue(true);
+                fail();
             }
 
             @Override
@@ -42,7 +42,7 @@ public class UpdatePriceInteractorSuccessfulTest {
 
             @Override
             public void prepareFailure(int error) {
-                assertTrue(true);
+                fail();
             }
         };
         UpdatePriceInputBoundary interactor = new use_cases.update_price.UpdatePrice(presenter);
