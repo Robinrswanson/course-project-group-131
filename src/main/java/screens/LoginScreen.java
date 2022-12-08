@@ -126,5 +126,7 @@ public class LoginScreen extends JPanel implements ActionListener, LoginIView {
         CardLayout cardLayout = (CardLayout) panel.getLayout();
         cardLayout.show(panel, "Main");
     }
+
+
 }
 

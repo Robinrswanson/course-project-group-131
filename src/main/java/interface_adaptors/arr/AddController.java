@@ -6,6 +6,7 @@ import use_cases.arr.ARRInputData;
 public class AddController {
 
     private ARRInputBoundary addUseCase;
+    private String userName;
 
     public AddController(ARRInputBoundary useCase){
         this.addUseCase = useCase;
