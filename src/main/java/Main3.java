@@ -1,11 +1,17 @@
 import entities.Item;
 import entities.TempDataStorage;
 import interface_adaptors.inventory_initializer.InitializerController;
+import interface_adaptors.login.LoginController;
+import interface_adaptors.login.LoginIView;
+import interface_adaptors.login.LoginPresenter;
 import main_builders_directors.*;
 import screens.*;
 import use_cases.import_inventory.Import;
 import use_cases.initializer.InitializeUseCase;
 import use_cases.initializer.InitializerInputBoundary;
+import use_cases.login.Login;
+import use_cases.login.LoginInputBoundary;
+import use_cases.login.LoginOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,8 +32,13 @@ public class Main3 {
         JPanel allScreens = new JPanel(cardLayout);
         // makes the screen that will store ALL the SCREENS
 
-        JPanel login_screen = new LoginScreen(allScreens);
-        allScreens.add(login_screen,"Login");
+        LoginOutputBoundary loginPresenter = new LoginPresenter();
+        LoginInputBoundary login = new Login(loginPresenter);
+        LoginController loginController = new LoginController(login);
+        LoginIView login_screen = new LoginScreen(allScreens, loginController);
+        loginPresenter.setScreen(login_screen);
+        allScreens.add((JPanel) login_screen,"Login");
+
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
@@ -46,6 +57,8 @@ public class Main3 {
         builders.add(new ExportFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new HistoryFeatureBuilder());
+        builders.add(new ReturnFeatureBuilder());
+        builders.add(new RemoveFeatureBuilder());
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

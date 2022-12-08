@@ -24,16 +24,16 @@ public class ChangeHistory {
 
 //GET all the history data we need when constructing ChangeHistory object
 
-    public ChangeHistory(String name, String action, String item, String quantity, String serinum)  {
+    public ChangeHistory(ChangeHistoryData data)  {
         //get current time and save it as a String arribute
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.time = dateFormat.format(date);
-        this.serinum = serinum;
-        this.action = action;
-        this.item = item;
-        this.quantity = quantity;
-        this.username = name;
+        this.serinum = data.seriNum;
+        this.action = data.action;
+        this.item = data.itemName;
+        this.quantity = data.quantity;
+        this.username = data.userName;
 
 
 
@@ -49,4 +49,5 @@ public class ChangeHistory {
         System.out.println("finish");
 
 
-    }}
+    }
+    }
