@@ -18,7 +18,7 @@ public class GatewayWriter implements GatewayWriterInterface {
     public void addNewLines(String[] newRowData) {
         try {
             // could possibly change row and col to search for item name
-            GatewayReader reader = new GatewayReader(filePath);
+            GatewayReader1 reader = new GatewayReader1(filePath);
             List<String[]> fileContents = reader.getData();
             fileContents.add(newRowData);
 
@@ -36,7 +36,7 @@ public class GatewayWriter implements GatewayWriterInterface {
 
     public void editSingleCell(String replace, int row, int col) {
         try {
-            GatewayReader reader = new GatewayReader(filePath);
+            GatewayReader1 reader = new GatewayReader1(filePath);
             List<String[]> fileContents = reader.getData();
             fileContents.get(row)[col] = replace;
             PrintWriter pw = new PrintWriter(new FileWriter(filePath));

@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     public List<String[]> lines;
-    public GatewayReader reader;
+    public GatewayReader1 reader;
     //here I want to import Robin's gateway reader method but this method is not in the main yet.
     //public ShowHistoryFileDataAccess(){
         //GatewayReader reader = new GatewayReader(D://history.csv);
@@ -24,14 +24,14 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     //for now I use a buffer reader to do this.
 
-    //Return true if stringdate a is bigger than stringdate b
+    //Return true if stringdate a is bigger than string date b
     public ShowHistoryFileDataAccess() throws IOException {
 
         String path = "src/main/java/historydatabase/history.csv";
-    reader = new GatewayReader(path);
+    reader = new GatewayReader1(path);
     lines = reader.getData();}
 
-    public ShowHistoryFileDataAccess(GatewayReader reader2) throws IOException {
+    public ShowHistoryFileDataAccess(GatewayReader1 reader2) throws IOException {
         reader = reader2;
         lines = reader.getData();
     }
