@@ -2,7 +2,6 @@ package use_cases.initializer;
 
 import entities.Item;
 import entities.TempDataStorage;
-import use_cases.gateway_interfaces.GatewayReaderInterface;
 
 import java.io.IOException;
 import java.text.ParseException;
