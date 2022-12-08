@@ -27,7 +27,7 @@ public class MainEmployeeScreen extends JPanel {
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
         JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
-        JButton returnItem = createMenuButton("Return Items");
+        JButton returnItem = createMenuButton(ARRIView.RETURN_SCREEN_NAME_CONSTANT);
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
@@ -35,6 +35,15 @@ public class MainEmployeeScreen extends JPanel {
         JButton importItem = createMenuButton(ImportIView.IMPORT_SCREEN_NAME_CONSTANT);
         JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
         JButton logOut = createMenuButton("Log Out");
+        logOut.addActionListener(e -> {
+                int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+
+            }
+        });
+
+
         JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
         packButtons(new JButton[]{add, returnItem});
@@ -45,6 +54,7 @@ public class MainEmployeeScreen extends JPanel {
         // packing is just so the orientation is more organized
 
     }
+
 
     /**
      * Sets the layout of the screen. For now, Box Layout is used to stack the components on top of each other

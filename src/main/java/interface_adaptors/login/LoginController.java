@@ -1,7 +1,10 @@
 package interface_adaptors.login;
 
+import interface_adaptors.gateway.GatewayReader;
 import use_cases.login.LoginInputBoundary;
 import use_cases.login.LoginInputData;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -16,9 +19,10 @@ public class LoginController {
      * @param username the entered-in username
      * @param password the entered-in password
      */
-    public void checkUserExists(String username, char[] password){
+    public void checkUserExists(String username, char[] password) throws IOException {
         LoginInputData data = new LoginInputData(username, getPassword(password));
-        useCase.checkExists(data);
+        GatewayReader reader = new GatewayReader("src/main/java/database/UserName Password.csv");
+        useCase.checkExists(data, reader);
     }
 
     /**
