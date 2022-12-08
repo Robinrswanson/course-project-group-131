@@ -3,6 +3,7 @@ package screens;
 import interface_adaptors.arr.ARRIView;
 import interface_adaptors.export_inventory.ExportIView;
 import interface_adaptors.import_inventory.ImportIView;
+import interface_adaptors.sales_report.SalesReporterView;
 import interface_adaptors.show_history.ShowHistoryView;
 import interface_adaptors.update_price.UpdateIview;
 
@@ -45,12 +46,14 @@ public class MainEmployeeScreen extends JPanel {
 
 
         JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
+        JButton salesReport = createMenuButton(SalesReporterView.SALES_REPORT_SCREEN_NAME);
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
         packButtons(new JButton[]{importItem, exportItem});
         packButtons(new JButton[]{logOut, update});
+        packButtons(new JButton[]{salesReport});
         // packing is just so the orientation is more organized
 
     }
