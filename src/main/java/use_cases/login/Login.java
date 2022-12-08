@@ -1,9 +1,8 @@
 package use_cases.login;
 
-import entities.User;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,9 +19,8 @@ public class Login implements LoginInputBoundary {
         this.presenter = presenter;
     }
 
-    public void checkExists(LoginInputData data)
-    {
-        List<String[]> users = getUserInfo();
+    public void checkExists(LoginInputData data, GatewayReaderInterface reader) throws IOException {
+        List<String[]> users = reader.getData();
         LoginOutputData outData = new LoginOutputData();
 
         for(String[] user : users)
@@ -42,27 +40,8 @@ public class Login implements LoginInputBoundary {
             LoginOutPutDS ds = new LoginOutPutDS();
             ds.Set_Is_Manager(outData.getManager());
             ds.Set_username(data.getUsername());
-            User.setUserName(data.getUsername());
-            User.setStatus(outData.getManager());
         }
         presenter.prepareDisplay(outData);
-    }
-
-    private List<String[]> getUserInfo() {
-        List<String[]> users= new ArrayList<>();
-        String path = "src/main/java/database/UserName Password.csv";
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            String line;
-            while((line=reader.readLine())!=null){
-                String[] values = line.split(",");
-                users.add(values);
-
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return users;
     }
 
     public boolean pwMatches(String pw, String pwTest)
