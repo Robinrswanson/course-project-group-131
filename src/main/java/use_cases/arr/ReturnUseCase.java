@@ -5,13 +5,14 @@ import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
-public class ReturnUseCase extends Add implements ARRInputBoundary
+public class ReturnUseCase implements ARRInputBoundary
 {
     /**
      * ReturnUseCase return the given quantity of the item.
      */
 
-    private String userName =User.getUserName();
+    private final String userName =User.getUserName();
+    private ARROutputBoundary presenter;
     private final String ACTION = "Return";
 
 
@@ -21,19 +22,19 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
      */
     public ReturnUseCase(ARROutputBoundary presenter)
     {
-        super(presenter);
+        this.presenter = presenter;
     }
 
     /**
-     * Makes a call to the changeItemQuantity method in the super class Add, to increase
+     * Makes a call to the changeItemQuantity method in the Add class through the Interface, to increase
      * the quantity by the value being returned.
      *
      * @param data contains serial number of the item and quantity to add
      */
-    @Override
     public void changeItemQuantity(ARRInputData data)
     {
-        super.changeItemQuantity(data);
+        ARRInputBoundary obj = new Add(presenter);
+        obj.changeItemQuantity(data);
         //updateHistory();
     }
     @Override

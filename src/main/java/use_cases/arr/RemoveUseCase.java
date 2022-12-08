@@ -5,7 +5,7 @@ import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
-public class RemoveUseCase extends Add implements ARRInputBoundary{
+public class RemoveUseCase implements ARRInputBoundary{
 
     /**
      * RemoveUseCase removes the given quantity of the item.
@@ -13,6 +13,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
 
 
     private final String ACTION = "Remove Item";
+    private ARROutputBoundary presenter;
 
 
     /**
@@ -21,7 +22,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
      */
     public RemoveUseCase(ARROutputBoundary presenter)
     {
-        super(presenter);
+        this.presenter = presenter;
     }
 
     /**
@@ -33,7 +34,8 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
     @Override
     public void changeItemQuantity(ARRInputData data)
     {
-        super.changeItemQuantity(data);
+        ARRInputBoundary arr = new Add(presenter);
+        arr.changeItemQuantity(data);
         //updateHistory();
     }
     @Override
