@@ -1,6 +1,6 @@
 package interface_adaptors.sales_report;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface1;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.sales_report.SalesReporterInputBoundary;
 import use_cases.sales_report.SalesReporterInputData;
 
@@ -9,12 +9,12 @@ import java.util.List;
 
 public class SalesReporterController {
     private final SalesReporterInputBoundary salesReportUseCase;
-    private final GatewayReaderInterface1 reader;
+    private final GatewayReaderInterface reader;
     private final String FILE_PATH =
             "src/main/java/database/Sample Data - Sample History.csv";
 
 
-    public SalesReporterController(SalesReporterInputBoundary useCase, GatewayReaderInterface1 reader){
+    public SalesReporterController(SalesReporterInputBoundary useCase, GatewayReaderInterface reader){
         this.salesReportUseCase = useCase;
         this.reader = reader;
         reader.setFilePath(FILE_PATH);

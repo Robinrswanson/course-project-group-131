@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
 
     public List<String[]> lines;
-    public GatewayReader1 reader;
+    public GatewayReader reader;
     //here I want to import Robin's gateway reader method but this method is not in the main yet.
     //public ShowHistoryFileDataAccess(){
         //GatewayReader reader = new GatewayReader(D://history.csv);
@@ -28,10 +28,10 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
     public ShowHistoryFileDataAccess() throws IOException {
 
         String path = "src/main/java/historydatabase/history.csv";
-    reader = new GatewayReader1(path);
+    reader = new GatewayReader(path);
     lines = reader.getData();}
 
-    public ShowHistoryFileDataAccess(GatewayReader1 reader2) throws IOException {
+    public ShowHistoryFileDataAccess(GatewayReader reader2) throws IOException {
         reader = reader2;
         lines = reader.getData();
     }

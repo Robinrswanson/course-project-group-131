@@ -1,17 +1,17 @@
 package interface_adaptors.gateway;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface1;
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GatewayReader1 implements GatewayReaderInterface1 {
+public class GatewayReader implements GatewayReaderInterface {
 
     private File file;
     private String filePath;
 
-    public GatewayReader1(String filePath){
+    public GatewayReader(String filePath){
         this.file = new File(filePath);
         this.filePath = filePath;
     }
