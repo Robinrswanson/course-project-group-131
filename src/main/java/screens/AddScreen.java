@@ -82,7 +82,6 @@ public class AddScreen extends JPanel implements ARRIView {
         layout.setVerticalGroup(vGroup);
         // formats the necessary components to be parallel vertically
         // most of this is all formatting to be honest - the backbone can be done quickly with much fewer lines of code
-
         this.add(textBoxPanel);
     }
 
@@ -152,6 +151,7 @@ public class AddScreen extends JPanel implements ARRIView {
      * Changes the value of the notification. Called on by the AddPresenter
      * @param message the message to change the notification to
      */
+    @Override
     public void setMessage(String message){
         notification.setText(message);
     }

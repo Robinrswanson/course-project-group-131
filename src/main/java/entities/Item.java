@@ -7,7 +7,7 @@ public class Item {
     private double price;
     private int quantity;
     private List<String> categories;
-    private Date expirationDates;
+    private final Date expirationDates;
     private String storageLocation;
 
     public Item(String name, double price, int quantity, List<String> categories,
