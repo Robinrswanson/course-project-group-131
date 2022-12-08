@@ -16,7 +16,7 @@ public class SalesReporterPresenter implements SalesReporterOutputBoundary {
      */
     @Override
     public void prepareSuccess(ArrayList<String[]> data){
-        screen.setMessage("");
+        screen.setMessage("Sales report generated");
         screen.setTable(data);
     }
 
@@ -29,10 +29,10 @@ public class SalesReporterPresenter implements SalesReporterOutputBoundary {
         String message = null;
 
         if (error == START_TIME_ERROR){
-            message = "Error: Start time is set too early";
+            message = "Error: Start time is set too late";
         }
         else if (error == END_TIME_ERROR) {
-            message = "Error: End time is set too late";
+            message = "Error: End time is set too early";
         }
         screen.setMessage(message);
     }
