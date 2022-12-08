@@ -57,8 +57,13 @@ public class Main3 {
         builders.add(new ExportFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new HistoryFeatureBuilder());
+        builders.add(new SalesReporterFeatureBuilder());
+        builders.add(new SortFeatureBuilder());
+        builders.add(new SearchCatFeatureBuilder());
+        builders.add(new SearchFeatureBuilder());
         builders.add(new ReturnFeatureBuilder());
         builders.add(new RemoveFeatureBuilder());
+
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

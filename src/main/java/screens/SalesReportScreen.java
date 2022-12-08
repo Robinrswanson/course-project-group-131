@@ -20,7 +20,7 @@ public class SalesReportScreen extends JPanel implements SalesReporterView {
     private final JTextField endTimeField = new JTextField(20);
 
     private JPanel screens;
-    private final JLabel notification = new JLabel("");
+    private JLabel notification = new JLabel("Enter a start and end date");
     private JTable table = new JTable(new DefaultTableModel(new String[][] {}, HEADERS));
     public static final int SCROLLER_WIDTH = 250;
     public static final int SCROLLER_HEIGHT = 200;
@@ -102,6 +102,7 @@ public class SalesReportScreen extends JPanel implements SalesReporterView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
+                    clearTable();
                     controller.reportData(startTimeField.getText(), endTimeField.getText());
                 } catch (IOException entryException){
                     setMessage("Report failed to generate");
@@ -165,6 +166,10 @@ public class SalesReportScreen extends JPanel implements SalesReporterView {
         for (String[] row: data) {
             model.addRow(row);
         }
+    }
+    public void clearTable(){
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
     }
 
     /**
