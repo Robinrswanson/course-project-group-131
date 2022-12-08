@@ -40,8 +40,7 @@ public class ReturnUseCase implements ARRInputBoundary
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(userName, this.ACTION, data, item);
-        new ChangeHistory(historyData);
-
+        ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
+        new ChangeHistory(historyData).save_history_change();
     }
 }

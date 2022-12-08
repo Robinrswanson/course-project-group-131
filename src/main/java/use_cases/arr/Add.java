@@ -42,6 +42,6 @@ public class Add implements ARRInputBoundary {
     public void updateHistory(ARRInputData data, Item item)
     {
         ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
-        new ChangeHistory(historyData);
+        new ChangeHistory(historyData).save_history_change();
     }
 }
