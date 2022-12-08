@@ -59,7 +59,7 @@ public class Main3 {
         builders.add(new HistoryFeatureBuilder());
 
         builders.add(new SalesReporterFeatureBuilder());
-
+        builders.add(new SortFeatureBuilder());
         builders.add(new ReturnFeatureBuilder());
         builders.add(new RemoveFeatureBuilder());
 
