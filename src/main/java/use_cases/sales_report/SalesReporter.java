@@ -37,7 +37,7 @@ public class SalesReporter implements SalesReporterInputBoundary {
             for (String serialNum : serials) {
                 result.add(getRow(splitData, serialNum));
             }
-            String totalRevenue = String.format("Total Revenue: $%.5f", SalesReporterInputData.getTotalRevenue(splitData));
+            String totalRevenue = String.format("Total Revenue: $%.2f", SalesReporterInputData.getTotalRevenue(splitData));
             result.add(new String[]{"", "", "", "", "", totalRevenue});
             presenter.prepareSuccess(result);
         }
@@ -55,7 +55,7 @@ public class SalesReporter implements SalesReporterInputBoundary {
         String price = String.valueOf(SalesReporterInputData.getItemPrice(serialNum));
         String quantitySold = String.valueOf(SalesReporterInputData.getItemSold(rows, serialNum));
         String quantityReturned = String.valueOf(SalesReporterInputData.getItemReturned(rows, serialNum));
-        String revenue = String.valueOf(SalesReporterInputData.getItemRevenue(rows, serialNum));
+        String revenue = String.format("$%.2f", SalesReporterInputData.getItemRevenue(rows, serialNum));
         return new String[]{serialNum, name, price, quantitySold, quantityReturned, revenue};
     }
 }
