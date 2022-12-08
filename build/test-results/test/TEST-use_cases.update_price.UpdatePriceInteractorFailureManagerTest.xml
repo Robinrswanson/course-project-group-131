@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="use_cases.update_price.UpdatePriceInteractorFailureManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T03:05:37" hostname="DESKTOP-3PMOU2L" time="0.034">
-  <properties/>
-  <testcase name="updateItem()" classname="use_cases.update_price.UpdatePriceInteractorFailureManagerTest" time="0.034"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
