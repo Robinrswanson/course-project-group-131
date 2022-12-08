@@ -18,7 +18,7 @@ public class ReturnFeatureBuilder implements FeatureBuilder{
     private ARROutputBoundary returnPresenter;
     private String userName;
 
-    public ReturnFeatureBuilder(String userName)
+    public ReturnFeatureBuilder()
     {
         this.userName = userName;
     }
@@ -35,7 +35,7 @@ public class ReturnFeatureBuilder implements FeatureBuilder{
 
     public void buildController()
     {
-        returnController = new ReturnController(returnUseCase, userName);
+        returnController = new ReturnController(returnUseCase);
     }
 
     public void buildScreen(JPanel Screens)

@@ -2,11 +2,9 @@ package main_builders_directors;
 
 import interface_adaptors.arr.*;
 import screens.RemoveScreen;
-import screens.ReturnScreen;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARROutputBoundary;
 import use_cases.arr.RemoveUseCase;
-import use_cases.arr.ReturnUseCase;
 
 import javax.swing.*;
 
@@ -18,7 +16,7 @@ public class RemoveFeatureBuilder implements FeatureBuilder {
         private ARROutputBoundary removePresenter;
         private String userName;
 
-        public RemoveFeatureBuilder(String userName)
+        public RemoveFeatureBuilder()
         {
             this.userName = userName;
         }
@@ -35,7 +33,7 @@ public class RemoveFeatureBuilder implements FeatureBuilder {
 
         public void buildController()
         {
-            removeController = new RemoveController(removeUseCase, userName);
+            removeController = new RemoveController(removeUseCase);
         }
 
         public void buildScreen(JPanel Screens)

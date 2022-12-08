@@ -40,7 +40,6 @@ public class Main2 {
 
         // JPanel login_screen = new LoginScreen(allScreens);
 
-        String userName = ((LoginScreen) login_screen).getUserName();
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         // creates the main menu
@@ -52,14 +51,14 @@ public class Main2 {
         // addScreen is all about "add quantity" function.
         ARROutputBoundary addPresenter = new AddPresenter();
         ARRInputBoundary addUseCase = new Add(addPresenter);
-        AddController addController = new AddController(addUseCase, userName);
+        AddController addController = new AddController(addUseCase);
         ARRIView addScreen = new AddScreen(allScreens, addController);
         addPresenter.setScreen(addScreen);
 
 
         ARROutputBoundary returnPresenter = new ReturnPresenter();
         ARRInputBoundary returnUseCase = new ReturnUseCase(returnPresenter);
-        ReturnController returnController = new ReturnController(returnUseCase, userName);
+        ReturnController returnController = new ReturnController(returnUseCase);
         ARRIView returnScreen = new ReturnScreen(allScreens, returnController);
         returnPresenter.setScreen(returnScreen);
 

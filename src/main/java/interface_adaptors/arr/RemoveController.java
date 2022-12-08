@@ -6,20 +6,18 @@ import use_cases.arr.ARRInputData;
 public class RemoveController extends AddController{
 
     public ARRInputBoundary removeObj;
-    private String userName;
 
-    public RemoveController(ARRInputBoundary removeObj, String UserName)
+    public RemoveController(ARRInputBoundary removeObj)
     {
-        super(removeObj, UserName);
+        super(removeObj);
         this.removeObj = removeObj;
-        this.userName = UserName;
 
     }
 
     public void removeItem(String serialNo, int quantity)
     {
         int negQuantity = -quantity;
-        ARRInputData data = new ARRInputData(serialNo, negQuantity, this.userName);
+        ARRInputData data = new ARRInputData(serialNo, negQuantity);
         removeObj.changeItemQuantity(data);
 
     }

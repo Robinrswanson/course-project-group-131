@@ -1,6 +1,7 @@
 package use_cases.arr;
 
 import entities.Item;
+import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
@@ -10,7 +11,7 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
      * ReturnUseCase return the given quantity of the item.
      */
 
-
+    private String userName =User.getUserName();
     private final String ACTION = "Return";
 
 
@@ -38,7 +39,7 @@ public class ReturnUseCase extends Add implements ARRInputBoundary
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(data.getUserName(),this.ACTION, data, item);
+        ChangeHistoryData historyData = new ChangeHistoryData(userName, this.ACTION, data, item);
         new ChangeHistory(historyData);
 
     }

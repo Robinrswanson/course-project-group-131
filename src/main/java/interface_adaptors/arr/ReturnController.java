@@ -12,17 +12,15 @@ public class ReturnController extends AddController
      */
 
     public ARRInputBoundary returnObj;
-    private String userName;
 
     /**
      *
      * @param returnObj Object of type ARRInputBoundary used to call the ReturnUseCase.
      */
-    public ReturnController(ARRInputBoundary returnObj, String UserName)
+    public ReturnController(ARRInputBoundary returnObj)
     {
-        super(returnObj, UserName);
+        super(returnObj);
         this.returnObj = returnObj;
-        this.userName = UserName;
     }
 
     /**
@@ -34,7 +32,7 @@ public class ReturnController extends AddController
      */
     public void returnItem(String serialNo, int quantity)
     {
-        ARRInputData data = new ARRInputData(serialNo, quantity, this.userName);
+        ARRInputData data = new ARRInputData(serialNo, quantity);
         returnObj.changeItemQuantity(data);
     }
 }

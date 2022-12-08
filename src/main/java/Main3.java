@@ -39,7 +39,6 @@ public class Main3 {
         loginPresenter.setScreen(login_screen);
         allScreens.add((JPanel) login_screen,"Login");
 
-        String userName = ((LoginScreen) login_screen).getUserName();
 
         JPanel mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
@@ -53,13 +52,13 @@ public class Main3 {
         // ============= CHANGES START HERE ==============:
         List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
-        builders.add(new AddFeatureBuilder(userName));
+        builders.add(new AddFeatureBuilder());
         builders.add(new UpdateFeatureBuilder());
         builders.add(new ExportFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new HistoryFeatureBuilder());
-        builders.add(new ReturnFeatureBuilder(userName));
-        builders.add(new RemoveFeatureBuilder(userName));
+        builders.add(new ReturnFeatureBuilder());
+        builders.add(new RemoveFeatureBuilder());
         // ...
         // for all the different functions, all you have to do is add a new builder here
 

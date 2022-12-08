@@ -16,11 +16,10 @@ public class AddFeatureBuilder implements FeatureBuilder {
     private AddController addController;
     private ARRIView addScreen;
 
-    private String userName;
 
-    public AddFeatureBuilder(String userName)
+    public AddFeatureBuilder()
     {
-        this.userName = userName;
+
     }
 
     /**
@@ -44,7 +43,7 @@ public class AddFeatureBuilder implements FeatureBuilder {
      */
     @Override
     public void buildController() {
-        addController = new AddController(addUseCase, this.userName);
+        addController = new AddController(addUseCase);
     }
 
     /** builds the screen
