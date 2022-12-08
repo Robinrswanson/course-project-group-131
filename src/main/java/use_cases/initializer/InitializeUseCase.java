@@ -26,7 +26,7 @@ public class InitializeUseCase implements InitializerInputBoundary {
         for (String[] row: database.getInventory()
              ) {
             ItemInterface item = new Item(row);
-            inventory.put(row[0], item);
+            inventory.put(row[ItemInterface.SERIAL_NUMBER_INDEX], item);
         }
         TempDataStorage.setTempDataStorage(inventory);
     }

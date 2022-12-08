@@ -23,13 +23,16 @@ public class Import implements ImportInputBoundary {
         List<String[]> data = importData.getImportData();
         boolean success = true;
         for (String[] lst: data) {
-            ARRInputData itemInformation = new ARRInputData(lst[0], Integer.parseInt(lst[3]));
+            ARRInputData itemInformation = new ARRInputData(lst[ItemInterface.SERIAL_NUMBER_INDEX],
+                    Integer.parseInt(lst[ItemInterface.QUANTITY_INDEX]));
             if (!TempDataStorage.hasItem(itemInformation.getSerialNum())) {
-                presenter.prepareFailure(0, itemInformation); // Check that item is in inventory
+                presenter.prepareFailure(ImportOutputBoundary.SERIAL_NUM_NOT_FOUND_ERROR,
+                        itemInformation); // Check that item is in inventory
                 success = false;
                 break;
             } else if (itemInformation.getQuantity() < 0) {
-                presenter.prepareFailure(1, itemInformation); // Check that quantity is not negative
+                presenter.prepareFailure(ImportOutputBoundary.NEGATIVE_INT_ERROR,
+                        itemInformation); // Check that quantity is not negative
                 success = false;
                 break;
             }
