@@ -37,22 +37,23 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         lines = reader.getData();
     }
     public boolean CompareDatea(LocalDateTime a, LocalDateTime b){
-        return a.compareTo(b) >= 0;
+        return a.compareTo(b) > 0;
         }
 
-   public boolean CompareDateb(LocalDateTime a, LocalDateTime b){
-        return a.compareTo(b)<= 0;
-   }
+   //public boolean CompareDateb(LocalDateTime a, LocalDateTime b){
+       /// return a.compareTo(b)<= 0;
+   //}
 
     @Override
     public boolean StartDateValid(LocalDateTime startdate){
         if (lines == null){
             return false;
         }else{
-            String filestartdate = lines.get(0)[0];
+            String fileenddate = lines.get(lines.size()-1)[0];
+
             DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime filestartdatetime = LocalDateTime.parse(filestartdate,format);
-            return CompareDatea(startdate, filestartdatetime);
+            LocalDateTime fileendatetime = LocalDateTime.parse(fileenddate,format);
+            return CompareDatea(fileendatetime, startdate);
 
         }
 
@@ -62,10 +63,10 @@ public class ShowHistoryFileDataAccess implements ShowHistoryDsGateway {
         if (lines == null){
             return false;
         }else{
-            String fileenddate = lines.get(lines.size()-1)[0];
+            String filestartdate = lines.get(0)[0];
             DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime fileenddatetime = LocalDateTime.parse(fileenddate,format);
-            return CompareDateb(enddate,fileenddatetime);
+            LocalDateTime filestartdatetime = LocalDateTime.parse(filestartdate,format);
+            return CompareDatea(enddate,filestartdatetime);
 
         }
 
