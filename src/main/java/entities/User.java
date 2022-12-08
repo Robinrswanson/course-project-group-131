@@ -19,8 +19,9 @@ public class User {
         userName = user;
     }
 
-    public static void setStatus(String stat)
+    public static void setStatus(boolean ManagerStatus)
     {
-        status = stat;
+        if (ManagerStatus)
+            status = "M";
     }
 }

@@ -2,6 +2,7 @@ package use_cases.arr;
 
 import entities.Item;
 import entities.TempDataStorage;
+import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
@@ -40,7 +41,7 @@ public class Add implements ARRInputBoundary {
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(data.getUserName(),this.ACTION, data, item);
+        ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
         new ChangeHistory(historyData);
     }
 }
