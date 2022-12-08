@@ -28,6 +28,8 @@ public class SearchCategoryScreen extends JPanel implements SearchCategoryIView 
         JButton searchCategory = getSearchCategoryButton();
         JButton returnToMenu = getMenuButton();
         addButtons(returnToMenu, searchCategory);
+
+
     }
     /**
      * Sets the layout of the screen. Currently, the layout is set to BoxLayout, which stacks added
@@ -52,22 +54,9 @@ public class SearchCategoryScreen extends JPanel implements SearchCategoryIView 
         JLabel categoriesLabel = new JLabel("Enter Categories");
 
         JPanel textBoxPanel = new JPanel();
-        GroupLayout layout = new GroupLayout(textBoxPanel);
-        textBoxPanel.setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
+        textBoxPanel.add(categoriesLabel);
+        textBoxPanel.add(categoriesField);
 
-        GroupLayout.SequentialGroup hGroup = layout.createSequentialGroup();
-        hGroup.addGroup(layout.createParallelGroup()).
-                addComponent(categoriesLabel);
-        hGroup.addGroup(layout.createParallelGroup()).
-                addComponent(categoriesField);
-        layout.setHorizontalGroup(hGroup);
-
-        GroupLayout.SequentialGroup vGroup = layout.createSequentialGroup();
-        vGroup.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE))
-                .addComponent(categoriesLabel).addComponent(categoriesField);
-        layout.setVerticalGroup(vGroup);
         this.add(textBoxPanel);
     }
     /**

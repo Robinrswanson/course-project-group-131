@@ -40,8 +40,10 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
     @Override
     public void updateHistory(ARRInputData data, Item item)
     {
+        data.setQuantity(-data.getQuantity());
         ChangeHistoryData historyData = new ARRChangeHistoryData(User.getUserName(),this.ACTION, data, item);
         new ChangeHistory(historyData).save_history_change();
+        data.setQuantity(-data.getQuantity());
 
     }
 

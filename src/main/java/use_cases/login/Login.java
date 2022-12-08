@@ -1,5 +1,6 @@
 package use_cases.login;
 
+import entities.User;
 import use_cases.gateway_interfaces.GatewayReaderInterface;
 
 import java.io.IOException;
@@ -31,15 +32,14 @@ public class Login implements LoginInputBoundary {
                 if (pwMatches(user[PASSWORD_COLUMN], data.getPassword()))
                 {
                     outData.setCorrectPassword(true);
-                    outData.setManager(isManager(user[STATUS_COLUMN],"M"));
+                    outData.setManager(isManager(user[STATUS_COLUMN],User.MANAGER_STATUS_CONSTANT));
                 }
                 break;
             }
         }
         if (outData.getCorrectPassword()){
-            LoginOutPutDS ds = new LoginOutPutDS();
-            ds.Set_Is_Manager(outData.getManager());
-            ds.Set_username(data.getUsername());
+            User.setUserName(data.getUsername());
+            User.setStatus(outData.getManager());
         }
         presenter.prepareDisplay(outData);
     }

@@ -22,7 +22,10 @@ public class Add implements ARRInputBoundary {
      */
     public void changeItemQuantity(ARRInputData data){
 
-        if (data.getQuantity() < 0 && !(this instanceof RemoveUseCase)) // To allow negative quantity values only when the item is being removed
+
+        if (data.getQuantity() < 0 && !(this instanceof RemoveUseCase) ||
+            data.getQuantity() > 0 && (this instanceof RemoveUseCase))
+            // To allow negative quantity values only when the item is being removed
         {
             presenter.prepareFailure(ARROutputBoundary.NEGATIVE_INT_ERROR);
         } // if the employee enters a negative quantity (unlikely, but you don't want this to happen at all)

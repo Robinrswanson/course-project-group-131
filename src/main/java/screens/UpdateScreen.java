@@ -96,7 +96,7 @@ public class UpdateScreen extends JPanel implements UpdateIview {
                 try{
                     LoginOutPutDS Output = new LoginOutPutDS();
                     controller.updateItem_price(serialNumText.getText(),
-                            Double.parseDouble(priceUpdateText.getText()), Output.Get_Is_Manager());
+                            Double.parseDouble(priceUpdateText.getText()));
                     // LoginCheckUserexists exists =
                     // true is for now. By default, the person has the right to update price.
                     // This is related to log in system, should return a boolean value.
