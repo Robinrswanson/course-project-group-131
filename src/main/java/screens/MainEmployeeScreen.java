@@ -13,6 +13,7 @@ import interface_adaptors.update_price.UpdateIview;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class MainEmployeeScreen extends JPanel {
 
@@ -29,16 +30,33 @@ public class MainEmployeeScreen extends JPanel {
 
         addTitle();
 
-        // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
+        /*
         JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
         JButton returnItem = createMenuButton(ARRIView.RETURN_SCREEN_NAME_CONSTANT);
-        JButton remove = createMenuButton("Remove Items");
+        JButton remove = createMenuButton(ARRIView.REMOVE_SCREEN_NAME_CONSTANT);
         JButton search = createMenuButton(SearchIView.SEARCH_SCREEN_NAME_CONSTANT);
         JButton searchCat = createMenuButton(SearchCategoryIView.SEARCH_SCREEN_NAME_CONSTANT);
         JButton sort = createMenuButton(SortIView.SORT_SCREEN_NAME_CONSTANT);
         JButton history = createMenuButton(ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
         JButton importItem = createMenuButton(ImportIView.IMPORT_SCREEN_NAME_CONSTANT);
         JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
+         */
+        // createLogOut();
+
+        // JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
+        // JButton salesReport = createMenuButton(SalesReporterView.SALES_REPORT_SCREEN_NAME);
+
+        //packButtons(new JButton[]{add, returnItem});
+        //packButtons(new JButton[]{remove, sort});
+        //packButtons(new JButton[]{search, searchCat});
+        //packButtons(new JButton[]{salesReport, history});
+        //packButtons(new JButton[]{importItem, exportItem});
+        //packButtons(new JButton[]{logOut, update});
+        // packing is just so the orientation is more organized
+
+    }
+
+    public JButton createLogOut() {
         JButton logOut = createMenuButton("Log Out");
         logOut.addActionListener(e -> {
                 int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
@@ -47,19 +65,7 @@ public class MainEmployeeScreen extends JPanel {
 
             }
         });
-
-
-        JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
-        JButton salesReport = createMenuButton(SalesReporterView.SALES_REPORT_SCREEN_NAME);
-
-        packButtons(new JButton[]{add, returnItem});
-        packButtons(new JButton[]{remove, sort});
-        packButtons(new JButton[]{search, searchCat});
-        packButtons(new JButton[]{salesReport, history});
-        packButtons(new JButton[]{importItem, exportItem});
-        packButtons(new JButton[]{logOut, update});
-        // packing is just so the orientation is more organized
-
+        return logOut;
     }
 
 
@@ -86,7 +92,7 @@ public class MainEmployeeScreen extends JPanel {
      *             accessed when the button is pressed
      * @return the button
      */
-    private static JButton createMenuButton(String text) {
+    public JButton createMenuButton(String text) {
         JButton button = new JButton(text);
 
         button.setPreferredSize(new Dimension(BUTTON_HEIGHT_WIDTH, BUTTON_HEIGHT_CONSTANT));
@@ -105,7 +111,7 @@ public class MainEmployeeScreen extends JPanel {
      * Purely for formatting purposes
      * @param buttonList A list of buttons
      */
-    private void packButtons(JButton[] buttonList){
+    public void packButtons(ArrayList<JButton> buttonList){
         JPanel buttonPanel = new JPanel();
         for (JButton b: buttonList){
             buttonPanel.add(b);
