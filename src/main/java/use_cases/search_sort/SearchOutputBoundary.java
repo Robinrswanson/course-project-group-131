@@ -10,6 +10,6 @@ public interface SearchOutputBoundary {
 
     void setScreen(SearchIView screen);
 
-    String prepareSuccess(ArrayList<Object> data); // display the item if successful
+    void prepareSuccess(ArrayList<Object> data); // display the item if successful
 
 }
