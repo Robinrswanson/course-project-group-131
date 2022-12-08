@@ -29,12 +29,15 @@ public class Item {
         this.name = itemInfo[1];
         this.price = Double.parseDouble(itemInfo[2]);
         this.quantity = Integer.parseInt(itemInfo[3]);
-        this.categories = new ArrayList<>(Arrays.asList(itemInfo[4].split(";")));
-        if(itemInfo[5].equals("N/A")){
-            this.expirationDates = null;}
+        List<String> categories = new ArrayList<>(Arrays.asList(itemInfo[4].split(";")));
+        this.categories = categories;
+        if (itemInfo[5] != "N/A"){
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = dateFormat.parse(itemInfo[5]);
+            this.expirationDates = date;}
         else{
-            DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-            this.expirationDates = dateFormat.parse(itemInfo[5]);}
+            this.expirationDates = null;
+        }
         this.storageLocation = itemInfo[6];
     }
     public String getSerialNumber(){return this.serialNumber;}
@@ -92,17 +95,15 @@ public class Item {
         return this.expirationDates.compareTo(date) < 0;
     }
 
-    public String[] getStringArrayFormat(){
+    public String[] getArrayFormat(){
             String formattedCategories = this.getCategories().toString().replace("[", "").replace("]", "");
-        return new String[]{this.getSerialNumber(), this.getName(), String.format("%.2f", this.getPrice()),
-        String.valueOf(this.getQuantity()), formattedCategories,
-        this.getDateStringFormat(), this.getStorageLocation()};
+            String[] arrayFormat = {this.getSerialNumber(), this.getName(), String.valueOf(this.getPrice()),
+            String.valueOf(this.getQuantity()), formattedCategories,
+            this.getDateStringFormat(), this.getStorageLocation()};
+            return arrayFormat;
     }
     public String getDateStringFormat(){
-        if (this.expirationDates == null){
-            return "N/A";
-        }
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(this.expirationDates);
     }
 }
