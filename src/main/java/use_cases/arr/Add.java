@@ -11,7 +11,6 @@ public class Add implements ARRInputBoundary {
 
     private final ARROutputBoundary presenter;
     private final String ACTION = "Add";
-    private String userName;
 
     public Add(ARROutputBoundary presenter){
         this.presenter = presenter;
