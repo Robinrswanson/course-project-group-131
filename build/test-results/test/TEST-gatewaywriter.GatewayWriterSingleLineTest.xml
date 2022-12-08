@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="gatewaywriter.GatewayWriterSingleLineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T04:42:47" hostname="ROBIN-LENOVO-LA" time="0.027">
+  <properties/>
+  <testcase name="getData()" classname="gatewaywriter.GatewayWriterSingleLineTest" time="0.027"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
