@@ -30,7 +30,7 @@ public class ShowHistoryResultScreen {
 
         // Initializing the JTable
         j = new JTable(data, columnNames);
-        j.setBounds(30, 40, 200, 300);
+        j.setBounds(40, 50, 300, 400);
 
         // adding it to JScrollPane
         JScrollPane sp = new JScrollPane(j);

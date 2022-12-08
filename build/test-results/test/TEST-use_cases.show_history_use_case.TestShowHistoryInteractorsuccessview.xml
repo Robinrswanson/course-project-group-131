@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="use_cases.show_history_use_case.TestShowHistoryInteractorsuccessview" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T08:09:35" hostname="DESKTOP-AFRO5EQ" time="0.033">
+  <properties/>
+  <testcase name="show()" classname="use_cases.show_history_use_case.TestShowHistoryInteractorsuccessview" time="0.033"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
