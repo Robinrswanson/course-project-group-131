@@ -1,5 +1,6 @@
 package interface_adaptors.sales_report;
 
+import use_cases.gateway_interfaces.GatewayReaderInterface;
 import use_cases.sales_report.SalesReporterInputBoundary;
 import use_cases.sales_report.SalesReporterInputData;
 
