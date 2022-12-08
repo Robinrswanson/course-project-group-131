@@ -19,16 +19,19 @@ import java.util.Map;
 
 public class TestSalesReporterInputData {
     private ArrayList<String[]> example_history;
-    private Item example_item;
-    private TempDataStorage example_temp;
     private Map<String, Item> example_map;
     @BeforeEach
     public void setUp(){
-        example_item = new Item("4", "Cutting Board", 20.00, 10, null, null, "Shelf");
+        Item example_item_1 = new Item("1", "Ice Cream", 1.00, 10, null, null, "Shelf");
+        Item example_item_2 = new Item("2", "iPad", 2.00, 10, null, null, "Shelf");
+        Item example_item_3 = new Item("3", "Tomato", 3.00, 10, null, null, "Shelf");
+        Item example_item_4 = new Item("4", "Cutting Board", 20.00, 10, null, null, "Shelf");
         example_map = new HashMap<>();
-        example_map.put("4", example_item);
-        /*example_temp = new TempDataStorage();
-        example_temp.setTempDataStorage(example_map);*/
+        example_map.put("1", example_item_1);
+        example_map.put("2", example_item_2);
+        example_map.put("3", example_item_3);
+        example_map.put("4", example_item_4);
+        TempDataStorage.setTempDataStorage(example_map);
 
         example_history = new ArrayList<>();
         example_history.add(new String[]{"2022-10-31 10:00:00", "Lester", "ADD ITEM", "Ice Cream", "3", "1"});
@@ -40,9 +43,7 @@ public class TestSalesReporterInputData {
     @AfterEach
     public void teardown(){
         example_history.clear();
-        example_item = null;
         example_map.clear();
-        example_temp = null;
     }
 
     @Test
@@ -63,32 +64,6 @@ public class TestSalesReporterInputData {
         SalesReporterInputData test = new SalesReporterInputData(example_history, "2021-12-05 10:00:00", "2022-12-05 10:00:00" );
         LocalDateTime expected = LocalDateTime.of(2022, 12, 5, 10, 0);
         LocalDateTime actual = test.getEndTime();
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void splitListTimeRangeTestAll(){
-        SalesReporterInputData test = new SalesReporterInputData(example_history, "2021-12-05 10:00:00", "2022-12-05 10:00:00" );
-        int expected = 5;
-        ArrayList<String[]> actual_list = test.splitListTimeRange();
-        int actual = actual_list.size();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void splitListTimeRangeTestMiddle(){
-        SalesReporterInputData test = new SalesReporterInputData(example_history, "2021-12-05 10:00:00", "2022-10-31 15:00:00" );
-        int expected = 3;
-        ArrayList<String[]> actual_list = test.splitListTimeRange();
-        int actual = actual_list.size();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void splitListTimeRangeTestEquals(){
-        SalesReporterInputData test = new SalesReporterInputData(example_history, "2021-12-05 10:00:00", "2022-10-31 14:00:00" );
-        int expected = 3;
-        ArrayList<String[]> actual_list = test.splitListTimeRange();
-        int actual = actual_list.size();
         assertEquals(expected, actual);
     }
 
@@ -112,8 +87,8 @@ public class TestSalesReporterInputData {
     }
     @Test
     public void itemPriceTest(){
-        double expected = 5;
-        double actual = SalesReporterInputData.getItemPrice("1");
+        double expected = 20.00;
+        double actual = SalesReporterInputData.getItemPrice("4");
         assertEquals(expected, actual);
     }
     @Test

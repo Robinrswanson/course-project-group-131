@@ -61,13 +61,10 @@ public class SalesReporterInputData {
     // split data into specified time range when given a list of string arrays in the format
     // [DateTime,Username,Action,Item Name,Quantity,Serial Number] and a startTime and endTime. The List is assumed to be in
     // chronological order.
-    public ArrayList<String[]> splitListTimeRange() {
+    public ArrayList<String[]> getData() {
         ArrayList<String[]> result = new ArrayList<>();
         for (String[] row : rows) {
-            LocalDateTime dateTime = stringToDateTime(row[DATE_TIME_COLUMN]);
-            if (startTime.compareTo(dateTime) <= 0 && endTime.compareTo(dateTime) >= 0) {
-                result.add(row);
-            }
+            result.add(row);
         }
         return result;
     }
@@ -79,7 +76,7 @@ public class SalesReporterInputData {
      */
     // return a list of serial numbers representing all the unique items when given a list of string arrays in the format
     // [DateTime,Username,Action,Item Name,Quantity,Serial Number].
-    public static ArrayList<String> serialNumList(ArrayList<String[]> rows){
+    public static ArrayList<String> serialNumList(List<String[]> rows){
         ArrayList<String> result = new ArrayList<>();
         for (String[] row: rows){
             if (!result.contains(row[SERIAL_NUM_COLUMN])){

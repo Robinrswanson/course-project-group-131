@@ -30,14 +30,15 @@ public class SalesReporter implements SalesReporterInputBoundary {
             presenter.prepareFailure(SalesReporterOutputBoundary.END_TIME_ERROR);
         }
         else {
-            ArrayList<String[]> splitData = data.splitListTimeRange();
+            ArrayList<String[]> rows = data.getData();
             // generates the list of serial numbers in the data after splitting the history
-            ArrayList<String> serials = SalesReporterInputData.serialNumList(splitData);
+            ArrayList<String> serials = SalesReporterInputData.serialNumList(rows);
             ArrayList<String[]> result = new ArrayList<String[]>();
+
             for (String serialNum : serials) {
-                result.add(getRow(splitData, serialNum));
+                result.add(getRow(rows, serialNum));
             }
-            String totalRevenue = String.format("Total Revenue: $%.2f", SalesReporterInputData.getTotalRevenue(splitData));
+            String totalRevenue = String.format("Total Revenue: $%.2f", SalesReporterInputData.getTotalRevenue(rows));
             result.add(new String[]{"", "", "", "", "", totalRevenue});
             presenter.prepareSuccess(result);
         }

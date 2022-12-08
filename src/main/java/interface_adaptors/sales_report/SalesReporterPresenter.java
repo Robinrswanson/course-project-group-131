@@ -16,7 +16,7 @@ public class SalesReporterPresenter implements SalesReporterOutputBoundary {
      */
     @Override
     public void prepareSuccess(ArrayList<String[]> data){
-        screen.setMessage("");
+        screen.setMessage("Sales report generated");
         screen.setTable(data);
     }
 

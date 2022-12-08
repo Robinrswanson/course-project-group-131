@@ -15,7 +15,7 @@ import use_cases.show_history_use_case.ShowHistoryDsGateway;
 import javax.swing.*;
 import java.io.IOException;
 
-public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuilder, ReaderBuilder {
+public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuilder {
 
     SalesReporterController controller;
     SalesReporterInputBoundary inputBoundary;
@@ -23,16 +23,12 @@ public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuild
     SalesReporterView salesReportScreen;
     ShowHistoryDsGateway historyGateway;
 
-    GatewayReaderInterface reader;
     private final String FILE_PATH =
             "src/main/java/database/Sample Data - Sample History.csv";
 
     @Override
     public void buildGateway() throws IOException {
         historyGateway = new ShowHistoryFileDataAccess();
-    }
-    public void buildReader() {
-        reader = new GatewayReader(FILE_PATH);
     }
     @Override
     public void buildPresenter() { presenter = new SalesReporterPresenter();}
@@ -44,7 +40,7 @@ public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuild
      * Builds the controller
      */
     @Override
-    public void buildController() { controller = new SalesReporterController(inputBoundary, reader);}
+    public void buildController() { controller = new SalesReporterController(inputBoundary, historyGateway);}
 
     /**
      * Builds the screen
