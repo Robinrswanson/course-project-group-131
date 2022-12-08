@@ -13,6 +13,13 @@ public class Item implements ItemInterface{
     private List<String> categories;
     private final Date expirationDates;
     private String storageLocation;
+    private final int SERIAL_NUMBER_INDEX = 0;
+    private final int NAME_INDEX = 1;
+    private final int PRICE_INDEX = 2;
+    private final int QUANTITY_INDEX = 3;
+    private final int CATEGORY_INDEX = 4;
+    private final int DATE_INDEX = 5;
+    private final int STORAGE_INDEX = 6;
 
     public Item(String serialNumber, String name, double price, int quantity, List<String> categories,
                 Date expirationDates, String storagelocation) {
@@ -25,17 +32,17 @@ public class Item implements ItemInterface{
         this.storageLocation = storagelocation;
     }
     public Item(String[] itemInfo) throws ParseException {
-            this.serialNumber = itemInfo[0];
-            this.name = itemInfo[1];
-            this.price = Double.parseDouble(itemInfo[2]);
-            this.quantity = Integer.parseInt(itemInfo[3]);
-            this.categories = new ArrayList<>(Arrays.asList(itemInfo[4].split(";")));
-            if(itemInfo[5].equals("N/A")){
+            this.serialNumber = itemInfo[SERIAL_NUMBER_INDEX];
+            this.name = itemInfo[NAME_INDEX];
+            this.price = Double.parseDouble(itemInfo[PRICE_INDEX]);
+            this.quantity = Integer.parseInt(itemInfo[QUANTITY_INDEX]);
+            this.categories = new ArrayList<>(Arrays.asList(itemInfo[CATEGORY_INDEX].split(";")));
+            if(itemInfo[DATE_INDEX].equals("N/A")){
                 this.expirationDates = null;}
             else{
                 DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-                this.expirationDates = dateFormat.parse(itemInfo[5]);}
-            this.storageLocation = itemInfo[6];
+                this.expirationDates = dateFormat.parse(itemInfo[DATE_INDEX]);}
+            this.storageLocation = itemInfo[STORAGE_INDEX];
     }
     public String getSerialNumber() {
         return this.serialNumber;
