@@ -4,6 +4,9 @@ import interface_adaptors.arr.ARRIView;
 import interface_adaptors.export_inventory.ExportIView;
 import interface_adaptors.import_inventory.ImportIView;
 import interface_adaptors.sales_report.SalesReporterView;
+import interface_adaptors.search_sort.SearchCategoryIView;
+import interface_adaptors.search_sort.SearchIView;
+import interface_adaptors.search_sort.SortIView;
 import interface_adaptors.show_history.ShowHistoryView;
 import interface_adaptors.update_price.UpdateIview;
 
@@ -30,8 +33,9 @@ public class MainEmployeeScreen extends JPanel {
         JButton add = createMenuButton(ARRIView.ADD_SCREEN_NAME_CONSTANT);
         JButton returnItem = createMenuButton(ARRIView.RETURN_SCREEN_NAME_CONSTANT);
         JButton remove = createMenuButton("Remove Items");
-        JButton search = createMenuButton("Search For Items");
-        JButton filter = createMenuButton("Display/Filter Items");
+        JButton search = createMenuButton(SearchIView.SEARCH_SCREEN_NAME_CONSTANT);
+        JButton searchCat = createMenuButton(SearchCategoryIView.SEARCH_SCREEN_NAME_CONSTANT);
+        JButton sort = createMenuButton(SortIView.SORT_SCREEN_NAME_CONSTANT);
         JButton history = createMenuButton(ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
         JButton importItem = createMenuButton(ImportIView.IMPORT_SCREEN_NAME_CONSTANT);
         JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
@@ -49,11 +53,11 @@ public class MainEmployeeScreen extends JPanel {
         JButton salesReport = createMenuButton(SalesReporterView.SALES_REPORT_SCREEN_NAME);
 
         packButtons(new JButton[]{add, returnItem});
-        packButtons(new JButton[]{remove, search});
-        packButtons(new JButton[]{filter, history});
+        packButtons(new JButton[]{remove, sort});
+        packButtons(new JButton[]{search, searchCat});
+        packButtons(new JButton[]{salesReport, history});
         packButtons(new JButton[]{importItem, exportItem});
         packButtons(new JButton[]{logOut, update});
-        packButtons(new JButton[]{salesReport});
         // packing is just so the orientation is more organized
 
     }

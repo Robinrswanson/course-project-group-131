@@ -1,15 +1,9 @@
 package main_builders_directors;
 
-import interface_adaptors.Search.SearchIView;
-import interface_adaptors.Search.searchController;
-import interface_adaptors.Search.searchPresenter;
 import interface_adaptors.search_sort.SearchController;
 import interface_adaptors.search_sort.SearchIView;
 import interface_adaptors.search_sort.SearchPresenter;
 import screens.SearchScreen;
-import screens.searchScreen;
-import use_cases.Search.SearchOutputBoundary;
-import use_cases.Search.search;
 import use_cases.search_sort.Search;
 import use_cases.search_sort.SearchInputBoundary;
 import use_cases.search_sort.SearchOutputBoundary;
@@ -23,11 +17,6 @@ public class SearchFeatureBuilder implements FeatureBuilder {
     private SearchController searchController;
     private SearchIView searchScreen;
 
-
-    public SearchFeatureBuilder()
-    {
-
-    }
 
     /**
      * builds the Presenter by instantiating a new searchPresenter
