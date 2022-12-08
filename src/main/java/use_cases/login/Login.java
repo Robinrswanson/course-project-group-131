@@ -1,5 +1,7 @@
 package use_cases.login;
 
+import entities.User;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,8 @@ public class Login implements LoginInputBoundary {
             LoginOutPutDS ds = new LoginOutPutDS();
             ds.Set_Is_Manager(outData.getManager());
             ds.Set_username(data.getUsername());
+            User.setUserName(data.getUsername());
+            User.setStatus(outData.getManager());
         }
         presenter.prepareDisplay(outData);
     }

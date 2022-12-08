@@ -16,6 +16,12 @@ public class AddFeatureBuilder implements FeatureBuilder {
     private AddController addController;
     private ARRIView addScreen;
 
+
+    public AddFeatureBuilder()
+    {
+
+    }
+
     /**
      * builds the Presenter by instantiating a new AddPresenter
      */
