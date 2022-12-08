@@ -1,6 +1,6 @@
 package use_cases.import_inventory;
 
-import use_cases.gateway_interfaces.GatewayReaderInterface;
+import use_cases.gateway_interfaces.GatewayReaderInterface1;
 
 import java.io.IOException;
 
@@ -10,5 +10,5 @@ public interface ImportInputBoundary {
      * @param reader a class that reads files
      * @return a string that tells the pres
      */
-    void importDatabase(GatewayReaderInterface reader) throws IOException;
+    void importDatabase(GatewayReaderInterface1 reader) throws IOException;
 }

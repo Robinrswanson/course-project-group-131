@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import entities.Item;
 import entities.TempDataStorage;
-import use_cases.gateway_interfaces.GatewayReaderInterface;
+import use_cases.gateway_interfaces.GatewayReaderInterface1;
 import use_cases.arr.ARRInputData;
 
 public class Import implements ImportInputBoundary {
@@ -18,7 +18,7 @@ public class Import implements ImportInputBoundary {
      * @param reader a class that reads files
      * @return a String that says whether the inventory was successfully imported or failed
      */
-    public void importDatabase(GatewayReaderInterface reader) throws IOException{
+    public void importDatabase(GatewayReaderInterface1 reader) throws IOException{
         ImportDS importData = new ImportDS(reader.getData());
         List<String[]> data = importData.getImportData();
         data.remove(0); //Remove the column titles from the data
