@@ -1,6 +1,10 @@
 package screens;
 
 import interface_adaptors.arr.ARRIView;
+import interface_adaptors.export_inventory.ExportIView;
+import interface_adaptors.import_inventory.ImportIView;
+import interface_adaptors.show_history.ShowHistoryView;
+import interface_adaptors.update_price.UpdateIview;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,11 +16,13 @@ public class MainEmployeeScreen extends JPanel {
     static final int BUTTON_HEIGHT_CONSTANT = 40;
     static final int BUTTON_HEIGHT_WIDTH = 200;
 
+
     public MainEmployeeScreen(JPanel screens) {
 
         this.screens = screens;
 
         setLayout();
+
         addTitle();
 
         // I'm fairly sure this violates the open-closed principle, any suggestions on how to improve this would be much appreciated
@@ -25,13 +31,17 @@ public class MainEmployeeScreen extends JPanel {
         JButton remove = createMenuButton("Remove Items");
         JButton search = createMenuButton("Search For Items");
         JButton filter = createMenuButton("Display/Filter Items");
-        JButton history = createMenuButton("Show History");
+        JButton history = createMenuButton(ShowHistoryView.SHOW_HISTORY_NAME_CONSTANT);
+        JButton importItem = createMenuButton(ImportIView.IMPORT_SCREEN_NAME_CONSTANT);
+        JButton exportItem = createMenuButton(ExportIView.EXPORT_SCREEN_NAME_CONSTANT);
         JButton logOut = createMenuButton("Log Out");
+        JButton update = createMenuButton(UpdateIview.UPDATE_SCREEN_NAME_CONSTANT);
 
         packButtons(new JButton[]{add, returnItem});
         packButtons(new JButton[]{remove, search});
         packButtons(new JButton[]{filter, history});
-        packButtons(new JButton[]{logOut});
+        packButtons(new JButton[]{importItem, exportItem});
+        packButtons(new JButton[]{logOut, update});
         // packing is just so the orientation is more organized
 
     }
@@ -85,6 +95,8 @@ public class MainEmployeeScreen extends JPanel {
         }
         this.add(buttonPanel);
     }
+
+
 
 }
 

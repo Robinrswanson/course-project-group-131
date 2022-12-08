@@ -16,8 +16,8 @@ public class ImportController {
      * @param filepath a String that is the location of the desired inventory to be imported
      * @return a String for the View to present
      */
-    public String importDatabase(String filepath) throws IOException {
+    public void importDatabase(String filepath) throws IOException {
         GatewayReader reader = new GatewayReader(filepath);
-        return importUseCase.importDatabase(reader);
+        importUseCase.importDatabase(reader);
     }
 }
