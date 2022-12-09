@@ -14,6 +14,16 @@ public class Item implements ItemInterface{
     private final Date expirationDates;
     private String storageLocation;
 
+    /**
+     * An Item
+     * @param serialNumber the serial number of the item
+     * @param name the name of the item
+     * @param price the price of the item
+     * @param quantity how much of the item is in the store
+     * @param categories the categories the item belongs to
+     * @param expirationDates any expiration dates of the item
+     * @param storagelocation the location where the item was stored
+     */
     public Item(String serialNumber, String name, double price, int quantity, List<String> categories,
                 Date expirationDates, String storagelocation) {
         this.serialNumber = serialNumber;
@@ -24,6 +34,12 @@ public class Item implements ItemInterface{
         this.expirationDates = expirationDates;
         this.storageLocation = storagelocation;
     }
+
+    /**
+     * A different constructor item, this time accepting a string array
+     * @param itemInfo
+     * @throws ParseException
+     */
     public Item(String[] itemInfo) throws ParseException {
             this.serialNumber = itemInfo[SERIAL_NUMBER_INDEX];
             this.name = itemInfo[NAME_INDEX];

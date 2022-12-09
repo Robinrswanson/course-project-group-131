@@ -1,16 +1,10 @@
-package use_cases.add;
+package use_cases.arr;
 
 import entities.Item;
 import entities.ItemInterface;
 import entities.TempDataStorage;
-import entities.User;
 import interface_adaptors.arr.ARRIView;
-import interface_adaptors.update_price.UpdatePresenter;
 import org.junit.jupiter.api.Test;
-import use_cases.arr.ARRInputBoundary;
-import use_cases.arr.ARRInputData;
-import use_cases.arr.ARROutputBoundary;
-import use_cases.arr.Add;
 
 import java.util.*;
 
@@ -21,6 +15,7 @@ public class AddInteractorSuccessfulTest {
 
     /**
      * Successful test, where user enters a valid serial number and quantity, and the quantity is changed
+     * Add is very similar to return, so return does not need to be tested more
      */
     @Test
     void addItem() {

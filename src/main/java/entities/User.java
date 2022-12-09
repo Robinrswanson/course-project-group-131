@@ -6,11 +6,18 @@ public class User {
     public static final String MANAGER_STATUS_CONSTANT = "M";
     public static final String EMPLOYEE_STATUS_CONSTANT = "E";
 
-
+    /**
+     * Gets the username of the user
+     * @return a String
+     */
     public static String getUserName() {
         return userName;
     }
 
+    /**
+     * Gets the
+     * @return a String (right now consisting of only one character)
+     */
     public static String getStatus()
     {
         return status;

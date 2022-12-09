@@ -11,6 +11,8 @@ public interface ItemInterface {
     final int CATEGORY_INDEX = 4;
     final int DATE_INDEX = 5;
     final int STORAGE_INDEX = 6;
+
+    // tje above fixes the issues of the magic numbers
     public String getSerialNumber();
 
     public String getName();
