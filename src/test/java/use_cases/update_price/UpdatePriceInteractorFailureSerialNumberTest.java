@@ -14,6 +14,9 @@ import java.util.*;
 public class UpdatePriceInteractorFailureSerialNumberTest {
     UpdatePresenter presenter = new UpdatePresenter();
 
+    /**
+     * Tests for failure when an incorrect seriall number is entered
+     */
     @Test
     void updateItem() {
         // Initialize an item class

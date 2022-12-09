@@ -12,6 +12,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestShowHistoryInteractorsuccessview {
+
+    /**
+     * Tests for a successfully shown history, when there exists changes in the history
+     * @throws IOException
+     */
     @Test
     void show() throws IOException {
         ShowHistoryDsGateway dsGateway = new ShowHistoryDsGateway() {
