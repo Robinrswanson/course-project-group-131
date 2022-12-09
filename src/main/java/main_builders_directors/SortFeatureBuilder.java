@@ -1,12 +1,6 @@
 package main_builders_directors;
 
-import interface_adaptors.search_sort.SortController;
-import interface_adaptors.search_sort.SortIView;
-import interface_adaptors.search_sort.SortPresenter;
 import screens.SortScreen;
-import use_cases.search_sort.Sort;
-import use_cases.search_sort.SortInputBoundary;
-import use_cases.search_sort.SortOutputBoundary;
 
 import javax.swing.*;
 

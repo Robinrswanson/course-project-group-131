@@ -1,15 +1,5 @@
 package screens;
 
-import interface_adaptors.arr.ARRIView;
-import interface_adaptors.export_inventory.ExportIView;
-import interface_adaptors.import_inventory.ImportIView;
-import interface_adaptors.sales_report.SalesReporterView;
-import interface_adaptors.search_sort.SearchCategoryIView;
-import interface_adaptors.search_sort.SearchIView;
-import interface_adaptors.search_sort.SortIView;
-import interface_adaptors.show_history.ShowHistoryView;
-import interface_adaptors.update_price.UpdateIview;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

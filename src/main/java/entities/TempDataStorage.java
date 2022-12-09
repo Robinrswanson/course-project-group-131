@@ -13,6 +13,10 @@ public class TempDataStorage {
         inventory = inventory_1;
     }
 
+    /**
+     * Instantiates a new item to the inventory -> not used very much
+     * @param new_item a new item
+     */
     public static void addItem(ItemInterface new_item) {
         String serial_num = new_item.getName();
         inventory.put(serial_num, new_item);

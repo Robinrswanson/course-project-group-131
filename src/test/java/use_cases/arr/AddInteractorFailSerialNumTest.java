@@ -1,25 +1,22 @@
-package use_cases.add;
+package use_cases.arr;
 
 import entities.Item;
 import entities.ItemInterface;
 import entities.TempDataStorage;
 import entities.User;
 import interface_adaptors.arr.ARRIView;
-import interface_adaptors.update_price.UpdatePresenter;
 import org.junit.jupiter.api.Test;
-import use_cases.arr.ARRInputBoundary;
-import use_cases.arr.ARRInputData;
-import use_cases.arr.ARROutputBoundary;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// This test is aimed to test the situation where adding items fails because a negative integer was entered.
-public class AddInteractorFailNegIntTest {
+// This test is aimed to test a situation where adding is unsuccessful
+public class AddInteractorFailSerialNumTest {
 
     /**
-     * Tests for failure when a negative integer is entered in by the user.
+     * Tests for failure when an incorrect serial number is entered
+     * Add is very similar to return, so return does not need to be tested more
      */
     @Test
     void addItem() {
@@ -50,14 +47,14 @@ public class AddInteractorFailNegIntTest {
 
             @Override
             public void prepareFailure(int error) {
-                assertEquals(2, item.getQuantity()); // got 30
-                assertNotEquals(0, item.getQuantity());
+                assertEquals(2, item.getQuantity());
+                assertNotEquals(7, item.getQuantity());
             }
         };
         ARRInputBoundary interactor = new use_cases.arr.Add(presenter);
 
         // Create input data
-        ARRInputData input = new ARRInputData("10078", -2);
+        ARRInputData input = new ARRInputData("10078", 5);
 
         // Run the use case
         interactor.changeItemQuantity(input);
