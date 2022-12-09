@@ -12,6 +12,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GatewayWriterSingleLineTest {
+
+    /**
+     * Test for when the writer writes a single line to the file
+     * @throws IOException
+     */
     @Test
     void getData() throws IOException {
         GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/Single Item.csv");

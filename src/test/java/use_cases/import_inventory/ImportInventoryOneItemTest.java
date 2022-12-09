@@ -15,6 +15,12 @@ import java.text.ParseException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ImportInventoryOneItemTest {
+
+    /**
+     * Tests for import of a file that contains 1 item
+     * @throws ParseException
+     * @throws IOException
+     */
     @Test
     void create() throws ParseException, IOException {
         ImportOutputBoundary presenter = new ImportPresenter() {

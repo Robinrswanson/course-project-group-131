@@ -10,6 +10,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GatewayReaderOneLineTest {
+
+    /**
+     * Tests for when the file to be read has one line
+     * @throws IOException
+     */
     @Test
     void getData() throws IOException {
         GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/Single Item.csv");

@@ -12,6 +12,11 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class GatewayWriterNoLineTest {
+
+    /**
+     * Test for when the writer writes no lines to a file
+     * @throws IOException
+     */
     @Test
     void getData() throws IOException {
         GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/No Items.csv");

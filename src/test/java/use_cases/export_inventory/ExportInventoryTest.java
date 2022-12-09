@@ -13,6 +13,12 @@ import java.text.ParseException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExportInventoryTest {
+
+    /**
+     * Tests that the inventory is corrected exported to a new file
+     * @throws ParseException
+     * @throws IOException
+     */
     @Test
     void create() throws ParseException, IOException {
         ExportOutputBoundary presenter = new ExportPresenter() {

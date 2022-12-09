@@ -10,6 +10,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GatewayReaderMultipleLineTest {
+
+    /**
+     * Tests for Gateway Reader success when reading from multiple lines
+     * @throws IOException
+     */
     @Test
     void getData() throws IOException {
         GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/Multiple Items.csv");
