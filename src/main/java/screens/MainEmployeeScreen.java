@@ -1,15 +1,5 @@
 package screens;
 
-import interface_adaptors.arr.ARRIView;
-import interface_adaptors.export_inventory.ExportIView;
-import interface_adaptors.import_inventory.ImportIView;
-import interface_adaptors.sales_report.SalesReporterView;
-import interface_adaptors.search_sort.SearchCategoryIView;
-import interface_adaptors.search_sort.SearchIView;
-import interface_adaptors.search_sort.SortIView;
-import interface_adaptors.show_history.ShowHistoryView;
-import interface_adaptors.update_price.UpdateIview;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -59,7 +49,7 @@ public class MainEmployeeScreen extends JPanel {
     public JButton createLogOut() {
         JButton logOut = createMenuButton("Log Out");
         logOut.addActionListener(e -> {
-                int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
+                int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to LogOut", "Log Out", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
                     System.exit(0);
 

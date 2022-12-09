@@ -1,9 +1,6 @@
 package screens;
 
 
-import interface_adaptors.search_sort.SortController;
-import interface_adaptors.search_sort.SortIView;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class SearchPresenter implements SearchOutputBoundary {
     SearchIView screen;
     /**
-     * Sets the screen the AddPresenter will update. The reason why it's not instantiated in the constructor
+     * Sets the screen the SearchPresenter will update. The reason why it's not instantiated in the constructor
      * is due to the peculiar order the presenter, controller, use case and screen are made
      * @param screen the screen the presenter will change
      */
