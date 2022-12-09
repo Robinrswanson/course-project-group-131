@@ -19,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestSearch {
 
+    /**
+     * Tests for failure when no item with the serial number is found
+     */
     @Test
     void searchedItemNotFound(){
         Date date = new Date(2023-01-22);
@@ -46,6 +49,10 @@ public class TestSearch {
         interactor.searchItem("10078");
 
     }
+
+    /**
+     * Tests for success when an item with the serial number is found.
+     */
     @Test
     void searchedItemFound(){
         Date date = new Date(2023-01-22);
