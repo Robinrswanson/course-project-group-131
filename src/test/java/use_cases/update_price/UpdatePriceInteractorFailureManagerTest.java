@@ -14,6 +14,9 @@ import java.util.*;
 public class UpdatePriceInteractorFailureManagerTest {
     UpdatePresenter presenter = new UpdatePresenter();
 
+    /**
+     * Tests for failure when an employee tries to change the price
+     */
     @Test
     void updateItem() {
         // Initialize an item class
