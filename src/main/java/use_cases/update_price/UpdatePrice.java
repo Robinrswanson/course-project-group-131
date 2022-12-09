@@ -1,8 +1,8 @@
 package use_cases.update_price;
 
-import entities.*;
-import use_cases.arr.ARRInputData;
-import use_cases.change_history_use_case.ARRChangeHistoryData;
+import entities.ItemInterface;
+import entities.TempDataStorage;
+import entities.User;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 import use_cases.change_history_use_case.UpdatePriceChangeHistoryData;
@@ -35,7 +35,7 @@ public class UpdatePrice implements UpdatePriceInputBoundary {
         }
     }
 
-    private void updateHistory(UpdatePriceInputData data, Item item)
+    private void updateHistory(UpdatePriceInputData data, ItemInterface item)
     {
         ChangeHistoryData historyData = new UpdatePriceChangeHistoryData(User.getUserName(),this.ACTION, data, item);
         new ChangeHistory(historyData).save_history_change();

@@ -16,7 +16,7 @@ public class TestSort {
     void sortItemFound(){
         Date date = new Date(2023-01-22);
         List<String> category = Arrays.asList("Fruits");
-        Item item = new Item("1","I", 30, 2, category,
+        ItemInterface item = new Item("1","I", 30, 2, category,
                 date, "second floor");
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
