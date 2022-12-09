@@ -22,6 +22,9 @@ import java.util.*;
 import java.util.List;
 
 public class Main3 {
+
+    public static final int COLUMN_FORMATTER = 2;
+
     public static void main(String[] args) throws IOException, ParseException {
 
         createTestInventory();
@@ -41,7 +44,7 @@ public class Main3 {
         allScreens.add((JPanel) login_screen,"Login");
 
 
-        JPanel mainMenu = new MainEmployeeScreen(allScreens);
+        MainEmployeeScreen mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
 
@@ -52,28 +55,42 @@ public class Main3 {
         List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
         builders.add(new AddFeatureBuilder());
-        builders.add(new UpdateFeatureBuilder());
-        builders.add(new ExportFeatureBuilder());
-        builders.add(new ImportFeatureBuilder());
-        builders.add(new HistoryFeatureBuilder());
-        builders.add(new SalesReporterFeatureBuilder());
-        builders.add(new SortFeatureBuilder());
-        builders.add(new SearchCatFeatureBuilder());
-        builders.add(new SearchFeatureBuilder());
         builders.add(new ReturnFeatureBuilder());
         builders.add(new RemoveFeatureBuilder());
+        builders.add(new SearchFeatureBuilder());
+        builders.add(new SearchCatFeatureBuilder());
+        builders.add(new SortFeatureBuilder());
+        builders.add(new ImportFeatureBuilder());
+        builders.add(new ExportFeatureBuilder());
+        builders.add(new UpdateFeatureBuilder());
+        builders.add(new HistoryFeatureBuilder());
+        builders.add(new SalesReporterFeatureBuilder());
+
 
         // ...
         // for all the different functions, all you have to do is add a new builder here
 
         FeatureDirector director = new FeatureDirector();
 
+        int featureCount = 0;
+        ArrayList<JButton> buttonList = new ArrayList<>();
         for (FeatureBuilder builder: builders){
             // polymorphism: each createArchitecture method for each director creates different architecture
             director.setBuilder(builder);
             JPanel screen = director.createFeature(allScreens);
             allScreens.add(screen, builder.getScreenName());
+
+            buttonList.add(mainMenu.createMenuButton(builder.getScreenName()));
+            featureCount += 1;
+            if ((featureCount % COLUMN_FORMATTER) == 0){
+                mainMenu.packButtons(buttonList);
+                buttonList = new ArrayList<>();
+            }
         }
+        buttonList.add(mainMenu.createLogOut());
+        mainMenu.packButtons(buttonList);
+
+
         // ============= CHANGES ARE DONE HERE =================;
 
         application.add(allScreens);

@@ -3,6 +3,7 @@ package use_cases.arr;
 import entities.Item;
 import entities.ItemInterface;
 import entities.User;
+import use_cases.change_history_use_case.ARRChangeHistoryData;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
@@ -13,7 +14,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
      */
 
 
-    private final String ACTION = "Remove Item";
+    private final String ACTION = "SELL ITEM";
 
 
     /**
@@ -40,8 +41,10 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
     @Override
     public void updateHistory(ARRInputData data, ItemInterface item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
-        new ChangeHistory(historyData);
+        data.setQuantity(-data.getQuantity());
+        ChangeHistoryData historyData = new ARRChangeHistoryData(User.getUserName(),this.ACTION, data, item);
+        new ChangeHistory(historyData).save_history_change();
+        data.setQuantity(-data.getQuantity());
 
     }
 

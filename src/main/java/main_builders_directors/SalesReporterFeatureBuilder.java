@@ -24,7 +24,7 @@ public class SalesReporterFeatureBuilder implements FeatureBuilder, GatewayBuild
     ShowHistoryDsGateway historyGateway;
 
     private final String FILE_PATH =
-            "src/main/java/database/Sample Data - Sample History.csv";
+            "src/main/java/historydatabase/history.csv";
 
     @Override
     public void buildGateway() throws IOException {
