@@ -24,6 +24,7 @@ public class UpdatePriceInteractorFailureSerialNumberTest {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
+        User.setStatus(true);
 
         // This creates an anonymous implementing class for the Output Boundary.
         UpdatePriceOutputBoundary presenter = new UpdatePriceOutputBoundary() {
@@ -49,7 +50,7 @@ public class UpdatePriceInteractorFailureSerialNumberTest {
         UpdatePriceInputBoundary interactor = new use_cases.update_price.UpdatePrice(presenter);
 
         // Create input data: there is no item's serial number called "10088" in our inventory system!
-        UpdatePriceInputData input = new UpdatePriceInputData("10088", 20, true);
+        UpdatePriceInputData input = new UpdatePriceInputData("10088", 20);
 
         // Run the use case
         interactor.updateItem(input);

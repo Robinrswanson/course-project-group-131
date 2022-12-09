@@ -24,6 +24,7 @@ public class UpdatePriceInteractorFailurePriceTest {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
+        User.setStatus(true);
 
         // This creates an anonymous implementing class for the Output Boundary.
         UpdatePriceOutputBoundary presenter = new UpdatePriceOutputBoundary() {
@@ -49,7 +50,7 @@ public class UpdatePriceInteractorFailurePriceTest {
         UpdatePriceInputBoundary interactor = new use_cases.update_price.UpdatePrice(presenter);
 
         // Create input data: the price entered here is negative!
-        UpdatePriceInputData input = new UpdatePriceInputData("10077", -20, true);
+        UpdatePriceInputData input = new UpdatePriceInputData("10077", -20);
 
         // Run the use case
         interactor.updateItem(input);
