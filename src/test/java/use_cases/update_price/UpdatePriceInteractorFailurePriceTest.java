@@ -1,3 +1,4 @@
+
 package use_cases.update_price;
 
 import interface_adaptors.update_price.UpdateIview;
@@ -60,3 +61,4 @@ public class UpdatePriceInteractorFailurePriceTest {
 
     }
 }
+

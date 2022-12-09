@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="use_cases.search_sort_use_case.TestSearchCategory" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:32:26" hostname="GAM1NGMACH1N3" time="0.001">
+<testsuite name="use_cases.search_sort_use_case.TestSearchCategory" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-09T03:42:22" hostname="GAM1NGMACH1N3" time="0.002">
   <properties/>
-  <testcase name="categoryNotFound()" classname="use_cases.search_sort_use_case.TestSearchCategory" time="0.0"/>
-  <testcase name="categoryFound()" classname="use_cases.search_sort_use_case.TestSearchCategory" time="0.0"/>
+  <testcase name="categoryFoundOneTotalItem()" classname="use_cases.search_sort_use_case.TestSearchCategory" time="0.001"/>
+  <testcase name="categoryFoundMultipleItems()" classname="use_cases.search_sort_use_case.TestSearchCategory" time="0.001"/>
+  <testcase name="categoryNotFoundOneTotalItem()" classname="use_cases.search_sort_use_case.TestSearchCategory" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
