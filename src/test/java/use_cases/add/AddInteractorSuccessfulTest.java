@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import use_cases.arr.ARRInputBoundary;
 import use_cases.arr.ARRInputData;
 import use_cases.arr.ARROutputBoundary;
+import use_cases.arr.Add;
 
 import java.util.*;
 
@@ -17,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // This test is aimed to test the situation where adding items is successfully be done.
 public class AddInteractorSuccessfulTest {
-    UpdatePresenter presenter = new UpdatePresenter();
 
     /**
      * Successful test, where user enters a valid serial number and quantity, and the quantity is changed
@@ -32,7 +32,6 @@ public class AddInteractorSuccessfulTest {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
-        User.setStatus(true);
 
         // This creates an anonymous implementing class for the Output Boundary.
         ARROutputBoundary presenter = new ARROutputBoundary() {
@@ -46,16 +45,16 @@ public class AddInteractorSuccessfulTest {
             public void prepareSuccess(ARRInputData data) {
                 // Check that the Output Data and associated changes
                 // are correct
-                assertEquals(7, item.getPrice());
-                assertNotEquals(2, item.getPrice());
+                assertEquals(7, item.getQuantity()); // expected 7, got 30
+                assertNotEquals(2, item.getQuantity());
             }
 
             @Override
             public void prepareFailure(int error) {
-                assertTrue(true);
+                fail();
             }
         };
-        ARRInputBoundary interactor = new use_cases.arr.Add(presenter);
+        ARRInputBoundary interactor = new Add(presenter);
 
         // Create input data
         ARRInputData input = new ARRInputData("10077", 5);

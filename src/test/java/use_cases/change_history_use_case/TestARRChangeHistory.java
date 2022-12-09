@@ -46,7 +46,7 @@ public class TestARRChangeHistory {
         Date date1 = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = dateFormat.format(date1);
-        String[][]test = new String[][]{{time,"Daisy","ADD ITEM","Apple","1","10077"}};
+        String[][]test = new String[][]{{time,"Daisy","ADD ITEM","Apple","1.0","10077"}};
         List<String[]> testdata= Arrays.asList(test);
         assertArrayEquals(testdata.get(0),fileData.get(length-1));
     }

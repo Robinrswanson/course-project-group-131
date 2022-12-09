@@ -48,7 +48,7 @@ public class TestUpdatePriceChangeHistory {
         Date date1 = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = dateFormat.format(date1);
-        String[][]test = new String[][]{{time,"Daisy","CHANGE PRICE","Apple","30","10077"}};
+        String[][]test = new String[][]{{time,"Daisy","CHANGE PRICE","Apple","40.0","10077"}};
         List<String[]> testdata= Arrays.asList(test);
         assertArrayEquals(testdata.get(0),fileData.get(length-1));
     }
