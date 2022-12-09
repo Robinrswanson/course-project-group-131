@@ -21,7 +21,7 @@ import java.text.ParseException;
 import java.util.*;
 import java.util.List;
 
-public class Main3 {
+public class Main{
 
     public static final int COLUMN_FORMATTER = 2;
 
