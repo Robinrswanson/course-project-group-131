@@ -16,6 +16,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestShowHistoryFileDataAccessMoreData {
+
+    /**
+     * Test to ensure the ShowHistoryFileDataAccess is created properly and contains the correct data
+     * @throws IOException
+     */
     @Test
     void create() throws IOException {
         String path = "src/main/java/historydatabase/history.csv";

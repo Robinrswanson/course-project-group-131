@@ -1,0 +1,3 @@
+# Inventory System - course-project-group-131
+## Introduction
+The inventory system allows users to operate the inventory system within their own scope of power. Every worker would  log in as either a manager or an employee, whose accounts have different functions. Both employee and manager accounts are able to look at, search for, and sort the product information and update the data for new, sold and return items.They could view the history within the time range they enter. And they are able to import and export the inventory data file (to/from head office). The special power for manager is to revise items’ price for promotion.

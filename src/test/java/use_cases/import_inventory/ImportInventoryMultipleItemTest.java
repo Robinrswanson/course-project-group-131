@@ -14,6 +14,12 @@ import java.text.ParseException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ImportInventoryMultipleItemTest {
+
+    /**
+     * Tests that multiple items can be imported to the inventory
+     * @throws ParseException
+     * @throws IOException
+     */
     @Test
     void create() throws ParseException, IOException {
         ImportOutputBoundary presenter = new ImportPresenter() {

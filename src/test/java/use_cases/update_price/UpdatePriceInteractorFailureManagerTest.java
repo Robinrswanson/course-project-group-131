@@ -14,6 +14,9 @@ import java.util.*;
 public class UpdatePriceInteractorFailureManagerTest {
     UpdatePresenter presenter = new UpdatePresenter();
 
+    /**
+     * Tests for failure when an employee tries to change the price
+     */
     @Test
     void updateItem() {
         // Initialize an item class
@@ -24,6 +27,7 @@ public class UpdatePriceInteractorFailureManagerTest {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
+        User.setStatus(false);
 
         // This creates an anonymous implementing class for the Output Boundary.
         UpdatePriceOutputBoundary presenter = new UpdatePriceOutputBoundary() {
@@ -49,7 +53,7 @@ public class UpdatePriceInteractorFailureManagerTest {
         UpdatePriceInputBoundary interactor = new use_cases.update_price.UpdatePrice(presenter);
 
         // Create input data: This person is not a manager! So the boolean value is false
-        UpdatePriceInputData input = new UpdatePriceInputData("10077", 20, false);
+        UpdatePriceInputData input = new UpdatePriceInputData("10077", 20);
 
         // Run the use case
         interactor.updateItem(input);

@@ -14,6 +14,12 @@ import java.text.ParseException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ImportInventoryNegativeQuantityTest {
+
+    /**
+     * Tests for failure to import when a negative quantity is included in the inventory being exported
+     * @throws ParseException
+     * @throws IOException
+     */
     @Test
     void create() throws ParseException, IOException {
         ImportOutputBoundary presenter = new ImportPresenter() {

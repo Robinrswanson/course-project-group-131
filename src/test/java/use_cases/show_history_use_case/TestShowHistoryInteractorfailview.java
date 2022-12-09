@@ -12,6 +12,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestShowHistoryInteractorfailview {
+
+    /**
+     * Tests fail when start date entered is too late (specifically, tests the presenter)
+     * @throws IOException
+     */
     @Test
     void create() throws IOException {
         ShowHistoryDsGateway dsGateway = new ShowHistoryDsGateway() {
