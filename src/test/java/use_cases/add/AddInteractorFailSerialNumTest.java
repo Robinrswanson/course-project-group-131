@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // This test is aimed to test a situation where adding is unsuccessful
 public class AddInteractorFailSerialNumTest {
-    UpdatePresenter presenter = new UpdatePresenter();
 
     /**
      * Tests for failure when an incorrect serial number is entered

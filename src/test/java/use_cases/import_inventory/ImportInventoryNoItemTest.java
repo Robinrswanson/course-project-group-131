@@ -14,6 +14,11 @@ import java.text.ParseException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ImportInventoryNoItemTest {
+    /**
+     * Tests for import of a file that contains no items
+     * @throws ParseException
+     * @throws IOException
+     */
     @Test
     void create() throws ParseException, IOException {
         ImportOutputBoundary presenter = new ImportPresenter() {

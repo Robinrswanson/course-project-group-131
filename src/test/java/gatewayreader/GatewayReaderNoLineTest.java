@@ -10,6 +10,11 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class GatewayReaderNoLineTest {
+
+    /**
+     * Tests for Gateway reader success when no lines are to be read
+     * @throws IOException
+     */
     @Test
     void getData() throws IOException {
         GatewayReaderInterface reader = new GatewayReader("src/test/java/TestingSampleData/No Items.csv");

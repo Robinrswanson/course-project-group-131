@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // This test is aimed to test the situation where adding items fails because a negative integer was entered.
 public class AddInteractorFailNegIntTest {
-    UpdatePresenter presenter = new UpdatePresenter();
-
 
     /**
      * Tests for failure when a negative integer is entered in by the user.
@@ -52,8 +50,8 @@ public class AddInteractorFailNegIntTest {
 
             @Override
             public void prepareFailure(int error) {
-                assertEquals(2, item.getPrice());
-                assertNotEquals(0, item.getPrice());
+                assertEquals(2, item.getQuantity()); // got 30
+                assertNotEquals(0, item.getQuantity());
             }
         };
         ARRInputBoundary interactor = new use_cases.arr.Add(presenter);
