@@ -30,7 +30,7 @@ public class UpdatePriceInteractorSuccessfulTest {
             @Override
             public void setScreen(UpdateIview screen){
                 // This method is just for setting screen. No need to test it.
-                assertTrue(true);
+                fail();
             }
 
             @Override

@@ -3,14 +3,17 @@ package use_cases.search_sort_use_case;
 import entities.Item;
 import entities.ItemInterface;
 import entities.TempDataStorage;
+import interface_adaptors.search_sort.SearchCategoryIView;
 import interface_adaptors.search_sort.SearchCategoryPresenter;
+import interface_adaptors.search_sort.SearchIView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import use_cases.search_sort.SearchCatOutputBoundary;
+import use_cases.search_sort.*;
 
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestSearchCategory {
 
@@ -23,9 +26,22 @@ public class TestSearchCategory {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
-        ArrayList<ItemInterface> tempArray = new ArrayList<>();
-        SearchCatOutputBoundary presenter = new SearchCategoryPresenter();
-        Assertions.assertEquals(presenter.prepareSuccess(tempArray), "No Items found");
+
+        SearchCatOutputBoundary presenter = new SearchCatOutputBoundary(){
+
+            @Override
+            public void setScreen(SearchCategoryIView screen) {
+                fail();
+            }
+            @Override
+            public void prepareSuccess(ArrayList<ItemInterface> data) {
+                assertEquals(data.size(), 0);
+
+            }
+        } ;
+
+        SearchCatInputBoundary interactor = new SearchCategory(presenter);
+        interactor.SearchCategories(new String[]{"Veggies"});
 
 
     }
@@ -38,10 +54,22 @@ public class TestSearchCategory {
         Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
-        ArrayList<ItemInterface> tempArray = new ArrayList<>();
-        tempArray.add(item);
-        SearchCatOutputBoundary presenter = new SearchCategoryPresenter();
-        Assertions.assertEquals(presenter.prepareSuccess(tempArray), "Items: [I]");
+
+        SearchCatOutputBoundary presenter = new SearchCatOutputBoundary(){
+
+            @Override
+            public void setScreen(SearchCategoryIView screen) {
+                fail();
+            }
+            @Override
+            public void prepareSuccess(ArrayList<ItemInterface> data) {
+                assertEquals(data.size(), 1);
+
+            }
+        } ;
+
+        SearchCatInputBoundary interactor = new SearchCategory(presenter);
+        interactor.SearchCategories(new String[]{"Fruits"});
 
 
     }
