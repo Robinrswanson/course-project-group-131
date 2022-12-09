@@ -3,12 +3,11 @@ package use_cases.arr;
 import entities.Item;
 import entities.ItemInterface;
 import entities.TempDataStorage;
+import interface_adaptors.arr.RemovePresenter;
 import interface_adaptors.arr.ReturnPresenter;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.asserts.Assertion;
-import use_cases.arr.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class ARRTest {
     }
 
     @Test
-    void testValidReturn()
+    public void testValidReturn()
     {
         ARROutputBoundary presenter = new ReturnPresenter();
         ARRInputBoundary returnUseCase = new ReturnUseCase(presenter);
@@ -44,11 +43,11 @@ public class ARRTest {
     }
 
     @Test
-    void testValidRemove() {
-        ARROutputBoundary presenter = new ReturnPresenter();
-        ARRInputBoundary returnUseCase = new ReturnUseCase(presenter);
+    public void testValidRemove() {
+        ARROutputBoundary presenter = new RemovePresenter();
+        ARRInputBoundary removeUseCase = new RemoveUseCase(presenter);
         ARRInputData data = new ARRInputData("2", 5);
-        returnUseCase.changeItemQuantity(data);
+        removeUseCase.changeItemQuantity(data);
         int actual = TempDataStorage.getItem("2").getQuantity();
         int expected = 5;
         Assertions.assertEquals(actual, expected);
