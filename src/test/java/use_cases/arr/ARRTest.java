@@ -1,4 +1,4 @@
-package use_cases;
+package use_cases.arr;
 
 import entities.Item;
 import entities.ItemInterface;
@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.asserts.Assertion;
-import use_cases.arr.*
+import use_cases.arr.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,17 +53,6 @@ public class ARRTest {
         int expected = 5;
         Assertions.assertEquals(actual, expected);
 
-    }
-
-
-    @Test
-    void testInvalidSerialNumber()
-    {
-            ARROutputBoundary presenter = new ReturnPresenter();
-            ARRInputBoundary returnUseCase = new ReturnUseCase(presenter);
-            ARRInputData data = new ARRInputData("5", 5);
-            returnUseCase.changeItemQuantity(data);
-            
     }
 
 
