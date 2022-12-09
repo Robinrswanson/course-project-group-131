@@ -37,8 +37,6 @@ public class Item implements ItemInterface{
 
     /**
      * A different constructor item, this time accepting a string array
-     * @param itemInfo
-     * @throws ParseException
      */
     public Item(String[] itemInfo) throws ParseException {
             this.serialNumber = itemInfo[SERIAL_NUMBER_INDEX];
@@ -122,7 +120,7 @@ public class Item implements ItemInterface{
         if (this.expirationDates == null) {
             return "N/A";
         }
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         return dateFormat.format(this.expirationDates);
     }
 }
