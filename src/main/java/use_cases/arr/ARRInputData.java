@@ -35,6 +35,14 @@ public class ARRInputData {
     public int getQuantity() {
         return quantity;
     }
+
+    /**
+     * Setter specifically for the remove use case
+     * @param quantity the new quantity
+     */
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 }
 
 

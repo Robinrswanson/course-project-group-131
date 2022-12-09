@@ -5,12 +5,10 @@ public class UpdatePriceInputData {
     private String serialNum;
     private double price;
 
-    private boolean updatePrice;
 
-    public UpdatePriceInputData(String serialNum, double price, boolean updatePrice){
+    public UpdatePriceInputData(String serialNum, double price){
         this.serialNum = serialNum;
         this.price = price;
-        this.updatePrice = updatePrice;
     }
 
     public String getSerialNum(){
@@ -19,9 +17,5 @@ public class UpdatePriceInputData {
 
     public double getPrice(){
         return this.price;
-    }
-
-    public boolean getUpdatePrice(){
-        return this.updatePrice;
     }
 }

@@ -1,20 +1,20 @@
 package use_cases.arr;
 
 import entities.Item;
-import entities.TempDataStorage;
+import entities.ItemInterface;
 import entities.User;
+import use_cases.change_history_use_case.ARRChangeHistoryData;
 import use_cases.change_history_use_case.ChangeHistory;
 import use_cases.change_history_use_case.ChangeHistoryData;
 
-public class ReturnUseCase implements ARRInputBoundary
+public class ReturnUseCase extends Add implements ARRInputBoundary
 {
     /**
      * ReturnUseCase return the given quantity of the item.
      */
 
-    private final String userName =User.getUserName();
-    private ARROutputBoundary presenter;
-    private final String ACTION = "Return";
+    private String userName =User.getUserName();
+    private final String ACTION = "RETURN ITEM";
 
 
     /**
@@ -23,25 +23,26 @@ public class ReturnUseCase implements ARRInputBoundary
      */
     public ReturnUseCase(ARROutputBoundary presenter)
     {
-        this.presenter = presenter;
+        super(presenter);
     }
 
     /**
-     * Makes a call to the changeItemQuantity method in the Add class through the Interface, to increase
+     * Makes a call to the changeItemQuantity method in the super class Add, to increase
      * the quantity by the value being returned.
      *
      * @param data contains serial number of the item and quantity to add
      */
+    @Override
     public void changeItemQuantity(ARRInputData data)
     {
-        ARRInputBoundary obj = new Add(presenter);
-        obj.changeItemQuantity(data);
-        updateHistory(data, TempDataStorage.getItem(data.getSerialNum()));
+        super.changeItemQuantity(data);
+        //updateHistory();
     }
     @Override
-    public void updateHistory(ARRInputData data, Item item)
+    public void updateHistory(ARRInputData data, ItemInterface item)
     {
-        ChangeHistoryData historyData = new ChangeHistoryData(User.getUserName(),this.ACTION, data, item);
+        ChangeHistoryData historyData = new ARRChangeHistoryData(userName, this.ACTION, data, item);
         new ChangeHistory(historyData).save_history_change();
+
     }
 }

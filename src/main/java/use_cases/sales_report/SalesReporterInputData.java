@@ -102,7 +102,7 @@ public class SalesReporterInputData {
         int quantity = 0;
         for (String[] row: rows){
             if (row[ACTION_COLUMN].equals("SELL ITEM") && row[SERIAL_NUM_COLUMN].equals(serialNum)){
-                quantity += Integer.parseInt(row[QUANTITY_COLUMN]);
+                quantity += Double.parseDouble(row[QUANTITY_COLUMN]);
             }
         }
         return quantity;

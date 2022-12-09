@@ -1,4 +1,5 @@
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import interface_adaptors.inventory_initializer.InitializerController;
 import interface_adaptors.login.LoginController;
@@ -21,6 +22,9 @@ import java.util.*;
 import java.util.List;
 
 public class Main3 {
+
+    public static final int COLUMN_FORMATTER = 2;
+
     public static void main(String[] args) throws IOException, ParseException {
 
         createTestInventory();
@@ -40,41 +44,53 @@ public class Main3 {
         allScreens.add((JPanel) login_screen,"Login");
 
 
-        JPanel mainMenu = new MainEmployeeScreen(allScreens);
+        MainEmployeeScreen mainMenu = new MainEmployeeScreen(allScreens);
         allScreens.add(mainMenu, "Main");
         // creates the main menu
 
-        InitializerInputBoundary initializeUseCase = new InitializeUseCase();
         InitializerController initializer = new InitializerController();
-
         initializer.InitializeInventory();
 
         // ============= CHANGES START HERE ==============:
         List<FeatureBuilder> builders = new ArrayList<>();
         // creates a list of directors to call
         builders.add(new AddFeatureBuilder());
-        builders.add(new UpdateFeatureBuilder());
-        builders.add(new ExportFeatureBuilder());
-        builders.add(new ImportFeatureBuilder());
-        builders.add(new HistoryFeatureBuilder());
-        builders.add(new SalesReporterFeatureBuilder());
-        builders.add(new SortFeatureBuilder());
-        builders.add(new SearchCatFeatureBuilder());
-        builders.add(new SearchFeatureBuilder());
         builders.add(new ReturnFeatureBuilder());
         builders.add(new RemoveFeatureBuilder());
+        builders.add(new SearchFeatureBuilder());
+        builders.add(new SearchCatFeatureBuilder());
+        builders.add(new SortFeatureBuilder());
+        builders.add(new ImportFeatureBuilder());
+        builders.add(new ExportFeatureBuilder());
+        builders.add(new UpdateFeatureBuilder());
+        builders.add(new HistoryFeatureBuilder());
+        builders.add(new SalesReporterFeatureBuilder());
+
 
         // ...
         // for all the different functions, all you have to do is add a new builder here
 
         FeatureDirector director = new FeatureDirector();
 
+        int featureCount = 0;
+        ArrayList<JButton> buttonList = new ArrayList<>();
         for (FeatureBuilder builder: builders){
             // polymorphism: each createArchitecture method for each director creates different architecture
             director.setBuilder(builder);
             JPanel screen = director.createFeature(allScreens);
             allScreens.add(screen, builder.getScreenName());
+
+            buttonList.add(mainMenu.createMenuButton(builder.getScreenName()));
+            featureCount += 1;
+            if ((featureCount % COLUMN_FORMATTER) == 0){
+                mainMenu.packButtons(buttonList);
+                buttonList = new ArrayList<>();
+            }
         }
+        buttonList.add(mainMenu.createLogOut());
+        mainMenu.packButtons(buttonList);
+
+
         // ============= CHANGES ARE DONE HERE =================;
 
         application.add(allScreens);
@@ -94,7 +110,7 @@ public class Main3 {
         List<String> bananaCategories = new ArrayList<>();
         bananaCategories.add("Fruit");
         Item banana = new Item("10077", "Banana", 3.5, 5, bananaCategories, new Date(), "Aisle 5");
-        Map<String, Item> map = new HashMap<>();
+        Map<String, ItemInterface> map = new HashMap<>();
         map.put("10077", banana);
         TempDataStorage.setTempDataStorage(map);
     }

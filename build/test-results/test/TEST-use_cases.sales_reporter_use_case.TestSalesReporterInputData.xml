@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="use_cases.sales_reporter_use_case.TestSalesReporterInputData" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:32:26" hostname="GAM1NGMACH1N3" time="0.008">
+  <properties/>
+  <testcase name="itemRevenueTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.002"/>
+  <testcase name="stringToDateTimeTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="serialNumListTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="getEndTimeTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="itemPriceTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="totalRevenueTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.001"/>
+  <testcase name="itemReturnedTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="getStartTimeTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.0"/>
+  <testcase name="itemSoldTest()" classname="use_cases.sales_reporter_use_case.TestSalesReporterInputData" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
