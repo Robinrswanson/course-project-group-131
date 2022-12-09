@@ -1,6 +1,7 @@
 package use_cases.initializer;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import use_cases.gateway_interfaces.GatewayReaderInterface;
 
@@ -21,11 +22,11 @@ public class InitializeUseCase implements InitializerInputBoundary {
     @Override
     public void initializeInventory(GatewayReaderInterface reader) throws ParseException, IOException {
         InitializerDS database = new InitializerDS(reader.getData());
-        Map<String, Item> inventory = new HashMap<>();
+        Map<String, ItemInterface> inventory = new HashMap<>();
         for (String[] row: database.getInventory()
              ) {
-            Item item = new Item(row);
-            inventory.put(row[0], item);
+            ItemInterface item = new Item(row);
+            inventory.put(row[ItemInterface.SERIAL_NUMBER_INDEX], item);
         }
         TempDataStorage.setTempDataStorage(inventory);
     }

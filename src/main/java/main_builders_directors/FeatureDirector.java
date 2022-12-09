@@ -18,7 +18,6 @@ public class FeatureDirector {
     }
     /**
      * Creates the classes necessary for the feature to function and adhere to clean architecture
-     *
      * @param allScreens the JPanel holding all the screens
      * @return the screen corresponding to the feature (ex. AddScreen for AddArchitectureDirector)
      */

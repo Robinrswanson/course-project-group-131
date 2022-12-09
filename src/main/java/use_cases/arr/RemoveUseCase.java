@@ -1,6 +1,7 @@
 package use_cases.arr;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.User;
 import use_cases.change_history_use_case.ARRChangeHistoryData;
 import use_cases.change_history_use_case.ChangeHistory;
@@ -38,7 +39,7 @@ public class RemoveUseCase extends Add implements ARRInputBoundary{
         //updateHistory();
     }
     @Override
-    public void updateHistory(ARRInputData data, Item item)
+    public void updateHistory(ARRInputData data, ItemInterface item)
     {
         data.setQuantity(-data.getQuantity());
         ChangeHistoryData historyData = new ARRChangeHistoryData(User.getUserName(),this.ACTION, data, item);

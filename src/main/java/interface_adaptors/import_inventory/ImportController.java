@@ -14,7 +14,6 @@ public class ImportController {
     /**
      * The controller creates instance of GatewayReader and passes through ImportUseCase
      * @param filepath a String that is the location of the desired inventory to be imported
-     * @return a String for the View to present
      */
     public void importDatabase(String filepath) throws IOException {
         GatewayReader reader = new GatewayReader(filepath);

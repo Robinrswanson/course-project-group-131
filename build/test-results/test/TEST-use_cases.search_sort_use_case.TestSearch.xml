@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="use_cases.search_sort_use_case.TestSearch" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:32:26" hostname="GAM1NGMACH1N3" time="0.009">
+  <properties/>
+  <testcase name="searchedItemNotFound()" classname="use_cases.search_sort_use_case.TestSearch" time="0.001"/>
+  <testcase name="searchedItemFound()" classname="use_cases.search_sort_use_case.TestSearch" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
