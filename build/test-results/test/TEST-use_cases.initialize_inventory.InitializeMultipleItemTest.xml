@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="use_cases.initialize_inventory.InitializeMultipleItemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T06:43:06" hostname="ROBIN-LENOVO-LA" time="0.028">
+<testsuite name="use_cases.initialize_inventory.InitializeMultipleItemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:32:26" hostname="GAM1NGMACH1N3" time="0.001">
   <properties/>
-  <testcase name="create()" classname="use_cases.initialize_inventory.InitializeMultipleItemTest" time="0.028"/>
+  <testcase name="create()" classname="use_cases.initialize_inventory.InitializeMultipleItemTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

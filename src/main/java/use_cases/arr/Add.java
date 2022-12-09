@@ -1,6 +1,7 @@
 package use_cases.arr;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 import entities.User;
 import use_cases.change_history_use_case.ARRChangeHistoryData;
@@ -33,7 +34,7 @@ public class Add implements ARRInputBoundary {
             presenter.prepareFailure(ARROutputBoundary.SERIAL_NUM_NOT_FOUND_ERROR);
         }
         else{
-            Item item = TempDataStorage.getItem(data.getSerialNum());
+            ItemInterface item = TempDataStorage.getItem(data.getSerialNum());
             int quantity = item.getQuantity() + data.getQuantity();
             item.setQuantity(quantity);
             updateHistory(data, item);
@@ -42,7 +43,7 @@ public class Add implements ARRInputBoundary {
     }
 
     @Override
-    public void updateHistory(ARRInputData data, Item item)
+    public void updateHistory(ARRInputData data, ItemInterface item)
     {
         ChangeHistoryData historyData = new ARRChangeHistoryData(User.getUserName(),this.ACTION, data, item);
         new ChangeHistory(historyData).save_history_change();

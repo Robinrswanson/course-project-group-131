@@ -1,8 +1,6 @@
 package use_cases.change_history_use_case;
 
-import entities.Item;
-import use_cases.arr.ARRInputData;
-import use_cases.update_price.UpdatePriceInputData;
+import entities.ItemInterface;
 
 public abstract class ChangeHistoryData {
     /**
@@ -23,7 +21,7 @@ public abstract class ChangeHistoryData {
      * @param item Item
      */
 
-    public ChangeHistoryData(String userName, String action, Item item)
+    public ChangeHistoryData(String userName, String action, ItemInterface item)
     {
         this.userName = userName;
         this.action = action;

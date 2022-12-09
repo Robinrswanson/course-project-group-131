@@ -19,9 +19,9 @@ public class UpdatePriceInteractorFailurePriceTest {
         // Initialize an item class
         Date date = new Date(2023-01-22);
         List<String> category = Arrays.asList("Fruits");
-        Item item = new Item("10077","I hate writing test", 30, 2, category,
+        ItemInterface item = new Item("10077","I hate writing test", 30, 2, category,
                 date, "second floor");
-        Map<String, Item> map = new HashMap<String, Item>();
+        Map<String, ItemInterface> map = new HashMap<String, ItemInterface>();
         map.put("10077", item);
         TempDataStorage.setTempDataStorage(map);
 

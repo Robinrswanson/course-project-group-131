@@ -1,13 +1,14 @@
 package use_cases.search_sort;
 
 import entities.Item;
+import entities.ItemInterface;
 import entities.TempDataStorage;
 
 import java.util.*;
 
 public class SearchCategory implements SearchCatInputBoundary {
     private final SearchCatOutputBoundary presenter;
-    Map<String, Item> inventory;
+    Map<String, ItemInterface> inventory;
 
     public SearchCategory(SearchCatOutputBoundary presenter){
         this.inventory = TempDataStorage.getInventory();
@@ -19,10 +20,10 @@ public class SearchCategory implements SearchCatInputBoundary {
      * @param categories this holds the categories that will be used as parameters for the search
      */
     public void SearchCategories(String[] categories){
-        ArrayList<Item> itemList = new ArrayList<>();
-        ArrayList<Item> inventoryList = new ArrayList<>(inventory.values());
+        ArrayList<ItemInterface> itemList = new ArrayList<>();
+        ArrayList<ItemInterface> inventoryList = new ArrayList<>(inventory.values());
         for (String category : categories) {
-            for (Item item: inventoryList) {
+            for (ItemInterface item: inventoryList) {
                 List<String> check = item.getCategories();
                 if (check.contains(category) && !itemList.contains(item)){
                     itemList.add(item);}}}
