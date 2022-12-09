@@ -102,11 +102,11 @@ public class Item implements ItemInterface{
                 this.getDateStringFormat(), this.getStorageLocation()};
     }
 
-    public String getDateStringFormat() {
+    public String getDateStringFormat(){
         if (this.expirationDates == null) {
             return "N/A";
         }
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         return dateFormat.format(this.expirationDates);
     }
 }
