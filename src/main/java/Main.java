@@ -56,7 +56,6 @@ public class Main{
         builders.add(new RemoveFeatureBuilder());
         builders.add(new SearchFeatureBuilder());
         builders.add(new SearchCatFeatureBuilder());
-        builders.add(new SortFeatureBuilder());
         builders.add(new ImportFeatureBuilder());
         builders.add(new ExportFeatureBuilder());
         builders.add(new UpdateFeatureBuilder());
