@@ -27,9 +27,6 @@ public class Main3 {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-        createTestInventory();
-        // creates a test inventory
-
         JFrame application = new JFrame("Main Screen");
 
         CardLayout cardLayout = new CardLayout();

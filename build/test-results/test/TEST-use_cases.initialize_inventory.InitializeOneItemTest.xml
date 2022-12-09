@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="use_cases.initialize_inventory.InitializeOneItemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T19:32:26" hostname="GAM1NGMACH1N3" time="0.001">
+<testsuite name="use_cases.initialize_inventory.InitializeOneItemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-09T03:42:22" hostname="GAM1NGMACH1N3" time="0.0">
   <properties/>
-  <testcase name="create()" classname="use_cases.initialize_inventory.InitializeOneItemTest" time="0.001"/>
+  <testcase name="create()" classname="use_cases.initialize_inventory.InitializeOneItemTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
