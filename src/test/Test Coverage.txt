@@ -1,0 +1,52 @@
+============= USE CASE TEST COVERAGE ================
+
+Test coverage is additionally included in the README. Our test coverage for each use case is as follows:
+
+1) Add, Return and Remove: 
+- incorrect user input (serial number, negative value to add/return/remove)
+- successful changes to the inventory
+
+2) Change History
+- Test for ARR (change in history when an item is added to the inventory)
+- Test for UpdatePrice (change in history when price of an item is changed)
+
+2) Export Inventory
+- Test that the inventory is correctly exported to a new file
+
+3) Import Inventory
+- Test that mulitple items can be imported to the inventory at once
+- Tests for failure when items with negative quantities are imported
+- Tests for the import of no items
+- Tests for the import of one item
+
+4) Initialize Inventory
+- Test that an inventory with no items can be initialized
+- That that an inventory with one item can be init.
+- That that an inventory with multiple items can be init.
+
+5) Login
+- Login success for an employee
+- Login success for a manager
+- Login failure with a wrong password
+- Login failure with a wrong username
+
+6) Sales Report
+- Tests that input data is correct
+- Tests for correct calcuation of revenue
+
+7) Search and Sort
+- search failure when item with the serial number is not found
+- search success when item with the serial number is found
+- search categories success for one or multiple items
+- search categories failure for one or multiple items
+- search categories for zero items
+
+8) Show History (tested the presenter, one of the exceptions)
+- test for displaying failures due to user input
+- test for success
+
+9) Update Price
+- failure on user input (negative price/incorrect serial number)
+- failure on lack of access (employee instead of manager)
+- successful price change
+
