@@ -7,16 +7,9 @@ their identity and allows them to manipulate the items in the inventory.
 
 ## Entities:
 
-There are four main entities and one interface.
+There are three main entities and one interface.
 
-### 1. Employee
-The employee class has 2 attributes.
-* `username`
-* `password`
-
-These are private attributes with getters and setters to access them.
-
-### 2. Item
+### 1. Item
 The item class implements the ItemInterface class. Item has 7 attributes.
 
 * `serialNumber`
@@ -32,12 +25,12 @@ The item class implements the ItemInterface class. Item has 7 attributes.
 All the attributes are private and accessed through getter and setter methods. Additionally, there are methods for
 formatting the Item into a string array. Through these attributes we are able to define an Item in our inventory.
 
-### 3. Item Interface
+### 2. Item Interface
 
 This class is an interface containing getters and setters along with the getArrayFormat method. This interface also has
 constants for the positions of each attribute when the Item is in string array format.
 
-### 4. TempDataStorage
+### 3. TempDataStorage
 
 TempDataStorage is the main class responsible for containing the inventory. It is implemented using the Singleton design
 pattern. It has no constructor, rather a setInventory method through which the inventory is instantiated. The attributes
@@ -49,7 +42,7 @@ of TempDataStorage are as follows:
 allows for different types of items that implement the item interface to be put into the dictionary while following
 clean architecture and solid design principles.
 
-### 5. User
+### 4. User
 
 The user class has two attributes.
 
@@ -102,3 +95,18 @@ To return an item, the user will input the desired quantity of items to be retur
 
 In `Main` first the login system is initialized. Following a successful login the `MainEmployeeScreen` is created and the `InitalizeInventoryController` is called to populate `TempDataStorage`. Then a builder design pattern is employed to build all the screens for the features and the application prerequisites are set up before the screen is displayed. 
 
+## (UPDATED) Test Coverage
+
+In the use case layer, tests were included for every implemented use case interactor (1:1 test suite: use case ratio). A more detailed description of what each test covers is contained in a txt file for the test module in our repository. 
+
+In the interface adaptors layer, tests were included for the gateway reader and writer, as well as additional classes for the `ShowHistory` use case. 
+
+### Untested Parts:
+
+The frameworks and drivers layer(screens) was not tested, nor were the controllers and presenters for each use case. Our reasoning is as follows:
+
+1) It is impractical/very difficult to test for screen layout via JUnit Tests. The positioning of buttons, the presence or absence of necessary labels, and other features are much easier tested directly through visualization (observing what the screen looks like). Since the screens appear the same each time and do not vary significantly with differing user input, relying on eye testing is sufficient. 
+
+2) The controllers that we implemented for each use case only had two responsibilities: one, to create the input data structures necessary for the corresponding use case interactor, and two, to call the use case interactor. The code in each controller was very limited, and testing it would merely involve testing the getters/setters of the input data to ensure it was created properly by the controller. Given the limited usefulness of tests for controllers, they were omitted.
+
+3) Similar to controllers, our presenters had relatively little code, with their responsibility being formatting the data provided by the use case and sending it to the screen for display. As long as the use case interactor called on the correct presenter method (either `prepareSuccess()` or `prepareFailure()` in most cases), the odds for error were very unlikely. In the tests themselves, the methods for the presenters were overridden with test methods asserting true/false directly for the instance variables in the `OutputData` classes. This allowed for the testing of specific data rather than a generalized string, which ultimately proved to be more useful. 
